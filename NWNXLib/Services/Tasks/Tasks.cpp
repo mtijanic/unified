@@ -45,10 +45,15 @@ void AsyncWorkerThread::ThreadFunc(ViewPtr<AsyncWorkerThread> owner)
 Tasks::Tasks(std::shared_ptr<LogProxy> log)
     : ServiceBase(log)
 {
-    for (size_t i = 0; i < WORKER_COUNT; ++i)
+    // The initialization must be deferred as creating threads acquires the loader
+    // lock on Windows, which we already hold in DllMain(), leading to a deadlock.
+    QueueOnMainThread([this]()
     {
-        m_asyncWorkers.emplace_back(std::make_unique<AsyncWorkerThread>(*this));
-    }
+        for (size_t i = 0; i < WORKER_COUNT; ++i)
+        {
+            this->m_asyncWorkers.emplace_back(std::make_unique<AsyncWorkerThread>(*this));
+        }
+    });
 }
 
 Tasks::~Tasks()

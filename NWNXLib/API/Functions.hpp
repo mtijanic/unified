@@ -3,7 +3,7 @@
 #include "API/Version.hpp"
 
 #ifdef _WIN32
-    static_assert(false, "Windows is not suported.");
+    #include "API/FunctionsWindows.hpp"
 #else
     #include "API/FunctionsLinux.hpp"
 #endif

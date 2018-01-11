@@ -8,7 +8,9 @@ namespace API {
 
 namespace Functions {
 
-NWNX_EXPECT_VERSION(8152);
+// TODO-WINDOWS: Allow compilation temporarily
+//NWNX_EXPECT_VERSION(8152);
+#pragma message("Using 8152 offsets in FunctionsWindows.hpp")
 
 constexpr uintptr_t _HeapManager__Constructor = 0x0068F4D1;
 constexpr uintptr_t _HeapManager__Destructor = 0x0068F4EE;

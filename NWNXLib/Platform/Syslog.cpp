@@ -1,7 +1,7 @@
 #include "Platform/Syslog.hpp"
 
 #ifdef _WIN32
-    // TODO
+    #include <windows.h>
 #else
     #include <syslog.h>
 #endif
@@ -19,7 +19,8 @@ void Emit(const Services::LogSeverity sev, std::string pn, const std::string& me
     std::transform(std::begin(pn), std::end(pn), std::begin(pn), ::tolower);
 
 #ifdef _WIN32
-    throw std::runtime_error("Syslog is not yet supported on Windows.");
+    std::string output = "[" + std::to_string(static_cast<int>(sev)) + "] " + message;
+    OutputDebugStringA(output.c_str());
 #else
     // We reopen for every message because we reset the progname depending
     // on the passed-in params. We also can't know what else inside

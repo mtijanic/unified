@@ -40,7 +40,15 @@ std::string GetErrorFromHandle(HandleType handle)
     std::string error;
 
 #ifdef _WIN32
-    throw std::runtime_error("GetErrorFromHandle is unimplemented on Windows.");
+    DWORD dwError = GetLastError();
+    if (dwError)
+    {
+        LPSTR msg = NULL;
+        FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+                       NULL, dwError, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&msg, 0, NULL);
+        error = msg;
+        LocalFree(msg);
+    }
 #else
     (void)handle; // Suppress unused variable warning.
     error = dlerror();
@@ -69,7 +77,8 @@ uintptr_t GetLoadedFuncAddr(const std::string& symbol)
     uintptr_t ret;
 
 #ifdef _WIN32
-    ret = 0x0;
+    HandleType handle = GetModuleHandle(NULL);
+    ret = reinterpret_cast<uintptr_t>(GetProcAddress(handle, symbol.c_str()));
 #else
     HandleType handle = dlopen(nullptr, RTLD_LAZY);
 

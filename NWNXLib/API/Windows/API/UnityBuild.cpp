@@ -1,3 +1,5 @@
+#if 0 // TODO-WINDOWS
+
 #include "C2DA.cpp"
 #include "CAppManager.cpp"
 #include "CCallbackImplTemplated12.cpp"
@@ -954,3 +956,5 @@ namespace
     CheckSize<sizeof(NWNXLib::API::Vector), 12> __attribute__((unused)) SIZE_CHECK_VECTOR;
     CheckSize<sizeof(NWNXLib::API::Vector4), 16> __attribute__((unused)) SIZE_CHECK_VECTOR4;
 }
+
+#endif

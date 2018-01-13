@@ -1,6 +1,5 @@
 if(WIN32)
-# TODO-WINDOWS: Use the Linux API dir temporarily
-    set(APIDIR "Linux")
+    set(APIDIR "Windows")
 elseif(UNIX)
     set(APIDIR "Linux")
 endif()

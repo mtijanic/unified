@@ -52,11 +52,14 @@ void PostgreSQL::Connect(NWNXLib::ViewPtr<NWNXLib::Services::ConfigProxy> config
 
 bool PostgreSQL::IsConnected()
 {
-    if (PQstatus(m_conn) != CONNECTION_OK)
+    bool connected = true;
+    PGresult *res = PQexec(m_conn, "");
+    if (PQresultStatus(res) != PGRES_COMMAND_OK)
     {
-        return false;
+        connected = false;
     }
-    return true;
+    PQclear(res);
+    return connected;
 }
 
 bool PostgreSQL::PrepareQuery(const Query& query)
@@ -95,6 +98,7 @@ bool PostgreSQL::PrepareQuery(const Query& query)
         return false;
     }
 
+    PQclear(res);
     return true;
 }
 
@@ -103,13 +107,14 @@ NWNXLib::Maybe<ResultSet> PostgreSQL::ExecuteQuery()
 
     m_affectedRows = -1;
 
-    char *paramValues[m_params.size()];
+    char** paramValues = nullptr;
 
+    // convert the m_params vector into a char ** required by Postgres.
     if (m_paramCount > 0)
     {
-        const unsigned int sz = m_params.size();
+        paramValues = new char*[m_params.size()];
 
-        //std::array<std::string> temp_params = new std::array<std::string>(sz);
+        const unsigned int sz = m_params.size();
         for (unsigned int i=0; i<sz; i++)
         {
             paramValues[i] = new char[m_params[i].size()+1];
@@ -118,21 +123,23 @@ NWNXLib::Maybe<ResultSet> PostgreSQL::ExecuteQuery()
     }
 
     PGresult *res = PQexecPrepared(
-        m_conn,                                           // connection
-        "",                                               // statement name (same as in the prepare above)
-        m_paramCount,                                     // m_paramCount from previous
-        (m_paramCount == 0) ? nullptr : paramValues,      // param data
-        NULL,                                             // param lengths - only for binary data
-        NULL,                                             // param formats - server will infer text
-        0);                                               // result format, 0=text, 1=binary
-
+        m_conn,                                 // connection
+        "",                                     // statement name (same as in the prepare above)
+        m_paramCount,                           // m_paramCount from previous
+        paramValues,                            // param data (can be null)
+        NULL,                                   // param lengths - only for binary data
+        NULL,                                   // param formats - server will infer text
+        0);                                     // result format, 0=text, 1=binary
 
     // done with parameters.
-    for (unsigned i = 0; i < m_params.size(); i++)
+    if (paramValues != nullptr)
     {
-        delete [] paramValues[i];
+        for (unsigned i = 0; i < m_params.size(); i++)
+        {
+            delete [] paramValues[i];
+        }
+        delete [] paramValues;
     }
-    m_params.clear();
 
     // Rows returned - collect and pass on
     if (PQresultStatus(res) == PGRES_TUPLES_OK)
@@ -172,17 +179,16 @@ NWNXLib::Maybe<ResultSet> PostgreSQL::ExecuteQuery()
     // Else.. something unexpected happened.
 
     const char* error = PQresultErrorField(res, PG_DIAG_MESSAGE_PRIMARY);
+
     if (*error == '\0')
     {
         // No valid error.
         error = "Undefined/unknown";
     }
 
-    // TODO:  Query should be saved between Prepare and Execute so if failures occur, it can be
-    //        printed to the logs with a coherent message.
-    //m_log->Warning("Query '%s' failed due to error '%s'", query.c_str(), error);
-
-    m_log->Warning("Some query failed due to error '%s'", error);
+    // Save a copy of the error.  In PgSQL, the error comes from the result we got from the server,
+    // which we're about to clear.
+    m_lastError.assign(error);
 
     PQclear(res);
     return NWNXLib::Maybe<ResultSet>();
@@ -205,6 +211,30 @@ void PostgreSQL::PrepareString(int32_t position, const std::string& value)
 int PostgreSQL::GetAffectedRows()
 {
     return m_affectedRows;
+}
+
+std::string PostgreSQL::GetLastError(bool bClear)
+{
+    // This might be overkill, but copy the string  here so the class stored string can be cleared
+    // before returning.
+    std::string temp = m_lastError;
+    if (bClear)
+        m_lastError.clear();
+    return temp;
+}
+
+int32_t PostgreSQL::GetPreparedQueryParamCount()
+{
+    return m_paramCount;
+}
+
+void PostgreSQL::DestroyPreparedQuery()
+{
+    // No way or need to deallocate the anonymous prepared statement in PgSQL.
+
+    // Force deallocation
+    std::vector<std::string>().swap(m_params);
+    m_paramCount = 0;
 }
 
 }

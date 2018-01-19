@@ -17,7 +17,10 @@ set(TARGET_LEGACY FALSE)
 
 # Disables PIC which plays havoc with our absolute address function jumps.
 set(CMAKE_POSITION_INDEPENDENT_CODE FALSE)
-string(REGEX REPLACE "-fPIC" "" CMAKE_SHARED_LIBRARY_CXX_FLAGS ${CMAKE_SHARED_LIBRARY_CXX_FLAGS})
+if (UNIX)
+	string(REGEX REPLACE "-fPIC" "" CMAKE_SHARED_LIBRARY_CXX_FLAGS ${CMAKE_SHARED_LIBRARY_CXX_FLAGS})
+endif()
+
 
 # Adds the provided shared library, then builds it with a NWNX_ prefix.
 function(add_plugin target)

@@ -1,0 +1,39 @@
+#include "CResHelperTemplatedCResNDB2064.hpp"
+#include "API/Functions.hpp"
+#include "Platform/ASLR.hpp"
+
+namespace NWNXLib {
+
+namespace API {
+
+CResHelperTemplatedCResNDB2064::~CResHelperTemplatedCResNDB2064()
+{
+    CResHelperTemplatedCResNDB2064__CResHelperTemplatedCResNDB2064Dtor__0(this);
+}
+
+void CResHelperTemplatedCResNDB2064::SetResRef(const CResRef& a0, int32_t a1)
+{
+    return CResHelperTemplatedCResNDB2064__SetResRef(this, a0, a1);
+}
+
+void CResHelperTemplatedCResNDB2064__CResHelperTemplatedCResNDB2064Dtor__0(CResHelperTemplatedCResNDB2064* thisPtr)
+{
+    using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCResNDB2064*, int, int);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResNDB2064__CResHelperTemplatedCResNDB2064Dtor__0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
+}
+
+void CResHelperTemplatedCResNDB2064__SetResRef(CResHelperTemplatedCResNDB2064* thisPtr, const CResRef& a0, int32_t a1)
+{
+    using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCResNDB2064*, int, const CResRef&, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResNDB2064__SetResRef);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    return func(thisPtr, edx, a0, a1);
+}
+
+}
+
+}

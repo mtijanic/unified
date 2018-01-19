@@ -181,7 +181,7 @@ void CorrectRelativeAddresses(const uintptr_t address, const uintptr_t originalA
                 uintptr_t originalOffset;
                 memcpy(&originalOffset, offsetAddr, 4);
                 const uintptr_t targetAddress = originalAddress + bytesChecked + lengthChecked + originalOffset;
-                const uintptr_t trampolineAddress = reinterpret_cast<uintptr_t>(address + bytesChecked + lengthChecked);
+                const uintptr_t trampolineAddress = address + bytesChecked + lengthChecked;
                 const uintptr_t newAddress = targetAddress + (0xFFFFFFFF - trampolineAddress) + 1;
                 memcpy(offsetAddr, &newAddress, 4);
                 break;

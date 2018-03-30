@@ -47,7 +47,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/Binaries)
 
 # MSVC
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
-    # Left empty -- no special MSVC flags.
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS=1)
 # Clang/GCC/Intel/Others
 else()
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")

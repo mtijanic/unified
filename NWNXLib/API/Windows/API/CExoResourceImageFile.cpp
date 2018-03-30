@@ -109,8 +109,7 @@ void CExoResourceImageFile__CExoResourceImageFileCtor(CExoResourceImageFile* thi
     using FuncPtrType = void(__fastcall *)(CExoResourceImageFile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResourceImageFile__CExoResourceImageFileCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CExoResourceImageFile__CExoResourceImageFileDtor__0(CExoResourceImageFile* thisPtr)
@@ -118,8 +117,7 @@ void CExoResourceImageFile__CExoResourceImageFileDtor__0(CExoResourceImageFile* 
     using FuncPtrType = void(__fastcall *)(CExoResourceImageFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResourceImageFile__CExoResourceImageFileDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CExoResourceImageFile__AddRefCount(CExoResourceImageFile* thisPtr)

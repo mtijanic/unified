@@ -74,8 +74,7 @@ void CNWTileData__CNWTileDataCtor(CNWTileData* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWTileData*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileData__CNWTileDataCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWTileData__CNWTileDataDtor__0(CNWTileData* thisPtr)
@@ -83,8 +82,7 @@ void CNWTileData__CNWTileDataDtor__0(CNWTileData* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWTileData*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileData__CNWTileDataDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWTileData__AddPropertyMethodString(CNWTileData* thisPtr, uint32_t a0, CExoString a1)

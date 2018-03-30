@@ -100,8 +100,7 @@ void CItemRepository__CItemRepositoryCtor(CItemRepository* thisPtr, uint32_t a0,
     using FuncPtrType = void(__fastcall *)(CItemRepository*, int, uint32_t, unsigned char, unsigned char, uint32_t, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CItemRepository__CItemRepositoryCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1, a2, a3, a4);
+    func(thisPtr, a0, a1, a2, a3, a4);
 }
 
 void CItemRepository__CItemRepositoryDtor(CItemRepository* thisPtr)
@@ -109,8 +108,7 @@ void CItemRepository__CItemRepositoryDtor(CItemRepository* thisPtr)
     using FuncPtrType = void(__fastcall *)(CItemRepository*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CItemRepository__CItemRepositoryDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CItemRepository__AddItem(CItemRepository* thisPtr, CNWSItem** a0, unsigned char a1, unsigned char a2, int32_t a3, int32_t a4)

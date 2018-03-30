@@ -4,6 +4,7 @@
 
 #include "CExoArrayListTemplatedCNWSFactionPtr.hpp"
 #include "CExoArrayListTemplatedint.hpp"
+#include "CExoString.hpp"
 #include "CNWSFaction.hpp"
 #include "CResGFF.hpp"
 #include "CResList.hpp"
@@ -87,8 +88,7 @@ void CFactionManager__CFactionManagerCtor(CFactionManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CFactionManager*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CFactionManager__CFactionManagerCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CFactionManager__CFactionManagerDtor(CFactionManager* thisPtr)
@@ -96,8 +96,7 @@ void CFactionManager__CFactionManagerDtor(CFactionManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CFactionManager*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CFactionManager__CFactionManagerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CFactionManager__CreateDefaultFactions(CFactionManager* thisPtr)

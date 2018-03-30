@@ -165,8 +165,7 @@ void CNWRules__CNWRulesCtor(CNWRules* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWRules*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWRules__CNWRulesCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWRules__CNWRulesDtor__0(CNWRules* thisPtr)
@@ -174,8 +173,7 @@ void CNWRules__CNWRulesDtor__0(CNWRules* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWRules*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWRules__CNWRulesDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWRules__CompareFeatName(const void* a0, const void* a1)

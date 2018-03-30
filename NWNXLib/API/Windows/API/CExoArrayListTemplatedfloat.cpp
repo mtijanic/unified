@@ -36,8 +36,7 @@ void CExoArrayListTemplatedfloat__CExoArrayListTemplatedfloatDtor(CExoArrayListT
     using FuncPtrType = void(__fastcall *)(CExoArrayListTemplatedfloat*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoArrayListTemplatedfloat__CExoArrayListTemplatedfloatDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CExoArrayListTemplatedfloat__Add(CExoArrayListTemplatedfloat* thisPtr, float a0)

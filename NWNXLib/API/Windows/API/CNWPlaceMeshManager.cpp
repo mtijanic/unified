@@ -38,8 +38,7 @@ void CNWPlaceMeshManager__CNWPlaceMeshManagerCtor(CNWPlaceMeshManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWPlaceMeshManager*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWPlaceMeshManager__CNWPlaceMeshManagerCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWPlaceMeshManager__CNWPlaceMeshManagerDtor(CNWPlaceMeshManager* thisPtr)
@@ -47,8 +46,7 @@ void CNWPlaceMeshManager__CNWPlaceMeshManagerDtor(CNWPlaceMeshManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWPlaceMeshManager*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWPlaceMeshManager__CNWPlaceMeshManagerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWPlaceMeshManager__ClearWalkMeshes(CNWPlaceMeshManager* thisPtr)

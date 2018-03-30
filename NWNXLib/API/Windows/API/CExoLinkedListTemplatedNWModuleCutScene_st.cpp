@@ -18,8 +18,7 @@ void CExoLinkedListTemplatedNWModuleCutScene_st__CExoLinkedListTemplatedNWModule
     using FuncPtrType = void(__fastcall *)(CExoLinkedListTemplatedNWModuleCutScene_st*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLinkedListTemplatedNWModuleCutScene_st__CExoLinkedListTemplatedNWModuleCutScene_stDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 }

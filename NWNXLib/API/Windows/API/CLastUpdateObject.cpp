@@ -28,8 +28,7 @@ void CLastUpdateObject__CLastUpdateObjectCtor(CLastUpdateObject* thisPtr)
     using FuncPtrType = void(__fastcall *)(CLastUpdateObject*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CLastUpdateObject__CLastUpdateObjectCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CLastUpdateObject__CLastUpdateObjectDtor(CLastUpdateObject* thisPtr)
@@ -37,8 +36,7 @@ void CLastUpdateObject__CLastUpdateObjectDtor(CLastUpdateObject* thisPtr)
     using FuncPtrType = void(__fastcall *)(CLastUpdateObject*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CLastUpdateObject__CLastUpdateObjectDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CLastUpdateObject__InitializeQuickbar(CLastUpdateObject* thisPtr)

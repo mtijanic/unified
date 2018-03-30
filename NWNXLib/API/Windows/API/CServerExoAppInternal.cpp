@@ -234,6 +234,11 @@ CGameObject* CServerExoAppInternal::GetGameObject(uint32_t a0)
     return CServerExoAppInternal__GetGameObject(this, a0);
 }
 
+CExoString CServerExoAppInternal::GetHostedPublicInternetAddressAndPort()
+{
+    return CServerExoAppInternal__GetHostedPublicInternetAddressAndPort(this);
+}
+
 int32_t CServerExoAppInternal::GetIsCDKeyOnBannedList(CExoString a0)
 {
     return CServerExoAppInternal__GetIsCDKeyOnBannedList(this, a0);
@@ -554,9 +559,19 @@ int32_t CServerExoAppInternal::SendExitingStartNewModuleMessage(int32_t a0)
     return CServerExoAppInternal__SendExitingStartNewModuleMessage(this, a0);
 }
 
+int32_t CServerExoAppInternal::SendHeartbeatToRelay()
+{
+    return CServerExoAppInternal__SendHeartbeatToRelay(this);
+}
+
 int32_t CServerExoAppInternal::SendStartStallEvent(uint32_t a0)
 {
     return CServerExoAppInternal__SendStartStallEvent(this, a0);
+}
+
+int32_t CServerExoAppInternal::SetDDCipherForModule(CExoString a0)
+{
+    return CServerExoAppInternal__SetDDCipherForModule(this, a0);
 }
 
 void CServerExoAppInternal::SetEstimatedSaveSize(const CExoString& a0, uint16_t a1)
@@ -719,8 +734,7 @@ void CServerExoAppInternal__CServerExoAppInternalCtor(CServerExoAppInternal* thi
     using FuncPtrType = void(__fastcall *)(CServerExoAppInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__CServerExoAppInternalCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CServerExoAppInternal__CServerExoAppInternalDtor(CServerExoAppInternal* thisPtr)
@@ -728,8 +742,7 @@ void CServerExoAppInternal__CServerExoAppInternalDtor(CServerExoAppInternal* thi
     using FuncPtrType = void(__fastcall *)(CServerExoAppInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__CServerExoAppInternalDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CServerExoAppInternal__AddCDKeyToBannedList(CServerExoAppInternal* thisPtr, CExoString a0)
@@ -1063,6 +1076,15 @@ CGameObject* CServerExoAppInternal__GetGameObject(CServerExoAppInternal* thisPtr
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     int edx = 0;
     return func(thisPtr, edx, a0);
+}
+
+CExoString CServerExoAppInternal__GetHostedPublicInternetAddressAndPort(CServerExoAppInternal* thisPtr)
+{
+    using FuncPtrType = CExoString(__fastcall *)(CServerExoAppInternal*, int);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__GetHostedPublicInternetAddressAndPort);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    return func(thisPtr, edx);
 }
 
 int32_t CServerExoAppInternal__GetIsCDKeyOnBannedList(CServerExoAppInternal* thisPtr, CExoString a0)
@@ -1641,10 +1663,28 @@ int32_t CServerExoAppInternal__SendExitingStartNewModuleMessage(CServerExoAppInt
     return func(thisPtr, edx, a0);
 }
 
+int32_t CServerExoAppInternal__SendHeartbeatToRelay(CServerExoAppInternal* thisPtr)
+{
+    using FuncPtrType = int32_t(__fastcall *)(CServerExoAppInternal*, int);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__SendHeartbeatToRelay);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    return func(thisPtr, edx);
+}
+
 int32_t CServerExoAppInternal__SendStartStallEvent(CServerExoAppInternal* thisPtr, uint32_t a0)
 {
     using FuncPtrType = int32_t(__fastcall *)(CServerExoAppInternal*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__SendStartStallEvent);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    return func(thisPtr, edx, a0);
+}
+
+int32_t CServerExoAppInternal__SetDDCipherForModule(CServerExoAppInternal* thisPtr, CExoString a0)
+{
+    using FuncPtrType = int32_t(__fastcall *)(CServerExoAppInternal*, int, CExoString);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__SetDDCipherForModule);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     int edx = 0;
     return func(thisPtr, edx, a0);

@@ -26,8 +26,7 @@ void CServerInfo__CServerInfoCtor(CServerInfo* thisPtr)
     using FuncPtrType = void(__fastcall *)(CServerInfo*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerInfo__CServerInfoCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 int32_t CServerInfo__FindOptionIndex(CServerInfo* thisPtr, CExoString a0, CExoString a1)

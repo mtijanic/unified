@@ -89,8 +89,7 @@ void CScriptEvent__CScriptEventCtor(CScriptEvent* thisPtr)
     using FuncPtrType = void(__fastcall *)(CScriptEvent*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptEvent__CScriptEventCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CScriptEvent__CScriptEventDtor(CScriptEvent* thisPtr)
@@ -98,8 +97,7 @@ void CScriptEvent__CScriptEventDtor(CScriptEvent* thisPtr)
     using FuncPtrType = void(__fastcall *)(CScriptEvent*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptEvent__CScriptEventDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CScriptEvent__CopyScriptEvent(CScriptEvent* thisPtr, CScriptEvent* a0)

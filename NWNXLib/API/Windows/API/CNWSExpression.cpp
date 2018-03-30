@@ -49,8 +49,7 @@ void CNWSExpression__CNWSExpressionCtor(CNWSExpression* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSExpression*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSExpression__CNWSExpressionCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSExpression__CNWSExpressionDtor(CNWSExpression* thisPtr)
@@ -58,8 +57,7 @@ void CNWSExpression__CNWSExpressionDtor(CNWSExpression* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSExpression*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSExpression__CNWSExpressionDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSExpression__ClearAlternate(CNWSExpression* thisPtr, CNWSExpressionNode* a0)

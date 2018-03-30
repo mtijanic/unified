@@ -26,8 +26,7 @@ void CNWTileSurfaceMeshHashTableEntry__CNWTileSurfaceMeshHashTableEntryCtor(CNWT
     using FuncPtrType = void(__fastcall *)(CNWTileSurfaceMeshHashTableEntry*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSurfaceMeshHashTableEntry__CNWTileSurfaceMeshHashTableEntryCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 float CNWTileSurfaceMeshHashTableEntry__Fetch(CNWTileSurfaceMeshHashTableEntry* thisPtr, int32_t a0)

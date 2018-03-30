@@ -7,6 +7,7 @@
 #include "CExoStringList.hpp"
 #include "CKeyTableEntry.hpp"
 #include "CRes.hpp"
+#include "CResRef.hpp"
 
 namespace NWNXLib {
 
@@ -127,8 +128,7 @@ void CExoKeyTable__CExoKeyTableCtor(CExoKeyTable* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoKeyTable*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoKeyTable__CExoKeyTableCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CExoKeyTable__CExoKeyTableDtor(CExoKeyTable* thisPtr)
@@ -136,8 +136,7 @@ void CExoKeyTable__CExoKeyTableDtor(CExoKeyTable* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoKeyTable*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoKeyTable__CExoKeyTableDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CExoKeyTable__AddDirectoryContents(CExoKeyTable* thisPtr, int32_t a0)

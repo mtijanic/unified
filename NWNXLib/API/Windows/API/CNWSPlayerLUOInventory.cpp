@@ -100,8 +100,7 @@ void CNWSPlayerLUOInventory__CNWSPlayerLUOInventoryCtor(CNWSPlayerLUOInventory* 
     using FuncPtrType = void(__fastcall *)(CNWSPlayerLUOInventory*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerLUOInventory__CNWSPlayerLUOInventoryCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSPlayerLUOInventory__CNWSPlayerLUOInventoryDtor(CNWSPlayerLUOInventory* thisPtr)
@@ -109,8 +108,7 @@ void CNWSPlayerLUOInventory__CNWSPlayerLUOInventoryDtor(CNWSPlayerLUOInventory* 
     using FuncPtrType = void(__fastcall *)(CNWSPlayerLUOInventory*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerLUOInventory__CNWSPlayerLUOInventoryDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSPlayerLUOInventory__ClearBarter(CNWSPlayerLUOInventory* thisPtr)

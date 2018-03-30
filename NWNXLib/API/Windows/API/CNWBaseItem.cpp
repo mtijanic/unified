@@ -51,8 +51,7 @@ void CNWBaseItem__CNWBaseItemCtor(CNWBaseItem* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWBaseItem*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWBaseItem__CNWBaseItemCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWBaseItem__CNWBaseItemDtor(CNWBaseItem* thisPtr)
@@ -60,8 +59,7 @@ void CNWBaseItem__CNWBaseItemDtor(CNWBaseItem* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWBaseItem*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWBaseItem__CNWBaseItemDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 CResRef CNWBaseItem__GetIconResRef(CNWBaseItem* thisPtr, unsigned char a0, int16_t a1, char a2)

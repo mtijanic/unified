@@ -16,8 +16,7 @@ void CNetLayerPlayerCDKeyInfo__CNetLayerPlayerCDKeyInfoDtor(CNetLayerPlayerCDKey
     using FuncPtrType = void(__fastcall *)(CNetLayerPlayerCDKeyInfo*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerPlayerCDKeyInfo__CNetLayerPlayerCDKeyInfoDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 }

@@ -2,6 +2,8 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoFile.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -36,8 +38,7 @@ void CERFRes__CERFResCtor(CERFRes* thisPtr)
     using FuncPtrType = void(__fastcall *)(CERFRes*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFRes__CERFResCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CERFRes__CERFResDtor(CERFRes* thisPtr)
@@ -45,8 +46,7 @@ void CERFRes__CERFResDtor(CERFRes* thisPtr)
     using FuncPtrType = void(__fastcall *)(CERFRes*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFRes__CERFResDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CERFRes__Read(CERFRes* thisPtr)

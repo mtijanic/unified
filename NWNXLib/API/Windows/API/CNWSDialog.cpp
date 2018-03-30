@@ -2,6 +2,7 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoString.hpp"
 #include "CNWSDialogEntry.hpp"
 #include "CNWSDialogLinkEntry.hpp"
 #include "CNWSDialogReply.hpp"
@@ -103,8 +104,7 @@ void CNWSDialog__CNWSDialogCtor(CNWSDialog* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSDialog*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDialog__CNWSDialogCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSDialog__CNWSDialogDtor__0(CNWSDialog* thisPtr)
@@ -112,8 +112,7 @@ void CNWSDialog__CNWSDialogDtor__0(CNWSDialog* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSDialog*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDialog__CNWSDialogDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSDialog__AddJournalEntry(CNWSDialog* thisPtr, const CExoString& a0, uint32_t a1, uint32_t a2)

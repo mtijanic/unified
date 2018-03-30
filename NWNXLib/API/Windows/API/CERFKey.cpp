@@ -2,6 +2,9 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoFile.hpp"
+#include "CExoString.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -41,8 +44,7 @@ void CERFKey__CERFKeyCtor(CERFKey* thisPtr)
     using FuncPtrType = void(__fastcall *)(CERFKey*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFKey__CERFKeyCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CERFKey__CERFKeyDtor(CERFKey* thisPtr)
@@ -50,8 +52,7 @@ void CERFKey__CERFKeyDtor(CERFKey* thisPtr)
     using FuncPtrType = void(__fastcall *)(CERFKey*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFKey__CERFKeyDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CERFKey__Read(CERFKey* thisPtr)

@@ -128,8 +128,7 @@ void CNWSPlayerLastUpdateObject__CNWSPlayerLastUpdateObjectCtor(CNWSPlayerLastUp
     using FuncPtrType = void(__fastcall *)(CNWSPlayerLastUpdateObject*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerLastUpdateObject__CNWSPlayerLastUpdateObjectCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSPlayerLastUpdateObject__CNWSPlayerLastUpdateObjectDtor(CNWSPlayerLastUpdateObject* thisPtr)
@@ -137,8 +136,7 @@ void CNWSPlayerLastUpdateObject__CNWSPlayerLastUpdateObjectDtor(CNWSPlayerLastUp
     using FuncPtrType = void(__fastcall *)(CNWSPlayerLastUpdateObject*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerLastUpdateObject__CNWSPlayerLastUpdateObjectDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSPlayerLastUpdateObject__AddKnownSpell(CNWSPlayerLastUpdateObject* thisPtr, unsigned char a0, unsigned char a1, uint32_t a2)

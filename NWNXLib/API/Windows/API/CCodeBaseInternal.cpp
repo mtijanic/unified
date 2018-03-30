@@ -2,8 +2,11 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoString.hpp"
 #include "CODE4St.hpp"
+#include "CScriptLocation.hpp"
 #include "SCodeBaseData.hpp"
+#include "Vector.hpp"
 
 namespace NWNXLib {
 
@@ -129,8 +132,7 @@ void CCodeBaseInternal__CCodeBaseInternalCtor(CCodeBaseInternal* thisPtr)
     using FuncPtrType = void(__fastcall *)(CCodeBaseInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCodeBaseInternal__CCodeBaseInternalCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CCodeBaseInternal__CCodeBaseInternalDtor(CCodeBaseInternal* thisPtr)
@@ -138,8 +140,7 @@ void CCodeBaseInternal__CCodeBaseInternalDtor(CCodeBaseInternal* thisPtr)
     using FuncPtrType = void(__fastcall *)(CCodeBaseInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCodeBaseInternal__CCodeBaseInternalDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CCodeBaseInternal__AddBinaryData(CCodeBaseInternal* thisPtr, CExoString& a0, CExoString& a1, CExoString& a2, char a3, void* a4, int32_t a5)
@@ -309,8 +310,7 @@ void CCodeBaseInternal__GetVar(CCodeBaseInternal* thisPtr, SCodeBaseData* a0, CE
     using FuncPtrType = void(__fastcall *)(CCodeBaseInternal*, int, SCodeBaseData*, CExoString&, CExoString&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCodeBaseInternal__GetVar);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1, a2);
+    func(thisPtr, a0, a1, a2);
 }
 
 Vector* CCodeBaseInternal__GetVector(CCodeBaseInternal* thisPtr, CExoString& a0, CExoString& a1, CExoString& a2)

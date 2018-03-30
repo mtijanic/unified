@@ -31,8 +31,7 @@ void CExoFileThread__CExoFileThreadCtor(CExoFileThread* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoFileThread*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFileThread__CExoFileThreadCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CExoFileThread__CExoFileThreadDtor(CExoFileThread* thisPtr)
@@ -40,8 +39,7 @@ void CExoFileThread__CExoFileThreadDtor(CExoFileThread* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoFileThread*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFileThread__CExoFileThreadDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CExoFileThread__AsyncRead(CExoFileThread* thisPtr)

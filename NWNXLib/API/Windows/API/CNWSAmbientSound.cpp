@@ -101,8 +101,7 @@ void CNWSAmbientSound__CNWSAmbientSoundCtor(CNWSAmbientSound* thisPtr, uint32_t 
     using FuncPtrType = void(__fastcall *)(CNWSAmbientSound*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAmbientSound__CNWSAmbientSoundCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CNWSAmbientSound__CNWSAmbientSoundDtor__0(CNWSAmbientSound* thisPtr)
@@ -110,8 +109,7 @@ void CNWSAmbientSound__CNWSAmbientSoundDtor__0(CNWSAmbientSound* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSAmbientSound*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAmbientSound__CNWSAmbientSoundDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWSAmbientSound__GetPlayersInArea(CNWSAmbientSound* thisPtr, CExoArrayListTemplatedunsignedlong* a0)

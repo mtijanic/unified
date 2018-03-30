@@ -71,8 +71,7 @@ void CNWSWaypoint__CNWSWaypointCtor(CNWSWaypoint* thisPtr, uint32_t a0)
     using FuncPtrType = void(__fastcall *)(CNWSWaypoint*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSWaypoint__CNWSWaypointCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CNWSWaypoint__CNWSWaypointDtor__0(CNWSWaypoint* thisPtr)
@@ -80,8 +79,7 @@ void CNWSWaypoint__CNWSWaypointDtor__0(CNWSWaypoint* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSWaypoint*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSWaypoint__CNWSWaypointDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSWaypoint__AddToArea(CNWSWaypoint* thisPtr, CNWSArea* a0, float a1, float a2, float a3, int32_t a4)

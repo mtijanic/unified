@@ -130,8 +130,7 @@ void CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectCtor(CNWSAreaOfEffectObject* 
     using FuncPtrType = void(__fastcall *)(CNWSAreaOfEffectObject*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectDtor__0(CNWSAreaOfEffectObject* thisPtr)
@@ -139,8 +138,7 @@ void CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectDtor__0(CNWSAreaOfEffectObjec
     using FuncPtrType = void(__fastcall *)(CNWSAreaOfEffectObject*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSAreaOfEffectObject__AddToArea(CNWSAreaOfEffectObject* thisPtr, CNWSArea* a0, float a1, float a2, float a3, int32_t a4)

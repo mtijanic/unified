@@ -31,8 +31,7 @@ void CCombatInformationNode__CCombatInformationNodeCtor(CCombatInformationNode* 
     using FuncPtrType = void(__fastcall *)(CCombatInformationNode*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCombatInformationNode__CCombatInformationNodeCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 int32_t CCombatInformationNode__OperatorNotEqualTo(CCombatInformationNode* thisPtr, CCombatInformationNode& a0)

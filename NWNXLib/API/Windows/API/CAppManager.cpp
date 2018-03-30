@@ -22,6 +22,11 @@ CAppManager::~CAppManager()
     CAppManager__CAppManagerDtor(this);
 }
 
+void CAppManager::ConnectToServer(CExoString a0, int32_t a1)
+{
+    return CAppManager__ConnectToServer(this, a0, a1);
+}
+
 void CAppManager::CreateServer()
 {
     return CAppManager__CreateServer(this);
@@ -67,6 +72,11 @@ unsigned char CAppManager::ReadProgressFromINI(unsigned char a0)
     return CAppManager__ReadProgressFromINI(this, a0);
 }
 
+int32_t CAppManager::SetDDCipherForModule(CExoString a0)
+{
+    return CAppManager__SetDDCipherForModule(this, a0);
+}
+
 void CAppManager::SetDungeonMasterEXERunning(int32_t a0)
 {
     return CAppManager__SetDungeonMasterEXERunning(this, a0);
@@ -87,8 +97,7 @@ void CAppManager__CAppManagerCtor(CAppManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CAppManager*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__CAppManagerCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CAppManager__CAppManagerDtor(CAppManager* thisPtr)
@@ -96,8 +105,16 @@ void CAppManager__CAppManagerDtor(CAppManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CAppManager*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__CAppManagerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    func(thisPtr, 2);
+}
+
+void CAppManager__ConnectToServer(CAppManager* thisPtr, CExoString a0, int32_t a1)
+{
+    using FuncPtrType = void(__fastcall *)(CAppManager*, int, CExoString, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__ConnectToServer);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     int edx = 0;
-    func(thisPtr, edx, 2);
+    return func(thisPtr, edx, a0, a1);
 }
 
 void CAppManager__CreateServer(CAppManager* thisPtr)
@@ -176,6 +193,15 @@ unsigned char CAppManager__ReadProgressFromINI(CAppManager* thisPtr, unsigned ch
 {
     using FuncPtrType = unsigned char(__fastcall *)(CAppManager*, int, unsigned char);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__ReadProgressFromINI);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    return func(thisPtr, edx, a0);
+}
+
+int32_t CAppManager__SetDDCipherForModule(CAppManager* thisPtr, CExoString a0)
+{
+    using FuncPtrType = int32_t(__fastcall *)(CAppManager*, int, CExoString);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__SetDDCipherForModule);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     int edx = 0;
     return func(thisPtr, edx, a0);

@@ -2,6 +2,7 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoString.hpp"
 #include "CResGFF.hpp"
 #include "CResStruct.hpp"
 #include "CScriptLog.hpp"
@@ -78,7 +79,7 @@ int32_t CVirtualMachine::ReadScriptFile(CExoString* a0)
     return CVirtualMachine__ReadScriptFile(this, a0);
 }
 
-int32_t CVirtualMachine::RunScript(CExoString* a0, uint32_t a1, int32_t a2)
+void CVirtualMachine::RunScript(CExoString* a0, uint32_t a1, int32_t a2)
 {
     return CVirtualMachine__RunScript(this, a0, a1, a2);
 }
@@ -188,8 +189,7 @@ void CVirtualMachine__CVirtualMachineCtor(CVirtualMachine* thisPtr)
     using FuncPtrType = void(__fastcall *)(CVirtualMachine*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachine__CVirtualMachineCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CVirtualMachine__CVirtualMachineDtor(CVirtualMachine* thisPtr)
@@ -197,8 +197,7 @@ void CVirtualMachine__CVirtualMachineDtor(CVirtualMachine* thisPtr)
     using FuncPtrType = void(__fastcall *)(CVirtualMachine*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachine__CVirtualMachineDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CVirtualMachine__Debugger(CVirtualMachine* thisPtr, int32_t* a0)
@@ -300,13 +299,12 @@ int32_t CVirtualMachine__ReadScriptFile(CVirtualMachine* thisPtr, CExoString* a0
     return func(thisPtr, edx, a0);
 }
 
-int32_t CVirtualMachine__RunScript(CVirtualMachine* thisPtr, CExoString* a0, uint32_t a1, int32_t a2)
+void CVirtualMachine__RunScript(CVirtualMachine* thisPtr, CExoString* a0, uint32_t a1, int32_t a2)
 {
-    using FuncPtrType = int32_t(__fastcall *)(CVirtualMachine*, int, CExoString*, uint32_t, int32_t);
+    using FuncPtrType = void(__fastcall *)(CVirtualMachine*, int, CExoString*, uint32_t, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachine__RunScript);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    return func(thisPtr, edx, a0, a1, a2);
+    func(thisPtr, a0, a1, a2);
 }
 
 int32_t CVirtualMachine__RunScriptFile(CVirtualMachine* thisPtr, int32_t a0)

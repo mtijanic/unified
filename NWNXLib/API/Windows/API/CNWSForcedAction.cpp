@@ -34,8 +34,7 @@ void CNWSForcedAction__CNWSForcedActionCtor(CNWSForcedAction* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSForcedAction*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSForcedAction__CNWSForcedActionCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSForcedAction__CNWSForcedActionDtor(CNWSForcedAction* thisPtr)
@@ -43,8 +42,7 @@ void CNWSForcedAction__CNWSForcedActionDtor(CNWSForcedAction* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSForcedAction*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSForcedAction__CNWSForcedActionDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWSForcedAction__LoadForcedAction(CNWSForcedAction* thisPtr, CResGFF* a0, CResStruct* a1)

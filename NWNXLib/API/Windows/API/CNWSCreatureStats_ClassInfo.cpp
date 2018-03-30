@@ -158,8 +158,7 @@ void CNWSCreatureStats_ClassInfo__CNWSCreatureStats_ClassInfoCtor(CNWSCreatureSt
     using FuncPtrType = void(__fastcall *)(CNWSCreatureStats_ClassInfo*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreatureStats_ClassInfo__CNWSCreatureStats_ClassInfoCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSCreatureStats_ClassInfo__CNWSCreatureStats_ClassInfoDtor(CNWSCreatureStats_ClassInfo* thisPtr)
@@ -167,8 +166,7 @@ void CNWSCreatureStats_ClassInfo__CNWSCreatureStats_ClassInfoDtor(CNWSCreatureSt
     using FuncPtrType = void(__fastcall *)(CNWSCreatureStats_ClassInfo*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreatureStats_ClassInfo__CNWSCreatureStats_ClassInfoDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSCreatureStats_ClassInfo__AddKnownSpell(CNWSCreatureStats_ClassInfo* thisPtr, unsigned char a0, uint32_t a1)

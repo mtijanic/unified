@@ -268,8 +268,7 @@ void CNWTileSurfaceMesh__CNWTileSurfaceMeshCtor(CNWTileSurfaceMesh* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWTileSurfaceMesh*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSurfaceMesh__CNWTileSurfaceMeshCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWTileSurfaceMesh__CNWTileSurfaceMeshDtor__0(CNWTileSurfaceMesh* thisPtr)
@@ -277,8 +276,7 @@ void CNWTileSurfaceMesh__CNWTileSurfaceMeshDtor__0(CNWTileSurfaceMesh* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWTileSurfaceMesh*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSurfaceMesh__CNWTileSurfaceMeshDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWTileSurfaceMesh__CheckAABBNode(CNWTileSurfaceMesh* thisPtr, int32_t a0, CNWTileSurfaceMeshAABBNode* a1, const Vector& a2, Vector& a3)

@@ -34,8 +34,7 @@ void CNWSCombatRoundAction__CNWSCombatRoundActionCtor(CNWSCombatRoundAction* thi
     using FuncPtrType = void(__fastcall *)(CNWSCombatRoundAction*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCombatRoundAction__CNWSCombatRoundActionCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSCombatRoundAction__CNWSCombatRoundActionDtor(CNWSCombatRoundAction* thisPtr)
@@ -43,8 +42,7 @@ void CNWSCombatRoundAction__CNWSCombatRoundActionDtor(CNWSCombatRoundAction* thi
     using FuncPtrType = void(__fastcall *)(CNWSCombatRoundAction*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCombatRoundAction__CNWSCombatRoundActionDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWSCombatRoundAction__LoadData(CNWSCombatRoundAction* thisPtr, CResGFF* a0, CResStruct* a1)

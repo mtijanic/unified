@@ -31,8 +31,7 @@ void CNWItem__CNWItemCtor(CNWItem* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWItem*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWItem__CNWItemCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWItem__CNWItemDtor__0(CNWItem* thisPtr)
@@ -40,8 +39,7 @@ void CNWItem__CNWItemDtor__0(CNWItem* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWItem*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWItem__CNWItemDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 unsigned char CNWItem__GetLayeredTextureColorPerPart(CNWItem* thisPtr, unsigned char a0, unsigned char a1)

@@ -16,8 +16,7 @@ void CPathfindInfoIntraTileSuccessors__CPathfindInfoIntraTileSuccessorsCtor(CPat
     using FuncPtrType = void(__fastcall *)(CPathfindInfoIntraTileSuccessors*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CPathfindInfoIntraTileSuccessors__CPathfindInfoIntraTileSuccessorsCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 }

@@ -188,8 +188,7 @@ void CGameObject__CGameObjectCtor(CGameObject* thisPtr, unsigned char a0, uint32
     using FuncPtrType = void(__fastcall *)(CGameObject*, int, unsigned char, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameObject__CGameObjectCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1);
+    func(thisPtr, a0, a1);
 }
 
 void CGameObject__CGameObjectDtor__0(CGameObject* thisPtr)
@@ -197,8 +196,7 @@ void CGameObject__CGameObjectDtor__0(CGameObject* thisPtr)
     using FuncPtrType = void(__fastcall *)(CGameObject*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameObject__CGameObjectDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 CNWCArea* CGameObject__AsNWCArea(CGameObject* thisPtr)

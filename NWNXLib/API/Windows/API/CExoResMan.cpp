@@ -7,6 +7,7 @@
 #include "CExoStringList.hpp"
 #include "CKeyTableEntry.hpp"
 #include "CRes.hpp"
+#include "CResRef.hpp"
 
 namespace NWNXLib {
 
@@ -332,8 +333,7 @@ void CExoResMan__CExoResManCtor(CExoResMan* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoResMan*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResMan__CExoResManCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CExoResMan__CExoResManDtor(CExoResMan* thisPtr)
@@ -341,8 +341,7 @@ void CExoResMan__CExoResManDtor(CExoResMan* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoResMan*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResMan__CExoResManDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CExoResMan__AddEncapsulatedResourceFile(CExoResMan* thisPtr, const CExoString& a0)

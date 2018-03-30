@@ -2,6 +2,8 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoString.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -31,8 +33,7 @@ void CScriptSourceFile__CScriptSourceFileCtor(CScriptSourceFile* thisPtr)
     using FuncPtrType = void(__fastcall *)(CScriptSourceFile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptSourceFile__CScriptSourceFileCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CScriptSourceFile__CScriptSourceFileDtor__0(CScriptSourceFile* thisPtr)
@@ -40,8 +41,7 @@ void CScriptSourceFile__CScriptSourceFileDtor__0(CScriptSourceFile* thisPtr)
     using FuncPtrType = void(__fastcall *)(CScriptSourceFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptSourceFile__CScriptSourceFileDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CScriptSourceFile__LoadScript(CScriptSourceFile* thisPtr, const CExoString& a0, char** a1, uint32_t* a2)

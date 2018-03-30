@@ -31,8 +31,7 @@ void CNWDomain__CNWDomainCtor(CNWDomain* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWDomain*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWDomain__CNWDomainCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWDomain__CNWDomainDtor(CNWDomain* thisPtr)
@@ -40,8 +39,7 @@ void CNWDomain__CNWDomainDtor(CNWDomain* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWDomain*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWDomain__CNWDomainDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 CExoString CNWDomain__GetDescriptionText(CNWDomain* thisPtr)

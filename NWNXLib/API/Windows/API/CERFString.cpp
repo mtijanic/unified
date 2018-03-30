@@ -2,6 +2,8 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoFile.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -46,8 +48,7 @@ void CERFString__CERFStringCtor(CERFString* thisPtr)
     using FuncPtrType = void(__fastcall *)(CERFString*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFString__CERFStringCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CERFString__CERFStringDtor(CERFString* thisPtr)
@@ -55,8 +56,7 @@ void CERFString__CERFStringDtor(CERFString* thisPtr)
     using FuncPtrType = void(__fastcall *)(CERFString*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFString__CERFStringDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 CExoString CERFString__GetText(CERFString* thisPtr)
@@ -91,8 +91,7 @@ void CERFString__SetText(CERFString* thisPtr, CExoString& a0)
     using FuncPtrType = void(__fastcall *)(CERFString*, int, CExoString&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFString__SetText);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 int32_t CERFString__Write(CERFString* thisPtr, CExoFile& a0)

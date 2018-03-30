@@ -18,8 +18,7 @@ void CExoLinkedListTemplatedCNWSClient__CExoLinkedListTemplatedCNWSClientDtor(CE
     using FuncPtrType = void(__fastcall *)(CExoLinkedListTemplatedCNWSClient*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLinkedListTemplatedCNWSClient__CExoLinkedListTemplatedCNWSClientDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 }

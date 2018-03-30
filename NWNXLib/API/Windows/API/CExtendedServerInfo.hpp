@@ -3,11 +3,13 @@
 #include <cstdint>
 
 #include "CExoString.hpp"
-#include "CNetLayerSessionInfo.hpp"
 
 namespace NWNXLib {
 
 namespace API {
+
+// Forward class declarations (defined in the source file)
+struct CNetLayerSessionInfo;
 
 struct CExtendedServerInfo
 {
@@ -22,6 +24,7 @@ struct CExtendedServerInfo
     int32_t m_bMultiplayerEnabled;
     uint8_t m_nPVPSetting;
     uint8_t m_nExpansionPacksRequired;
+    CExoString m_sServerName;
     CExoString m_sModuleDescription;
     CExoString m_sGameDetails;
     CExoString m_sBuild;
@@ -30,9 +33,16 @@ struct CExtendedServerInfo
     int32_t m_bLegalChars;
     int32_t m_bItemRestrict;
 
+    // The below are auto generated stubs.
+    CExtendedServerInfo() = default;
+    CExtendedServerInfo(const CExtendedServerInfo&) = default;
+    CExtendedServerInfo& operator=(const CExtendedServerInfo&) = default;
+
+    ~CExtendedServerInfo();
     CExtendedServerInfo* operator=(CNetLayerSessionInfo&);
 };
 
+void CExtendedServerInfo__CExtendedServerInfoDtor(CExtendedServerInfo* thisPtr);
 CExtendedServerInfo* CExtendedServerInfo__OperatorAssignment(CExtendedServerInfo* thisPtr, CNetLayerSessionInfo&);
 
 }

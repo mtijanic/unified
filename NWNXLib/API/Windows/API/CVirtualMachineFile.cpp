@@ -2,6 +2,8 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoString.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -36,8 +38,7 @@ void CVirtualMachineFile__CVirtualMachineFileCtor(CVirtualMachineFile* thisPtr)
     using FuncPtrType = void(__fastcall *)(CVirtualMachineFile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineFile__CVirtualMachineFileCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CVirtualMachineFile__CVirtualMachineFileDtor__0(CVirtualMachineFile* thisPtr)
@@ -45,8 +46,7 @@ void CVirtualMachineFile__CVirtualMachineFileDtor__0(CVirtualMachineFile* thisPt
     using FuncPtrType = void(__fastcall *)(CVirtualMachineFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineFile__CVirtualMachineFileDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CVirtualMachineFile__GetData(CVirtualMachineFile* thisPtr, char** a0, uint32_t& a1)

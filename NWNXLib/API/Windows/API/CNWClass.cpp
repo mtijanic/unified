@@ -165,8 +165,7 @@ void CNWClass__CNWClassCtor(CNWClass* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWClass*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWClass__CNWClassCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWClass__CNWClassDtor(CNWClass* thisPtr)
@@ -174,8 +173,7 @@ void CNWClass__CNWClassDtor(CNWClass* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWClass*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWClass__CNWClassDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 unsigned char CNWClass__GetAttackBonus(CNWClass* thisPtr, unsigned char a0)

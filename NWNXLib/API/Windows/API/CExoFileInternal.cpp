@@ -56,8 +56,7 @@ void CExoFileInternal__CExoFileInternalCtor(CExoFileInternal* thisPtr, const CEx
     using FuncPtrType = void(__fastcall *)(CExoFileInternal*, int, const CExoString&, uint16_t, const CExoString&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFileInternal__CExoFileInternalCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1, a2);
+    func(thisPtr, a0, a1, a2);
 }
 
 void CExoFileInternal__CExoFileInternalDtor(CExoFileInternal* thisPtr)
@@ -65,8 +64,7 @@ void CExoFileInternal__CExoFileInternalDtor(CExoFileInternal* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoFileInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFileInternal__CExoFileInternalDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 uint32_t CExoFileInternal__GetOffset(CExoFileInternal* thisPtr)
@@ -92,8 +90,7 @@ void CExoFileInternal__Read(CExoFileInternal* thisPtr, CExoString* a0, uint32_t 
     using FuncPtrType = void(__fastcall *)(CExoFileInternal*, int, CExoString*, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFileInternal__Read);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1);
+    func(thisPtr, a0, a1);
 }
 
 void CExoFileInternal__ReadAsync(CExoFileInternal* thisPtr, void* a0, uint32_t a1, uint32_t a2)
@@ -128,8 +125,7 @@ void CExoFileInternal__Write(CExoFileInternal* thisPtr, const char* a0)
     using FuncPtrType = void(__fastcall *)(CExoFileInternal*, int, const char*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFileInternal__Write);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 }

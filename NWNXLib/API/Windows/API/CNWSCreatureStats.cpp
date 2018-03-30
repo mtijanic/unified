@@ -1060,8 +1060,7 @@ void CNWSCreatureStats__CNWSCreatureStatsCtor(CNWSCreatureStats* thisPtr, CNWSCr
     using FuncPtrType = void(__fastcall *)(CNWSCreatureStats*, int, CNWSCreature*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreatureStats__CNWSCreatureStatsCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CNWSCreatureStats__CNWSCreatureStatsDtor(CNWSCreatureStats* thisPtr)
@@ -1069,8 +1068,7 @@ void CNWSCreatureStats__CNWSCreatureStatsDtor(CNWSCreatureStats* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSCreatureStats*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreatureStats__CNWSCreatureStatsDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSCreatureStats__AddExperience(CNWSCreatureStats* thisPtr, uint32_t a0)

@@ -73,8 +73,7 @@ void CResSET__CResSETCtor(CResSET* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResSET*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResSET__CResSETCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CResSET__CResSETDtor__0(CResSET* thisPtr)
@@ -82,8 +81,7 @@ void CResSET__CResSETDtor__0(CResSET* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResSET*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResSET__CResSETDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CResSET__CopySETData(CResSET* thisPtr, unsigned char* a0)

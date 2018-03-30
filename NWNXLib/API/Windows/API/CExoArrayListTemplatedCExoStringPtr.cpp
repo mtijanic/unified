@@ -23,8 +23,7 @@ void CExoArrayListTemplatedCExoStringPtr__CExoArrayListTemplatedCExoStringPtrCto
     using FuncPtrType = void(__fastcall *)(CExoArrayListTemplatedCExoStringPtr*, int, const CExoArrayListTemplatedCExoStringPtr&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoArrayListTemplatedCExoStringPtr__CExoArrayListTemplatedCExoStringPtrCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CExoArrayListTemplatedCExoStringPtr__Add(CExoArrayListTemplatedCExoStringPtr* thisPtr, CExoString* a0)

@@ -3,6 +3,9 @@
 #include "Platform/ASLR.hpp"
 
 #include "CCodeBaseInternal.hpp"
+#include "CExoString.hpp"
+#include "CScriptLocation.hpp"
+#include "Vector.hpp"
 
 namespace NWNXLib {
 
@@ -98,8 +101,7 @@ void CCodeBase__CCodeBaseCtor(CCodeBase* thisPtr)
     using FuncPtrType = void(__fastcall *)(CCodeBase*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCodeBase__CCodeBaseCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CCodeBase__CCodeBaseDtor(CCodeBase* thisPtr)
@@ -107,8 +109,7 @@ void CCodeBase__CCodeBaseDtor(CCodeBase* thisPtr)
     using FuncPtrType = void(__fastcall *)(CCodeBase*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCodeBase__CCodeBaseDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CCodeBase__AddBinaryData(CCodeBase* thisPtr, CExoString& a0, CExoString& a1, CExoString& a2, char a3, void* a4, int32_t a5)

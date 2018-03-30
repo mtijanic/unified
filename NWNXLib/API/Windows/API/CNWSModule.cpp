@@ -3,6 +3,8 @@
 #include "Platform/ASLR.hpp"
 
 #include "CERFFile.hpp"
+#include "CExoArrayListTemplatedNWPlayerCharacterList_stPtr.hpp"
+#include "CExoArrayListTemplatedunsignedlong.hpp"
 #include "CNWSArea.hpp"
 #include "CNWSPlayer.hpp"
 #include "CNWSPlayerTURD.hpp"
@@ -346,8 +348,7 @@ void CNWSModule__CNWSModuleCtor(CNWSModule* thisPtr, CExoString a0, int32_t a1, 
     using FuncPtrType = void(__fastcall *)(CNWSModule*, int, CExoString, int32_t, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSModule__CNWSModuleCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1, a2);
+    func(thisPtr, a0, a1, a2);
 }
 
 void CNWSModule__CNWSModuleDtor__0(CNWSModule* thisPtr)
@@ -355,8 +356,7 @@ void CNWSModule__CNWSModuleDtor__0(CNWSModule* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSModule*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSModule__CNWSModuleDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSModule__AddObjectToLimbo(CNWSModule* thisPtr, uint32_t a0)

@@ -70,8 +70,7 @@ void CNWSBarter__CNWSBarterCtor(CNWSBarter* thisPtr, CNWSCreature* a0)
     using FuncPtrType = void(__fastcall *)(CNWSBarter*, int, CNWSCreature*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSBarter__CNWSBarterCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CNWSBarter__CNWSBarterDtor(CNWSBarter* thisPtr)
@@ -79,8 +78,7 @@ void CNWSBarter__CNWSBarterDtor(CNWSBarter* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSBarter*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSBarter__CNWSBarterDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWSBarter__AddItem(CNWSBarter* thisPtr, uint32_t a0, unsigned char& a1, unsigned char& a2)

@@ -46,8 +46,7 @@ void CResDWK__CResDWKCtor(CResDWK* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResDWK*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResDWK__CResDWKCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CResDWK__CResDWKDtor__0(CResDWK* thisPtr)
@@ -55,8 +54,7 @@ void CResDWK__CResDWKDtor__0(CResDWK* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResDWK*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResDWK__CResDWKDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 unsigned char* CResDWK__GetDWKDataPtr(CResDWK* thisPtr)

@@ -3,7 +3,9 @@
 #include "Platform/ASLR.hpp"
 
 #include "CTlkFile.hpp"
+#include "CTlkTableToken.hpp"
 #include "CTlkTableTokenCustom.hpp"
+#include "STR_RES.hpp"
 
 namespace NWNXLib {
 
@@ -99,8 +101,7 @@ void CTlkTable__CTlkTableCtor(CTlkTable* thisPtr)
     using FuncPtrType = void(__fastcall *)(CTlkTable*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CTlkTable__CTlkTableCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CTlkTable__CTlkTableDtor__0(CTlkTable* thisPtr)
@@ -108,8 +109,7 @@ void CTlkTable__CTlkTableDtor__0(CTlkTable* thisPtr)
     using FuncPtrType = void(__fastcall *)(CTlkTable*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CTlkTable__CTlkTableDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CTlkTable__ClearCustomTokens(CTlkTable* thisPtr)

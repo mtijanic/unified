@@ -18,8 +18,7 @@ void CExoLinkedListTemplatedExoLocString_st__CExoLinkedListTemplatedExoLocString
     using FuncPtrType = void(__fastcall *)(CExoLinkedListTemplatedExoLocString_st*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLinkedListTemplatedExoLocString_st__CExoLinkedListTemplatedExoLocString_stDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 }

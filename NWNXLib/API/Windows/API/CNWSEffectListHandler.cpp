@@ -846,8 +846,7 @@ void CNWSEffectListHandler__CNWSEffectListHandlerDtor__0(CNWSEffectListHandler* 
     using FuncPtrType = void(__fastcall *)(CNWSEffectListHandler*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEffectListHandler__CNWSEffectListHandlerDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CNWSEffectListHandler__InitializeEffects(CNWSEffectListHandler* thisPtr)

@@ -26,8 +26,7 @@ void CExoArrayListTemplatedCWorldJournalEntry__CExoArrayListTemplatedCWorldJourn
     using FuncPtrType = void(__fastcall *)(CExoArrayListTemplatedCWorldJournalEntry*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoArrayListTemplatedCWorldJournalEntry__CExoArrayListTemplatedCWorldJournalEntryDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CExoArrayListTemplatedCWorldJournalEntry__Add(CExoArrayListTemplatedCWorldJournalEntry* thisPtr, CWorldJournalEntry a0)

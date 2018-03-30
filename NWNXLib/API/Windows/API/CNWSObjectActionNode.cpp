@@ -21,8 +21,7 @@ void CNWSObjectActionNode__CNWSObjectActionNodeCtor(CNWSObjectActionNode* thisPt
     using FuncPtrType = void(__fastcall *)(CNWSObjectActionNode*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSObjectActionNode__CNWSObjectActionNodeCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CNWSObjectActionNode__CNWSObjectActionNodeDtor(CNWSObjectActionNode* thisPtr)
@@ -30,8 +29,7 @@ void CNWSObjectActionNode__CNWSObjectActionNodeDtor(CNWSObjectActionNode* thisPt
     using FuncPtrType = void(__fastcall *)(CNWSObjectActionNode*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSObjectActionNode__CNWSObjectActionNodeDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 }

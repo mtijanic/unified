@@ -2,6 +2,8 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CExoString.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -131,8 +133,7 @@ void CResRef__CResRefCtor__0(CResRef* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResRef*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResRef__CResRefCtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CResRef__CResRefCtor__1(CResRef* thisPtr, const CExoString& a0)
@@ -140,8 +141,7 @@ void CResRef__CResRefCtor__1(CResRef* thisPtr, const CExoString& a0)
     using FuncPtrType = void(__fastcall *)(CResRef*, int, const CExoString&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResRef__CResRefCtor__1);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CResRef__CResRefCtor__2(CResRef* thisPtr, const char* a0)
@@ -149,8 +149,7 @@ void CResRef__CResRefCtor__2(CResRef* thisPtr, const char* a0)
     using FuncPtrType = void(__fastcall *)(CResRef*, int, const char*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResRef__CResRefCtor__2);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CResRef__CResRefCtor__3(CResRef* thisPtr, const unsigned char* a0)
@@ -158,8 +157,7 @@ void CResRef__CResRefCtor__3(CResRef* thisPtr, const unsigned char* a0)
     using FuncPtrType = void(__fastcall *)(CResRef*, int, const unsigned char*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResRef__CResRefCtor__3);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CResRef__CResRefCtor__4(CResRef* thisPtr, const unsigned char* a0, unsigned char a1)
@@ -167,8 +165,7 @@ void CResRef__CResRefCtor__4(CResRef* thisPtr, const unsigned char* a0, unsigned
     using FuncPtrType = void(__fastcall *)(CResRef*, int, const unsigned char*, unsigned char);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResRef__CResRefCtor__4);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1);
+    func(thisPtr, a0, a1);
 }
 
 void CResRef__CopyToString__0(CResRef* thisPtr, CExoString& a0)

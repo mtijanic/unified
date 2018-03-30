@@ -85,8 +85,7 @@ void CVirtualMachineStack__CVirtualMachineStackCtor(CVirtualMachineStack* thisPt
     using FuncPtrType = void(__fastcall *)(CVirtualMachineStack*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineStack__CVirtualMachineStackCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CVirtualMachineStack__CVirtualMachineStackDtor(CVirtualMachineStack* thisPtr)
@@ -94,8 +93,7 @@ void CVirtualMachineStack__CVirtualMachineStackDtor(CVirtualMachineStack* thisPt
     using FuncPtrType = void(__fastcall *)(CVirtualMachineStack*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineStack__CVirtualMachineStackDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CVirtualMachineStack__AddToTopOfStack(CVirtualMachineStack* thisPtr, int32_t a0)

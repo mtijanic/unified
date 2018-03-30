@@ -31,8 +31,7 @@ void CExoCriticalSectionInternal__CExoCriticalSectionInternalCtor(CExoCriticalSe
     using FuncPtrType = void(__fastcall *)(CExoCriticalSectionInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoCriticalSectionInternal__CExoCriticalSectionInternalCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CExoCriticalSectionInternal__CExoCriticalSectionInternalDtor(CExoCriticalSectionInternal* thisPtr)
@@ -40,8 +39,7 @@ void CExoCriticalSectionInternal__CExoCriticalSectionInternalDtor(CExoCriticalSe
     using FuncPtrType = void(__fastcall *)(CExoCriticalSectionInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoCriticalSectionInternal__CExoCriticalSectionInternalDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CExoCriticalSectionInternal__EnterCriticalSection(CExoCriticalSectionInternal* thisPtr)

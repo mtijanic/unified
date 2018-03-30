@@ -168,8 +168,7 @@ void CVirtualMachineDebuggerInstance__CVirtualMachineDebuggerInstanceCtor(CVirtu
     using FuncPtrType = void(__fastcall *)(CVirtualMachineDebuggerInstance*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineDebuggerInstance__CVirtualMachineDebuggerInstanceCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CVirtualMachineDebuggerInstance__CVirtualMachineDebuggerInstanceDtor(CVirtualMachineDebuggerInstance* thisPtr)
@@ -177,8 +176,7 @@ void CVirtualMachineDebuggerInstance__CVirtualMachineDebuggerInstanceDtor(CVirtu
     using FuncPtrType = void(__fastcall *)(CVirtualMachineDebuggerInstance*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineDebuggerInstance__CVirtualMachineDebuggerInstanceDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CVirtualMachineDebuggerInstance__DebuggerDisplayCurrentLocation(CVirtualMachineDebuggerInstance* thisPtr, int32_t a0, int32_t a1)

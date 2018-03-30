@@ -39,6 +39,7 @@ struct CAppManager
 
     CAppManager();
     ~CAppManager();
+    void ConnectToServer(CExoString, int32_t);
     void CreateServer();
     void DestroyScriptDebuggerPopup();
     void DestroyServer();
@@ -48,6 +49,7 @@ struct CAppManager
     CObjectTableManager* GetObjectTableManager(uint32_t);
     unsigned char GetProgressFromCodeword(CExoString&);
     unsigned char ReadProgressFromINI(unsigned char);
+    int32_t SetDDCipherForModule(CExoString);
     void SetDungeonMasterEXERunning(int32_t);
     void ShowServerMem();
     int32_t SpawnExternalScriptDebugger();
@@ -55,6 +57,7 @@ struct CAppManager
 
 void CAppManager__CAppManagerCtor(CAppManager* thisPtr);
 void CAppManager__CAppManagerDtor(CAppManager* thisPtr);
+void CAppManager__ConnectToServer(CAppManager* thisPtr, CExoString, int32_t);
 void CAppManager__CreateServer(CAppManager* thisPtr);
 void CAppManager__DestroyScriptDebuggerPopup(CAppManager* thisPtr);
 void CAppManager__DestroyServer(CAppManager* thisPtr);
@@ -64,6 +67,7 @@ int32_t CAppManager__GetDungeonMasterEXERunning(CAppManager* thisPtr);
 CObjectTableManager* CAppManager__GetObjectTableManager(CAppManager* thisPtr, uint32_t);
 unsigned char CAppManager__GetProgressFromCodeword(CAppManager* thisPtr, CExoString&);
 unsigned char CAppManager__ReadProgressFromINI(CAppManager* thisPtr, unsigned char);
+int32_t CAppManager__SetDDCipherForModule(CAppManager* thisPtr, CExoString);
 void CAppManager__SetDungeonMasterEXERunning(CAppManager* thisPtr, int32_t);
 void CAppManager__ShowServerMem(CAppManager* thisPtr);
 int32_t CAppManager__SpawnExternalScriptDebugger(CAppManager* thisPtr);

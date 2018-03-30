@@ -51,8 +51,7 @@ void CObjectLookupTable__CObjectLookupTableCtor(CObjectLookupTable* thisPtr)
     using FuncPtrType = void(__fastcall *)(CObjectLookupTable*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CObjectLookupTable__CObjectLookupTableCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CObjectLookupTable__CObjectLookupTableDtor(CObjectLookupTable* thisPtr)
@@ -60,8 +59,7 @@ void CObjectLookupTable__CObjectLookupTableDtor(CObjectLookupTable* thisPtr)
     using FuncPtrType = void(__fastcall *)(CObjectLookupTable*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CObjectLookupTable__CObjectLookupTableDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 uint32_t CObjectLookupTable__AddID(CObjectLookupTable* thisPtr, uint32_t a0)

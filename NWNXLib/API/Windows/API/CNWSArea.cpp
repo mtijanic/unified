@@ -4,6 +4,7 @@
 
 #include "CERFFile.hpp"
 #include "CExoArrayListTemplatedCGameObjectPtr.hpp"
+#include "CExoArrayListTemplatedunsignedlong.hpp"
 #include "CGameEffect.hpp"
 #include "CNWSAmbientSound.hpp"
 #include "CNWSAreaGridSuccessors.hpp"
@@ -527,8 +528,7 @@ void CNWSArea__CNWSAreaCtor(CNWSArea* thisPtr, CResRef a0, int32_t a1, uint32_t 
     using FuncPtrType = void(__fastcall *)(CNWSArea*, int, CResRef, int32_t, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSArea__CNWSAreaCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0, a1, a2);
+    func(thisPtr, a0, a1, a2);
 }
 
 void CNWSArea__CNWSAreaDtor__0(CNWSArea* thisPtr)
@@ -536,8 +536,7 @@ void CNWSArea__CNWSAreaDtor__0(CNWSArea* thisPtr)
     using FuncPtrType = void(__fastcall *)(CNWSArea*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSArea__CNWSAreaDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CNWSArea__AddObjectToArea(CNWSArea* thisPtr, uint32_t a0, int32_t a1)
@@ -797,8 +796,7 @@ void CNWSArea__GetTile(CNWSArea* thisPtr, Vector a0)
     using FuncPtrType = void(__fastcall *)(CNWSArea*, int, Vector);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSArea__GetTile);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 int32_t CNWSArea__GoalMoveDenied(CNWSArea* thisPtr, int32_t a0, int32_t a1, int32_t a2)

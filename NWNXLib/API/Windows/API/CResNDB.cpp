@@ -46,8 +46,7 @@ void CResNDB__CResNDBCtor(CResNDB* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResNDB*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResNDB__CResNDBCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CResNDB__CResNDBDtor__0(CResNDB* thisPtr)
@@ -55,8 +54,7 @@ void CResNDB__CResNDBDtor__0(CResNDB* thisPtr)
     using FuncPtrType = void(__fastcall *)(CResNDB*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResNDB__CResNDBDtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 unsigned char* CResNDB__GetNDBDataPtr(CResNDB* thisPtr)

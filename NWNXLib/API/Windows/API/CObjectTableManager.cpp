@@ -58,8 +58,7 @@ void CObjectTableManager__CObjectTableManagerCtor(CObjectTableManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CObjectTableManager*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CObjectTableManager__CObjectTableManagerCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CObjectTableManager__CObjectTableManagerDtor(CObjectTableManager* thisPtr)
@@ -67,8 +66,7 @@ void CObjectTableManager__CObjectTableManagerDtor(CObjectTableManager* thisPtr)
     using FuncPtrType = void(__fastcall *)(CObjectTableManager*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CObjectTableManager__CObjectTableManagerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CObjectTableManager__AddID(CObjectTableManager* thisPtr, uint32_t a0, uint32_t* a1, uint32_t a2)

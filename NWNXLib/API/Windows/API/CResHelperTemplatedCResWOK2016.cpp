@@ -2,6 +2,8 @@
 #include "API/Functions.hpp"
 #include "Platform/ASLR.hpp"
 
+#include "CResRef.hpp"
+
 namespace NWNXLib {
 
 namespace API {
@@ -21,8 +23,7 @@ void CResHelperTemplatedCResWOK2016__CResHelperTemplatedCResWOK2016Dtor__0(CResH
     using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCResWOK2016*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResWOK2016__CResHelperTemplatedCResWOK2016Dtor__0);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CResHelperTemplatedCResWOK2016__SetResRef(CResHelperTemplatedCResWOK2016* thisPtr, const CResRef& a0, int32_t a1)

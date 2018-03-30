@@ -74,8 +74,7 @@ void CExoBaseInternal__CExoBaseInternalCtor(CExoBaseInternal* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoBaseInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBaseInternal__CExoBaseInternalCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx);
+    func(thisPtr);
 }
 
 void CExoBaseInternal__CExoBaseInternalDtor(CExoBaseInternal* thisPtr)
@@ -83,8 +82,7 @@ void CExoBaseInternal__CExoBaseInternalDtor(CExoBaseInternal* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoBaseInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBaseInternal__CExoBaseInternalDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 void CExoBaseInternal__AddAlias(CExoBaseInternal* thisPtr, int32_t a0, CExoString a1, CExoString a2)

@@ -35,6 +35,11 @@ int32_t CExoBase::GetAugmentedDirectoryList(CExoArrayListTemplatedCFileInfo* a0,
     return CExoBase__GetAugmentedDirectoryList(this, a0, a1, a2, a3);
 }
 
+int32_t CExoBase::GetDirectoryAndWorkshopList(CExoArrayListTemplatedCExoString* a0, CExoString a1, uint16_t a2, int32_t a3, int32_t a4)
+{
+    return CExoBase__GetDirectoryAndWorkshopList(this, a0, a1, a2, a3, a4);
+}
+
 int32_t CExoBase::GetDirectoryList(CExoArrayListTemplatedCExoString* a0, CExoString a1, uint16_t a2, int32_t a3, int32_t a4)
 {
     return CExoBase__GetDirectoryList(this, a0, a1, a2, a3, a4);
@@ -70,8 +75,7 @@ void CExoBase__CExoBaseCtor(CExoBase* thisPtr, CExoString a0)
     using FuncPtrType = void(__fastcall *)(CExoBase*, int, CExoString);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBase__CExoBaseCtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, a0);
+    func(thisPtr, a0);
 }
 
 void CExoBase__CExoBaseDtor(CExoBase* thisPtr)
@@ -79,8 +83,7 @@ void CExoBase__CExoBaseDtor(CExoBase* thisPtr)
     using FuncPtrType = void(__fastcall *)(CExoBase*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBase__CExoBaseDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    int edx = 0;
-    func(thisPtr, edx, 2);
+    func(thisPtr, 2);
 }
 
 int32_t CExoBase__CheckForCD(CExoBase* thisPtr, uint32_t a0)
@@ -99,6 +102,15 @@ int32_t CExoBase__GetAugmentedDirectoryList(CExoBase* thisPtr, CExoArrayListTemp
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     int edx = 0;
     return func(thisPtr, edx, a0, a1, a2, a3);
+}
+
+int32_t CExoBase__GetDirectoryAndWorkshopList(CExoBase* thisPtr, CExoArrayListTemplatedCExoString* a0, CExoString a1, uint16_t a2, int32_t a3, int32_t a4)
+{
+    using FuncPtrType = int32_t(__fastcall *)(CExoBase*, int, CExoArrayListTemplatedCExoString*, CExoString, uint16_t, int32_t, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBase__GetDirectoryAndWorkshopList);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    int edx = 0;
+    return func(thisPtr, edx, a0, a1, a2, a3, a4);
 }
 
 int32_t CExoBase__GetDirectoryList(CExoBase* thisPtr, CExoArrayListTemplatedCExoString* a0, CExoString a1, uint16_t a2, int32_t a3, int32_t a4)

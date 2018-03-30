@@ -108,7 +108,7 @@ void CTlkTable__CTlkTableCtor(CTlkTable* thisPtr)
 void CTlkTable__CTlkTableDtor__0(CTlkTable* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CTlkTable*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CTlkTable__CTlkTableDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CTlkTable__CTlkTableDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

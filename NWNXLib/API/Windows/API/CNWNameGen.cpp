@@ -48,7 +48,7 @@ void CNWNameGen__CNWNameGenCtor(CNWNameGen* thisPtr)
 void CNWNameGen__CNWNameGenDtor__0(CNWNameGen* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWNameGen*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWNameGen__CNWNameGenDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWNameGen__CNWNameGenDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

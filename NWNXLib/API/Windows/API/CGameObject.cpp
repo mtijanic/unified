@@ -195,7 +195,7 @@ void CGameObject__CGameObjectCtor(CGameObject* thisPtr, unsigned char a0, uint32
 void CGameObject__CGameObjectDtor__0(CGameObject* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CGameObject*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameObject__CGameObjectDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameObject__CGameObjectDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

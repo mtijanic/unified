@@ -53,7 +53,7 @@ void CNWDoorSurfaceMesh__CNWDoorSurfaceMeshCtor(CNWDoorSurfaceMesh* thisPtr)
 void CNWDoorSurfaceMesh__CNWDoorSurfaceMeshDtor__0(CNWDoorSurfaceMesh* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWDoorSurfaceMesh*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWDoorSurfaceMesh__CNWDoorSurfaceMeshDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWDoorSurfaceMesh__CNWDoorSurfaceMeshDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

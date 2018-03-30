@@ -33,7 +33,7 @@ void CNWSSysAdmin__CNWSSysAdminCtor(CNWSSysAdmin* thisPtr, uint32_t a0)
 void CNWSSysAdmin__CNWSSysAdminDtor__0(CNWSSysAdmin* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSSysAdmin*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSSysAdmin__CNWSSysAdminDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSSysAdmin__CNWSSysAdminDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

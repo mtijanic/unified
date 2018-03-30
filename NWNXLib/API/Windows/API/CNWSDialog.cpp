@@ -111,7 +111,7 @@ void CNWSDialog__CNWSDialogCtor(CNWSDialog* thisPtr)
 void CNWSDialog__CNWSDialogDtor__0(CNWSDialog* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSDialog*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDialog__CNWSDialogDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDialog__CNWSDialogDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

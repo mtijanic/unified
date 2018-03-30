@@ -75,7 +75,7 @@ void CNWTileSet__CNWTileSetCtor(CNWTileSet* thisPtr, CResRef a0, int32_t a1)
 void CNWTileSet__CNWTileSetDtor__0(CNWTileSet* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWTileSet*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSet__CNWTileSetDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSet__CNWTileSetDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

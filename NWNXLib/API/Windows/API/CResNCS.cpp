@@ -53,7 +53,7 @@ void CResNCS__CResNCSCtor(CResNCS* thisPtr)
 void CResNCS__CResNCSDtor__0(CResNCS* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResNCS*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResNCS__CResNCSDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResNCS__CResNCSDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

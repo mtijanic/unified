@@ -420,7 +420,7 @@ void CResGFF__CResGFFCtor__1(CResGFF* thisPtr, uint16_t a0, char* a1, const CRes
 void CResGFF__CResGFFDtor__0(CResGFF* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResGFF*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResGFF__CResGFFDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResGFF__CResGFFDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

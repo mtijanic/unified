@@ -106,7 +106,7 @@ void CExoResFile__CExoResFileCtor(CExoResFile* thisPtr)
 void CExoResFile__CExoResFileDtor__0(CExoResFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoResFile*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResFile__CExoResFileDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResFile__CExoResFileDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

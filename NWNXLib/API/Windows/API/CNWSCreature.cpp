@@ -2352,7 +2352,7 @@ void CNWSCreature__CNWSCreatureCtor(CNWSCreature* thisPtr, uint32_t a0, int32_t 
 void CNWSCreature__CNWSCreatureDtor__0(CNWSCreature* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSCreature*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreature__CNWSCreatureDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreature__CNWSCreatureDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

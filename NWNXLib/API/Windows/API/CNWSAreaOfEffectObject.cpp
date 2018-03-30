@@ -137,7 +137,7 @@ void CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectCtor(CNWSAreaOfEffectObject* 
 void CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectDtor__0(CNWSAreaOfEffectObject* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSAreaOfEffectObject*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAreaOfEffectObject__CNWSAreaOfEffectObjectDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

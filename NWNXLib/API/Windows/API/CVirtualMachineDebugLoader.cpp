@@ -36,7 +36,7 @@ int32_t CVirtualMachineDebugLoader::ReleaseDebugInfo()
 void CVirtualMachineDebugLoader__CVirtualMachineDebugLoaderDtor__0(CVirtualMachineDebugLoader* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CVirtualMachineDebugLoader*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineDebugLoader__CVirtualMachineDebugLoaderDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineDebugLoader__CVirtualMachineDebugLoaderDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

@@ -40,7 +40,7 @@ void CScriptSourceFile__CScriptSourceFileCtor(CScriptSourceFile* thisPtr)
 void CScriptSourceFile__CScriptSourceFileDtor__0(CScriptSourceFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CScriptSourceFile*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptSourceFile__CScriptSourceFileDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptSourceFile__CScriptSourceFileDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

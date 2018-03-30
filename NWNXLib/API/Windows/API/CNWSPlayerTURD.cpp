@@ -116,7 +116,7 @@ void CNWSPlayerTURD__CNWSPlayerTURDCtor(CNWSPlayerTURD* thisPtr, uint32_t a0)
 void CNWSPlayerTURD__CNWSPlayerTURDDtor__0(CNWSPlayerTURD* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerTURD*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerTURD__CNWSPlayerTURDDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerTURD__CNWSPlayerTURDDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

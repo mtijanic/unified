@@ -138,7 +138,7 @@ void CNWSTrigger__CNWSTriggerCtor(CNWSTrigger* thisPtr, uint32_t a0)
 void CNWSTrigger__CNWSTriggerDtor__0(CNWSTrigger* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSTrigger*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSTrigger__CNWSTriggerDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSTrigger__CNWSTriggerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

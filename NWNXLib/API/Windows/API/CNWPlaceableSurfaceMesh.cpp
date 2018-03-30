@@ -38,7 +38,7 @@ void CNWPlaceableSurfaceMesh__CNWPlaceableSurfaceMeshCtor(CNWPlaceableSurfaceMes
 void CNWPlaceableSurfaceMesh__CNWPlaceableSurfaceMeshDtor__0(CNWPlaceableSurfaceMesh* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWPlaceableSurfaceMesh*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWPlaceableSurfaceMesh__CNWPlaceableSurfaceMeshDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWPlaceableSurfaceMesh__CNWPlaceableSurfaceMeshDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

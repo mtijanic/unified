@@ -108,7 +108,7 @@ void CNWSAmbientSound__CNWSAmbientSoundCtor(CNWSAmbientSound* thisPtr, uint32_t 
 void CNWSAmbientSound__CNWSAmbientSoundDtor__0(CNWSAmbientSound* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSAmbientSound*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAmbientSound__CNWSAmbientSoundDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSAmbientSound__CNWSAmbientSoundDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

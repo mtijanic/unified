@@ -279,7 +279,7 @@ void CNWSItem__CNWSItemCtor(CNWSItem* thisPtr, uint32_t a0)
 void CNWSItem__CNWSItemDtor__0(CNWSItem* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSItem*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItem__CNWSItemDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItem__CNWSItemDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

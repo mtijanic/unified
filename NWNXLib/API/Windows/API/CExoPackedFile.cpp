@@ -40,7 +40,7 @@ void CExoPackedFile__CExoPackedFileCtor(CExoPackedFile* thisPtr)
 void CExoPackedFile__CExoPackedFileDtor__0(CExoPackedFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoPackedFile*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoPackedFile__CExoPackedFileDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoPackedFile__CExoPackedFileDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

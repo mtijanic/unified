@@ -3079,7 +3079,7 @@ int32_t CNWVirtualMachineCommands::SaveGameDefinedStructure(int32_t a0, void* a1
 void CNWVirtualMachineCommands__CNWVirtualMachineCommandsDtor__0(CNWVirtualMachineCommands* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWVirtualMachineCommands*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWVirtualMachineCommands__CNWVirtualMachineCommandsDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWVirtualMachineCommands__CNWVirtualMachineCommandsDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

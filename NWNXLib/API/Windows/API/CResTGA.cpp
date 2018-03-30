@@ -101,7 +101,7 @@ void CResTGA__CResTGACtor(CResTGA* thisPtr)
 void CResTGA__CResTGADtor__0(CResTGA* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResTGA*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResTGA__CResTGADtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResTGA__CResTGADtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

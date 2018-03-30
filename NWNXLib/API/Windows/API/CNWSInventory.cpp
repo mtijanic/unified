@@ -60,7 +60,7 @@ void CNWSInventory__CNWSInventoryCtor(CNWSInventory* thisPtr)
 void CNWSInventory__CNWSInventoryDtor__0(CNWSInventory* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSInventory*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSInventory__CNWSInventoryDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSInventory__CNWSInventoryDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

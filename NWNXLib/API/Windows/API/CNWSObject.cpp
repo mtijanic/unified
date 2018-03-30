@@ -752,7 +752,7 @@ void CNWSObject__CNWSObjectCtor(CNWSObject* thisPtr, unsigned char a0, uint32_t 
 void CNWSObject__CNWSObjectDtor__0(CNWSObject* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSObject*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSObject__CNWSObjectDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSObject__CNWSObjectDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

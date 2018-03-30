@@ -355,7 +355,7 @@ void CNWSModule__CNWSModuleCtor(CNWSModule* thisPtr, CExoString a0, int32_t a1, 
 void CNWSModule__CNWSModuleDtor__0(CNWSModule* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSModule*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSModule__CNWSModuleDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSModule__CNWSModuleDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

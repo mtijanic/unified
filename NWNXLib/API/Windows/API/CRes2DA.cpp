@@ -60,7 +60,7 @@ void CRes2DA__CRes2DACtor(CRes2DA* thisPtr)
 void CRes2DA__CRes2DADtor__0(CRes2DA* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CRes2DA*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes2DA__CRes2DADtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes2DA__CRes2DADtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

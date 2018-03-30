@@ -1704,7 +1704,7 @@ void CNWSMessage__CNWSMessageCtor(CNWSMessage* thisPtr)
 void CNWSMessage__CNWSMessageDtor__0(CNWSMessage* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSMessage*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSMessage__CNWSMessageDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSMessage__CNWSMessageDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

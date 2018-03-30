@@ -211,7 +211,7 @@ void CNWSPlayer__CNWSPlayerCtor(CNWSPlayer* thisPtr, uint32_t a0)
 void CNWSPlayer__CNWSPlayerDtor__0(CNWSPlayer* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayer*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayer__CNWSPlayerDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayer__CNWSPlayerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

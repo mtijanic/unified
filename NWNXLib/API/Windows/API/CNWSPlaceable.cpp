@@ -190,7 +190,7 @@ void CNWSPlaceable__CNWSPlaceableCtor(CNWSPlaceable* thisPtr, uint32_t a0)
 void CNWSPlaceable__CNWSPlaceableDtor__0(CNWSPlaceable* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlaceable*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlaceable__CNWSPlaceableDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlaceable__CNWSPlaceableDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

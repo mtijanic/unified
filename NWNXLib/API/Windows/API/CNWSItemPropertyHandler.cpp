@@ -250,7 +250,7 @@ int32_t CNWSItemPropertyHandler::RemoveUnlimitedAmmo(CNWSItem* a0, CNWItemProper
 void CNWSItemPropertyHandler__CNWSItemPropertyHandlerDtor__0(CNWSItemPropertyHandler* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSItemPropertyHandler*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItemPropertyHandler__CNWSItemPropertyHandlerDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItemPropertyHandler__CNWSItemPropertyHandlerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

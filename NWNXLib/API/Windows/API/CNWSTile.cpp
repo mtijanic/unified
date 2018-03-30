@@ -143,7 +143,7 @@ void CNWSTile__CNWSTileCtor(CNWSTile* thisPtr)
 void CNWSTile__CNWSTileDtor__0(CNWSTile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSTile*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSTile__CNWSTileDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSTile__CNWSTileDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

@@ -125,7 +125,7 @@ void CRes__CResCtor__1(CRes* thisPtr, uint32_t a0)
 void CRes__CResDtor__0(CRes* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CRes*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes__CResDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes__CResDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

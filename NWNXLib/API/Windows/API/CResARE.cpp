@@ -14,7 +14,7 @@ CResARE::~CResARE()
 void CResARE__CResAREDtor__0(CResARE* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResARE*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResARE__CResAREDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResARE__CResAREDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

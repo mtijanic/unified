@@ -35,7 +35,7 @@ void CResHelperTemplatedCResNSS2009__CResHelperTemplatedCResNSS2009Ctor(CResHelp
 void CResHelperTemplatedCResNSS2009__CResHelperTemplatedCResNSS2009Dtor__0(CResHelperTemplatedCResNSS2009* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCResNSS2009*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResNSS2009__CResHelperTemplatedCResNSS2009Dtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResNSS2009__CResHelperTemplatedCResNSS2009Dtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

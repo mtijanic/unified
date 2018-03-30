@@ -53,7 +53,7 @@ void CResWOK__CResWOKCtor(CResWOK* thisPtr)
 void CResWOK__CResWOKDtor__0(CResWOK* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResWOK*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResWOK__CResWOKDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResWOK__CResWOKDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

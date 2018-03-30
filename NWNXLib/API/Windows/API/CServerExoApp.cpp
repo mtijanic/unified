@@ -881,7 +881,7 @@ void CServerExoApp__CServerExoAppCtor(CServerExoApp* thisPtr)
 void CServerExoApp__CServerExoAppDtor__0(CServerExoApp* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CServerExoApp*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__CServerExoAppDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__CServerExoAppDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

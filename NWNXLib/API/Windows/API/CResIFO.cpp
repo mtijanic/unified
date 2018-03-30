@@ -14,7 +14,7 @@ CResIFO::~CResIFO()
 void CResIFO__CResIFODtor__0(CResIFO* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResIFO*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResIFO__CResIFODtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResIFO__CResIFODtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

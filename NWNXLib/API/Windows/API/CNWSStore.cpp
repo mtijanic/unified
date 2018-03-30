@@ -157,7 +157,7 @@ void CNWSStore__CNWSStoreCtor(CNWSStore* thisPtr, uint32_t a0)
 void CNWSStore__CNWSStoreDtor__0(CNWSStore* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSStore*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSStore__CNWSStoreDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSStore__CNWSStoreDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

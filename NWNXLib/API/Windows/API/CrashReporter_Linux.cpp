@@ -58,7 +58,7 @@ void CrashReporter_Linux__CrashReporter_LinuxCtor(CrashReporter_Linux* thisPtr, 
 void CrashReporter_Linux__CrashReporter_LinuxDtor__0(CrashReporter_Linux* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CrashReporter_LinuxDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CrashReporter_LinuxDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

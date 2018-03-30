@@ -179,7 +179,7 @@ void CNWSEncounter__CNWSEncounterCtor(CNWSEncounter* thisPtr, uint32_t a0)
 void CNWSEncounter__CNWSEncounterDtor__0(CNWSEncounter* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSEncounter*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEncounter__CNWSEncounterDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEncounter__CNWSEncounterDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

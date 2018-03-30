@@ -21,7 +21,7 @@ void CResHelperTemplatedCResNDB2064::SetResRef(const CResRef& a0, int32_t a1)
 void CResHelperTemplatedCResNDB2064__CResHelperTemplatedCResNDB2064Dtor__0(CResHelperTemplatedCResNDB2064* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCResNDB2064*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResNDB2064__CResHelperTemplatedCResNDB2064Dtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResNDB2064__CResHelperTemplatedCResNDB2064Dtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

@@ -844,7 +844,7 @@ void CNWSEffectListHandler::SendFloatyEffect(uint32_t a0, uint32_t a1)
 void CNWSEffectListHandler__CNWSEffectListHandlerDtor__0(CNWSEffectListHandler* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSEffectListHandler*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEffectListHandler__CNWSEffectListHandlerDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEffectListHandler__CNWSEffectListHandlerDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

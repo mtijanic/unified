@@ -136,7 +136,7 @@ void CNWArea__CNWAreaCtor(CNWArea* thisPtr)
 void CNWArea__CNWAreaDtor__0(CNWArea* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWArea*, int, int);
-    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWArea__CNWAreaDtor__0);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWArea__CNWAreaDtor);
     FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
     int edx = 0;
     func(thisPtr, edx, 2);

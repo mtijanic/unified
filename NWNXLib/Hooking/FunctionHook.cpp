@@ -93,10 +93,7 @@ void FunctionHook::ConstructTrampoline()
     // Correct relative addresses.
     Assembly::CorrectRelativeAddresses(reinterpret_cast<uintptr_t>(m_trampoline.data()), m_info.originalAddr, TRAMPOLINE_SIZE);
 
-#ifdef _WIN32
-    // TODO: Windows
-    static_assert(false, "Windows is not suported - fix me.");
-#else
+#ifndef _WIN32
     Assembly::RewriteGCCThunks(m_trampoline.data(), m_info.originalAddr, TRAMPOLINE_SIZE);
 #endif
 

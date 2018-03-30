@@ -8853,6 +8853,40 @@ constexpr uintptr_t Vector4__Vector4Ctor__0 = 0x006EFD50;
 constexpr uintptr_t Vector4__Vector4Ctor__1 = 0x006EFD20;
 constexpr uintptr_t Vector4__Normalize = 0x006F2300;
 
+
+//
+// HACK! Functions that don't exist on Windows but Linux API is calling them:
+//
+constexpr uintptr_t CCallbackImplTemplated12__GetCallbackSizeBytes = 0;
+constexpr uintptr_t CCallbackImplTemplated12__Run = 0;
+constexpr uintptr_t CCallbackImplTemplated20__GetCallbackSizeBytes = 0;
+constexpr uintptr_t CCallbackImplTemplated20__Run = 0;
+constexpr uintptr_t CCallbackImplTemplated28__GetCallbackSizeBytes = 0;
+constexpr uintptr_t CCallbackImplTemplated28__Run = 0;
+constexpr uintptr_t CCodeBaseInternal__GetVar = 0;
+constexpr uintptr_t CERFString__SetText = 0;
+constexpr uintptr_t CExoArrayListTemplatedCExoStringPtr__CExoArrayListTemplatedCExoStringPtrCtor = 0;
+constexpr uintptr_t CExoArrayListTemplatedunsignedlonglong__Add = 0;
+constexpr uintptr_t CExoArrayListTemplatedunsignedlonglong__AddUnique = 0;
+constexpr uintptr_t CExoFileInternal__Read = 0;
+constexpr uintptr_t CExoFileInternal__Write = 0;
+constexpr uintptr_t CExoLinkedListTemplatedCLinuxFileSection__CExoLinkedListTemplatedCLinuxFileSectionDtor = 0;
+constexpr uintptr_t CNetLayer__GetExoNet = 0;
+constexpr uintptr_t CNWSArea__GetTile = 0;
+constexpr uintptr_t CNWSpell__CNWSpellCtor = 0;
+constexpr uintptr_t CrashReporter_Linux__CrashReporter_LinuxCtor = 0;
+constexpr uintptr_t CrashReporter_Linux__CrashReporter_LinuxDtor = 0;
+constexpr uintptr_t CrashReporter_Linux__CanWriteCallstack = 0;
+constexpr uintptr_t CrashReporter_Linux__CanWriteMinidump = 0;
+constexpr uintptr_t CrashReporter_Linux__CanWriteSystemFiles = 0;
+constexpr uintptr_t CrashReporter_Linux__InternalCrashHandler = 0;
+constexpr uintptr_t CrashReporter_Linux__WriteCallstack = 0;
+constexpr uintptr_t CrashReporter_Linux__WriteSystemFiles = 0;
+constexpr uintptr_t CResGFF__GetField = 0;
+constexpr uintptr_t CServerExoApp__GetConnectionLib = 0;
+constexpr uintptr_t CVirtualMachine__RunScript = 0;
+constexpr uintptr_t CVirtualMachine__RunScript = 0;
+
 }
 
 }

@@ -40,16 +40,18 @@ void CNWLevelStats__CNWLevelStatsCtor(CNWLevelStats* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWLevelStats*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWLevelStats__CNWLevelStatsCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWLevelStats__CNWLevelStatsDtor(CNWLevelStats* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWLevelStats*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWLevelStats__CNWLevelStatsDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWLevelStats__AddFeat(CNWLevelStats* thisPtr, uint16_t a0)

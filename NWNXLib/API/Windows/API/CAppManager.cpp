@@ -96,16 +96,18 @@ void CAppManager__CAppManagerCtor(CAppManager* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CAppManager*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__CAppManagerCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CAppManager__CAppManagerDtor(CAppManager* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CAppManager*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CAppManager__CAppManagerDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CAppManager__ConnectToServer(CAppManager* thisPtr, CExoString a0, int32_t a1)

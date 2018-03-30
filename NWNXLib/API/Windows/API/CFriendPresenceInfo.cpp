@@ -25,8 +25,9 @@ void CFriendPresenceInfo__CFriendPresenceInfoDtor(CFriendPresenceInfo* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CFriendPresenceInfo*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CFriendPresenceInfo__CFriendPresenceInfoDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CFriendPresenceInfo__Decode(CFriendPresenceInfo* thisPtr, CExoString a0)

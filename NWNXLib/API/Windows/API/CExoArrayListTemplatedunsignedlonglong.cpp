@@ -20,16 +20,18 @@ void CExoArrayListTemplatedunsignedlonglong__Add(CExoArrayListTemplatedunsignedl
 {
     using FuncPtrType = void(__fastcall *)(CExoArrayListTemplatedunsignedlonglong*, int, uint64_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoArrayListTemplatedunsignedlonglong__Add);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CExoArrayListTemplatedunsignedlonglong__AddUnique(CExoArrayListTemplatedunsignedlonglong* thisPtr, uint64_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CExoArrayListTemplatedunsignedlonglong*, int, uint64_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoArrayListTemplatedunsignedlonglong__AddUnique);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 }

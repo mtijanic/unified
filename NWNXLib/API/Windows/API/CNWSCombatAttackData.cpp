@@ -68,16 +68,18 @@ void CNWSCombatAttackData__CNWSCombatAttackDataCtor(CNWSCombatAttackData* thisPt
 {
     using FuncPtrType = void(__fastcall *)(CNWSCombatAttackData*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCombatAttackData__CNWSCombatAttackDataCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSCombatAttackData__CNWSCombatAttackDataDtor(CNWSCombatAttackData* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSCombatAttackData*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCombatAttackData__CNWSCombatAttackDataDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSCombatAttackData__AddDamage(CNWSCombatAttackData* thisPtr, uint16_t a0, int32_t a1)

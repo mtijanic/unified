@@ -32,16 +32,18 @@ void CNWBaseItemArray__CNWBaseItemArrayCtor(CNWBaseItemArray* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWBaseItemArray*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWBaseItemArray__CNWBaseItemArrayCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWBaseItemArray__CNWBaseItemArrayDtor(CNWBaseItemArray* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWBaseItemArray*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWBaseItemArray__CNWBaseItemArrayDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CNWBaseItem* CNWBaseItemArray__GetBaseItem(CNWBaseItemArray* thisPtr, int32_t a0)

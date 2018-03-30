@@ -25,16 +25,18 @@ void CScriptCompilerIdListEntry__CScriptCompilerIdListEntryCtor(CScriptCompilerI
 {
     using FuncPtrType = void(__fastcall *)(CScriptCompilerIdListEntry*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptCompilerIdListEntry__CScriptCompilerIdListEntryCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CScriptCompilerIdListEntry__CScriptCompilerIdListEntryDtor(CScriptCompilerIdListEntry* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CScriptCompilerIdListEntry*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptCompilerIdListEntry__CScriptCompilerIdListEntryDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CScriptCompilerIdListEntry__ExpandParameterSpace(CScriptCompilerIdListEntry* thisPtr)

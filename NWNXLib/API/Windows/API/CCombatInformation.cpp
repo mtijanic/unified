@@ -48,16 +48,18 @@ void CCombatInformation__CCombatInformationCtor(CCombatInformation* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CCombatInformation*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCombatInformation__CCombatInformationCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CCombatInformation__CCombatInformationDtor(CCombatInformation* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CCombatInformation*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CCombatInformation__CCombatInformationDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CCombatInformation__LoadData(CCombatInformation* thisPtr, CResGFF* a0, CResStruct* a1)

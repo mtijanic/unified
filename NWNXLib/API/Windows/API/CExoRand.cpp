@@ -42,16 +42,18 @@ void CExoRand__CExoRandCtor(CExoRand* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoRand*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoRand__CExoRandCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoRand__CExoRandDtor(CExoRand* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoRand*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoRand__CExoRandDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CExoString CExoRand__GetString(CExoRand* thisPtr, uint16_t a0)

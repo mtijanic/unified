@@ -403,24 +403,27 @@ void CResGFF__CResGFFCtor__0(CResGFF* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResGFF*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResGFF__CResGFFCtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CResGFF__CResGFFCtor__1(CResGFF* thisPtr, uint16_t a0, char* a1, const CResRef& a2)
 {
     using FuncPtrType = void(__fastcall *)(CResGFF*, int, uint16_t, char*, const CResRef&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResGFF__CResGFFCtor__1);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1, a2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1, a2);
 }
 
 void CResGFF__CResGFFDtor__0(CResGFF* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResGFF*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResGFF__CResGFFDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 unsigned char* CResGFF__AddDataField(CResGFF* thisPtr, uint32_t a0, uint32_t a1, uint32_t a2)
@@ -580,8 +583,9 @@ void CResGFF__GetField(CResGFF* thisPtr, CResStruct* a0, uint32_t a1)
 {
     using FuncPtrType = void(__fastcall *)(CResGFF*, int, CResStruct*, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResGFF__GetField);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1);
 }
 
 uint32_t CResGFF__GetFieldByLabel(CResGFF* thisPtr, CResStruct* a0, char* a1)

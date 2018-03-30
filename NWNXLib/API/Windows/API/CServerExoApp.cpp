@@ -873,16 +873,18 @@ void CServerExoApp__CServerExoAppCtor(CServerExoApp* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CServerExoApp*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__CServerExoAppCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CServerExoApp__CServerExoAppDtor__0(CServerExoApp* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CServerExoApp*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__CServerExoAppDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CServerExoApp__AddCDKeyToBannedList(CServerExoApp* thisPtr, CExoString a0)
@@ -1150,8 +1152,9 @@ void CServerExoApp__GetConnectionLib(CServerExoApp* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CServerExoApp*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetConnectionLib);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 CNWSCreature* CServerExoApp__GetCreatureByGameObjectID(CServerExoApp* thisPtr, uint32_t a0)

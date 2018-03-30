@@ -182,16 +182,18 @@ void CNWSPlaceable__CNWSPlaceableCtor(CNWSPlaceable* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlaceable*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlaceable__CNWSPlaceableCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSPlaceable__CNWSPlaceableDtor__0(CNWSPlaceable* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlaceable*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlaceable__CNWSPlaceableDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWSPlaceable__AcquireItem(CNWSPlaceable* thisPtr, CNWSItem** a0, uint32_t a1, unsigned char a2, unsigned char a3, int32_t a4)

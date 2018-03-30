@@ -33,16 +33,18 @@ void CNWSClient__CNWSClientCtor(CNWSClient* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSClient*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSClient__CNWSClientCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSClient__CNWSClientDtor__0(CNWSClient* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSClient*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSClient__CNWSClientDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CNWSDungeonMaster* CNWSClient__AsNWSDungeonMaster(CNWSClient* thisPtr)

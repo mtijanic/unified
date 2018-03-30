@@ -148,24 +148,27 @@ void CGameEffect__CGameEffectCtor__0(CGameEffect* thisPtr, int32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CGameEffect*, int, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameEffect__CGameEffectCtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CGameEffect__CGameEffectCtor__1(CGameEffect* thisPtr, CGameEffect* a0, int32_t a1)
 {
     using FuncPtrType = void(__fastcall *)(CGameEffect*, int, CGameEffect*, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameEffect__CGameEffectCtor__1);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1);
 }
 
 void CGameEffect__CGameEffectDtor(CGameEffect* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CGameEffect*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameEffect__CGameEffectDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CGameEffect__CopyEffect(CGameEffect* thisPtr, CGameEffect* a0, int32_t a1)

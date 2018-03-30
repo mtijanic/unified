@@ -95,16 +95,18 @@ void CNWTile__CNWTileCtor(CNWTile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWTile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTile__CNWTileCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWTile__CNWTileDtor__0(CNWTile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWTile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTile__CNWTileDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWTile__GetAnimLoop(CNWTile* thisPtr, unsigned char* a0, unsigned char* a1, unsigned char* a2)

@@ -192,24 +192,27 @@ void CNWSFaction__CNWSFactionCtor__0(CNWSFaction* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSFaction*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSFaction__CNWSFactionCtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSFaction__CNWSFactionCtor__1(CNWSFaction* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSFaction*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSFaction__CNWSFactionCtor__1);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSFaction__CNWSFactionDtor(CNWSFaction* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSFaction*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSFaction__CNWSFactionDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSFaction__AddMember(CNWSFaction* thisPtr, uint32_t a0, int32_t a1)

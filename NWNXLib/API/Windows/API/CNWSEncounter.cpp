@@ -171,16 +171,18 @@ void CNWSEncounter__CNWSEncounterCtor(CNWSEncounter* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSEncounter*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEncounter__CNWSEncounterCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSEncounter__CNWSEncounterDtor__0(CNWSEncounter* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSEncounter*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSEncounter__CNWSEncounterDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSEncounter__AddCreaturesToSpawnList(CNWSEncounter* thisPtr, CEncounterListEntry* a0, int32_t& a1, int32_t a2, CEncounterListEntry a3)

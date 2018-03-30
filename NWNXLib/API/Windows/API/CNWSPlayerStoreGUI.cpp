@@ -27,8 +27,9 @@ void CNWSPlayerStoreGUI__CNWSPlayerStoreGUICtor(CNWSPlayerStoreGUI* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerStoreGUI*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerStoreGUI__CNWSPlayerStoreGUICtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSPlayerStoreGUI__CloseStore(CNWSPlayerStoreGUI* thisPtr, CNWSPlayer* a0, int32_t a1)

@@ -135,16 +135,18 @@ void CNWSTile__CNWSTileCtor(CNWSTile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSTile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSTile__CNWSTileCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSTile__CNWSTileDtor__0(CNWSTile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSTile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSTile__CNWSTileDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSTile__AddTrigger(CNWSTile* thisPtr, uint32_t a0)

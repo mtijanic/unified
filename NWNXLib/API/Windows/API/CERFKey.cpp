@@ -43,16 +43,18 @@ void CERFKey__CERFKeyCtor(CERFKey* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CERFKey*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFKey__CERFKeyCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CERFKey__CERFKeyDtor(CERFKey* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CERFKey*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFKey__CERFKeyDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CERFKey__Read(CERFKey* thisPtr)

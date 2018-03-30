@@ -39,16 +39,18 @@ void CNWSPlayerInventoryGUI__CNWSPlayerInventoryGUICtor(CNWSPlayerInventoryGUI* 
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerInventoryGUI*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerInventoryGUI__CNWSPlayerInventoryGUICtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSPlayerInventoryGUI__CNWSPlayerInventoryGUIDtor(CNWSPlayerInventoryGUI* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerInventoryGUI*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerInventoryGUI__CNWSPlayerInventoryGUIDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSPlayerInventoryGUI__SetOpen(CNWSPlayerInventoryGUI* thisPtr, int32_t a0, int32_t a1)

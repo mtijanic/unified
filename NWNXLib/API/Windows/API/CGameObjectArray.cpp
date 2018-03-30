@@ -63,16 +63,18 @@ void CGameObjectArray__CGameObjectArrayCtor(CGameObjectArray* thisPtr, int32_t a
 {
     using FuncPtrType = void(__fastcall *)(CGameObjectArray*, int, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameObjectArray__CGameObjectArrayCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CGameObjectArray__CGameObjectArrayDtor(CGameObjectArray* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CGameObjectArray*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CGameObjectArray__CGameObjectArrayDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 unsigned char CGameObjectArray__AddCharacterObjectAtPos(CGameObjectArray* thisPtr, uint32_t a0, CGameObject* a1)

@@ -92,24 +92,27 @@ void CExoLocString__CExoLocStringCtor__0(CExoLocString* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoLocString*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLocString__CExoLocStringCtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoLocString__CExoLocStringCtor__1(CExoLocString* thisPtr, const CExoLocString& a0)
 {
     using FuncPtrType = void(__fastcall *)(CExoLocString*, int, const CExoLocString&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLocString__CExoLocStringCtor__1);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CExoLocString__CExoLocStringDtor(CExoLocString* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoLocString*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLocString__CExoLocStringDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CExoLocString__AddString(CExoLocString* thisPtr, int32_t a0, CExoString a1, unsigned char a2)

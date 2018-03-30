@@ -74,16 +74,18 @@ void CExoBase__CExoBaseCtor(CExoBase* thisPtr, CExoString a0)
 {
     using FuncPtrType = void(__fastcall *)(CExoBase*, int, CExoString);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBase__CExoBaseCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CExoBase__CExoBaseDtor(CExoBase* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoBase*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoBase__CExoBaseDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CExoBase__CheckForCD(CExoBase* thisPtr, uint32_t a0)

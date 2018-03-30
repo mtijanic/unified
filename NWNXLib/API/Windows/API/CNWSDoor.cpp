@@ -105,16 +105,18 @@ void CNWSDoor__CNWSDoorCtor(CNWSDoor* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSDoor*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDoor__CNWSDoorCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSDoor__CNWSDoorDtor__0(CNWSDoor* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSDoor*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDoor__CNWSDoorDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSDoor__AddToArea(CNWSDoor* thisPtr, CNWSArea* a0, float a1, float a2, float a3, int32_t a4)

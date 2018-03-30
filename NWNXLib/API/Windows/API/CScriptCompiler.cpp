@@ -662,16 +662,18 @@ void CScriptCompiler__CScriptCompilerCtor(CScriptCompiler* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CScriptCompiler*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptCompiler__CScriptCompilerCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CScriptCompiler__CScriptCompilerDtor(CScriptCompiler* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CScriptCompiler*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CScriptCompiler__CScriptCompilerDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CScriptCompiler__AddStructureToStack(CScriptCompiler* thisPtr, const CExoString& a0, int32_t a1)

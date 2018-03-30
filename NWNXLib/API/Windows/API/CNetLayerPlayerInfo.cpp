@@ -55,16 +55,18 @@ void CNetLayerPlayerInfo__CNetLayerPlayerInfoCtor(CNetLayerPlayerInfo* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayerPlayerInfo*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerPlayerInfo__CNetLayerPlayerInfoCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNetLayerPlayerInfo__CNetLayerPlayerInfoDtor(CNetLayerPlayerInfo* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayerPlayerInfo*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerPlayerInfo__CNetLayerPlayerInfoDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNetLayerPlayerInfo__AddCDKey(CNetLayerPlayerInfo* thisPtr, const CExoString& a0, const CExoString& a1)

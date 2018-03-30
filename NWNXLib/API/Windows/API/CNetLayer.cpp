@@ -475,16 +475,18 @@ void CNetLayer__CNetLayerCtor(CNetLayer* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayer*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayer__CNetLayerCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNetLayer__CNetLayerDtor(CNetLayer* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayer*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayer__CNetLayerDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNetLayer__CleanUpEnumerateSpecific(CNetLayer* thisPtr)
@@ -689,8 +691,9 @@ void CNetLayer__GetExoNet(CNetLayer* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayer*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayer__GetExoNet);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 uint16_t CNetLayer__GetExpansionPackReqd(CNetLayer* thisPtr)

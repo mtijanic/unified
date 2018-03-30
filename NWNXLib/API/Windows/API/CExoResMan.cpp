@@ -332,16 +332,18 @@ void CExoResMan__CExoResManCtor(CExoResMan* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoResMan*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResMan__CExoResManCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoResMan__CExoResManDtor(CExoResMan* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoResMan*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoResMan__CExoResManDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CExoResMan__AddEncapsulatedResourceFile(CExoResMan* thisPtr, const CExoString& a0)

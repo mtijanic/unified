@@ -93,16 +93,18 @@ void CTwoDimArrays__CTwoDimArraysCtor(CTwoDimArrays* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CTwoDimArrays*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CTwoDimArrays__CTwoDimArraysCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CTwoDimArrays__CTwoDimArraysDtor(CTwoDimArrays* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CTwoDimArrays*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CTwoDimArrays__CTwoDimArraysDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CTwoDimArrays__ClearCached2DAs(CTwoDimArrays* thisPtr)

@@ -90,16 +90,18 @@ void CNWSSoundObject__CNWSSoundObjectCtor(CNWSSoundObject* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSSoundObject*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSSoundObject__CNWSSoundObjectCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSSoundObject__CNWSSoundObjectDtor__0(CNWSSoundObject* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSSoundObject*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSSoundObject__CNWSSoundObjectDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSSoundObject__AddToArea(CNWSSoundObject* thisPtr, CNWSArea* a0, int32_t a1)

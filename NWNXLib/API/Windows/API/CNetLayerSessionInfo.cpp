@@ -27,16 +27,18 @@ void CNetLayerSessionInfo__CNetLayerSessionInfoCtor(CNetLayerSessionInfo* thisPt
 {
     using FuncPtrType = void(__fastcall *)(CNetLayerSessionInfo*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerSessionInfo__CNetLayerSessionInfoCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNetLayerSessionInfo__CNetLayerSessionInfoDtor(CNetLayerSessionInfo* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayerSessionInfo*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerSessionInfo__CNetLayerSessionInfoDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNetLayerSessionInfo__Clean(CNetLayerSessionInfo* thisPtr)

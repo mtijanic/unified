@@ -32,16 +32,18 @@ void CExoIni__CExoIniCtor(CExoIni* thisPtr, CExoString a0)
 {
     using FuncPtrType = void(__fastcall *)(CExoIni*, int, CExoString);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoIni__CExoIniCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CExoIni__CExoIniDtor(CExoIni* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoIni*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoIni__CExoIniDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CExoIni__ReadIniEntry(CExoIni* thisPtr, CExoString& a0, const int32_t& a1, const CExoString& a2, const CExoString& a3)

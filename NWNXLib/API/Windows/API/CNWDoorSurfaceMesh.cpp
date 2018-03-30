@@ -45,16 +45,18 @@ void CNWDoorSurfaceMesh__CNWDoorSurfaceMeshCtor(CNWDoorSurfaceMesh* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWDoorSurfaceMesh*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWDoorSurfaceMesh__CNWDoorSurfaceMeshCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWDoorSurfaceMesh__CNWDoorSurfaceMeshDtor__0(CNWDoorSurfaceMesh* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWDoorSurfaceMesh*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWDoorSurfaceMesh__CNWDoorSurfaceMeshDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWDoorSurfaceMesh__GetMeshBoundingBox(CNWDoorSurfaceMesh* thisPtr, Vector a0, Vector a1, Vector& a2, Vector& a3)

@@ -60,16 +60,18 @@ void CNWRace__CNWRaceCtor(CNWRace* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWRace*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWRace__CNWRaceCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWRace__CNWRaceDtor(CNWRace* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWRace*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWRace__CNWRaceDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CExoString CNWRace__GetConverNameLowerText(CNWRace* thisPtr)

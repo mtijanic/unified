@@ -128,16 +128,18 @@ void CNWArea__CNWAreaCtor(CNWArea* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWArea*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWArea__CNWAreaCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWArea__CNWAreaDtor__0(CNWArea* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWArea*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWArea__CNWAreaDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWArea__AddStaticBoundingBox(CNWArea* thisPtr, uint32_t a0, const Vector& a1, const Vector& a2)

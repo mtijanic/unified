@@ -111,16 +111,18 @@ void CERFFile__CERFFileCtor(CERFFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CERFFile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFFile__CERFFileCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CERFFile__CERFFileDtor(CERFFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CERFFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CERFFile__CERFFileDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CERFFile__AddResource__0(CERFFile* thisPtr, CExoString& a0)

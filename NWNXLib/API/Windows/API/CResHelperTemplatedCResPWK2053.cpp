@@ -22,8 +22,9 @@ void CResHelperTemplatedCResPWK2053__CResHelperTemplatedCResPWK2053Dtor__0(CResH
 {
     using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCResPWK2053*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCResPWK2053__CResHelperTemplatedCResPWK2053Dtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CResHelperTemplatedCResPWK2053__SetResRef(CResHelperTemplatedCResPWK2053* thisPtr, const CResRef& a0, int32_t a1)

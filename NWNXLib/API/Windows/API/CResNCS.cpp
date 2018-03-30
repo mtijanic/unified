@@ -45,16 +45,18 @@ void CResNCS__CResNCSCtor(CResNCS* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResNCS*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResNCS__CResNCSCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CResNCS__CResNCSDtor__0(CResNCS* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResNCS*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResNCS__CResNCSDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 unsigned char* CResNCS__GetNCSDataPtr(CResNCS* thisPtr)

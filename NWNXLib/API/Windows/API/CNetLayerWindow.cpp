@@ -138,16 +138,18 @@ void CNetLayerWindow__CNetLayerWindowCtor(CNetLayerWindow* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayerWindow*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerWindow__CNetLayerWindowCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNetLayerWindow__CNetLayerWindowDtor(CNetLayerWindow* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNetLayerWindow*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNetLayerWindow__CNetLayerWindowDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNetLayerWindow__AddToHighOutgoingQueue(CNetLayerWindow* thisPtr, uint16_t a0)

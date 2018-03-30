@@ -40,16 +40,18 @@ void CNWNameGen__CNWNameGenCtor(CNWNameGen* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWNameGen*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWNameGen__CNWNameGenCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWNameGen__CNWNameGenDtor__0(CNWNameGen* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWNameGen*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWNameGen__CNWNameGenDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CExoString CNWNameGen__GetRandomName__0(CNWNameGen* thisPtr)

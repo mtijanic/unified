@@ -30,16 +30,18 @@ void CNWSDungeonMaster__CNWSDungeonMasterCtor(CNWSDungeonMaster* thisPtr, uint32
 {
     using FuncPtrType = void(__fastcall *)(CNWSDungeonMaster*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDungeonMaster__CNWSDungeonMasterCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSDungeonMaster__CNWSDungeonMasterDtor__0(CNWSDungeonMaster* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSDungeonMaster*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSDungeonMaster__CNWSDungeonMasterDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CNWSDungeonMaster* CNWSDungeonMaster__AsNWSDungeonMaster(CNWSDungeonMaster* thisPtr)

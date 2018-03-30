@@ -1696,16 +1696,18 @@ void CNWSMessage__CNWSMessageCtor(CNWSMessage* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSMessage*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSMessage__CNWSMessageCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSMessage__CNWSMessageDtor__0(CNWSMessage* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSMessage*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSMessage__CNWSMessageDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSMessage__AddActiveItemPropertiesToMessage(CNWSMessage* thisPtr, CNWSItem* a0, CNWSCreature* a1)

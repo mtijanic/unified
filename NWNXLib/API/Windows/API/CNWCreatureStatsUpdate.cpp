@@ -32,16 +32,18 @@ void CNWCreatureStatsUpdate__CNWCreatureStatsUpdateCtor(CNWCreatureStatsUpdate* 
 {
     using FuncPtrType = void(__fastcall *)(CNWCreatureStatsUpdate*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWCreatureStatsUpdate__CNWCreatureStatsUpdateCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWCreatureStatsUpdate__CNWCreatureStatsUpdateDtor(CNWCreatureStatsUpdate* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWCreatureStatsUpdate*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWCreatureStatsUpdate__CNWCreatureStatsUpdateDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWCreatureStatsUpdate__ClearEffectIcons(CNWCreatureStatsUpdate* thisPtr)

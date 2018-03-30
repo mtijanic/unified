@@ -251,8 +251,9 @@ void CNWSItemPropertyHandler__CNWSItemPropertyHandlerDtor__0(CNWSItemPropertyHan
 {
     using FuncPtrType = void(__fastcall *)(CNWSItemPropertyHandler*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItemPropertyHandler__CNWSItemPropertyHandlerDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWSItemPropertyHandler__ApplyAbilityBonus(CNWSItemPropertyHandler* thisPtr, CNWSItem* a0, CNWItemProperty* a1, CNWSCreature* a2, uint32_t a3, int32_t a4)

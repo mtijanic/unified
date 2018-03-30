@@ -108,16 +108,18 @@ void CExoFile__CExoFileCtor(CExoFile* thisPtr, const CExoString& a0, uint16_t a1
 {
     using FuncPtrType = void(__fastcall *)(CExoFile*, int, const CExoString&, uint16_t, const CExoString&);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFile__CExoFileCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1, a2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1, a2);
 }
 
 void CExoFile__CExoFileDtor(CExoFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoFile__CExoFileDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CExoFile__Eof(CExoFile* thisPtr)

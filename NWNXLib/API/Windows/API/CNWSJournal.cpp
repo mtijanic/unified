@@ -47,16 +47,18 @@ void CNWSJournal__CNWSJournalCtor(CNWSJournal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSJournal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSJournal__CNWSJournalCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSJournal__CNWSJournalDtor(CNWSJournal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSJournal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSJournal__CNWSJournalDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSJournal__Destroy(CNWSJournal* thisPtr, CExoString a0)

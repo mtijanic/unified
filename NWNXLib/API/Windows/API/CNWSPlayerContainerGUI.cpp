@@ -32,8 +32,9 @@ void CNWSPlayerContainerGUI__CNWSPlayerContainerGUICtor(CNWSPlayerContainerGUI* 
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerContainerGUI*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerContainerGUI__CNWSPlayerContainerGUICtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSPlayerContainerGUI__SetNextPage(CNWSPlayerContainerGUI* thisPtr, CNWSPlayer* a0)

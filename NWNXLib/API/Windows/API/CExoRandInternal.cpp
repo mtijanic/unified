@@ -55,16 +55,18 @@ void CExoRandInternal__CExoRandInternalCtor(CExoRandInternal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoRandInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoRandInternal__CExoRandInternalCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoRandInternal__CExoRandInternalDtor(CExoRandInternal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoRandInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoRandInternal__CExoRandInternalDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CExoRandInternal__Add(CExoRandInternal* thisPtr, unsigned char* a0, int32_t a1)

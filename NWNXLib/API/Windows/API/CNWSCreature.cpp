@@ -2344,16 +2344,18 @@ void CNWSCreature__CNWSCreatureCtor(CNWSCreature* thisPtr, uint32_t a0, int32_t 
 {
     using FuncPtrType = void(__fastcall *)(CNWSCreature*, int, uint32_t, int32_t, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreature__CNWSCreatureCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1, a2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1, a2);
 }
 
 void CNWSCreature__CNWSCreatureDtor__0(CNWSCreature* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSCreature*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSCreature__CNWSCreatureDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWSCreature__AcquireItem(CNWSCreature* thisPtr, CNWSItem** a0, uint32_t a1, uint32_t a2, unsigned char a3, unsigned char a4, int32_t a5, int32_t a6)

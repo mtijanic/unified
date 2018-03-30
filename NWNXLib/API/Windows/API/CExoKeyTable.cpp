@@ -127,16 +127,18 @@ void CExoKeyTable__CExoKeyTableCtor(CExoKeyTable* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoKeyTable*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoKeyTable__CExoKeyTableCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoKeyTable__CExoKeyTableDtor(CExoKeyTable* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoKeyTable*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoKeyTable__CExoKeyTableDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CExoKeyTable__AddDirectoryContents(CExoKeyTable* thisPtr, int32_t a0)

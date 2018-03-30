@@ -50,64 +50,72 @@ void CrashReporter_Linux__CrashReporter_LinuxCtor(CrashReporter_Linux* thisPtr, 
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int, void*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CrashReporter_LinuxCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CrashReporter_Linux__CrashReporter_LinuxDtor__0(CrashReporter_Linux* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CrashReporter_LinuxDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CrashReporter_Linux__CanWriteCallstack(CrashReporter_Linux* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CanWriteCallstack);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CrashReporter_Linux__CanWriteMinidump(CrashReporter_Linux* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CanWriteMinidump);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CrashReporter_Linux__CanWriteSystemFiles(CrashReporter_Linux* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__CanWriteSystemFiles);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CrashReporter_Linux__InternalCrashHandler(CrashReporter_Linux* thisPtr, int32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__InternalCrashHandler);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CrashReporter_Linux__WriteCallstack(CrashReporter_Linux* thisPtr, _IO_FILE* a0)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int, _IO_FILE*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__WriteCallstack);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CrashReporter_Linux__WriteSystemFiles(CrashReporter_Linux* thisPtr, _IO_FILE* a0)
 {
     using FuncPtrType = void(__fastcall *)(CrashReporter_Linux*, int, _IO_FILE*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CrashReporter_Linux__WriteSystemFiles);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 }

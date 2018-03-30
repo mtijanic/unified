@@ -72,16 +72,18 @@ void CExoDebugInternal__CExoDebugInternalCtor(CExoDebugInternal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoDebugInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoDebugInternal__CExoDebugInternalCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoDebugInternal__CExoDebugInternalDtor(CExoDebugInternal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoDebugInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoDebugInternal__CExoDebugInternalDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CExoDebugInternal__Assert(CExoDebugInternal* thisPtr, int32_t a0, const char* a1, const char* a2)

@@ -115,8 +115,9 @@ void CNWSScriptVarTable__CNWSScriptVarTableDtor(CNWSScriptVarTable* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSScriptVarTable*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSScriptVarTable__CNWSScriptVarTableDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSScriptVarTable__DeleteIndex(CNWSScriptVarTable* thisPtr, CExoString& a0, uint32_t a1)

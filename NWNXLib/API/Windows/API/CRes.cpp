@@ -108,24 +108,27 @@ void CRes__CResCtor__0(CRes* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CRes*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes__CResCtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CRes__CResCtor__1(CRes* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CRes*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes__CResCtor__1);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CRes__CResDtor__0(CRes* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CRes*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CRes__CResDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CRes__CancelRequest(CRes* thisPtr)

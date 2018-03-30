@@ -83,16 +83,18 @@ void CNWCCMessageData__CNWCCMessageDataCtor(CNWCCMessageData* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWCCMessageData*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWCCMessageData__CNWCCMessageDataCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWCCMessageData__CNWCCMessageDataDtor(CNWCCMessageData* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWCCMessageData*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWCCMessageData__CNWCCMessageDataDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWCCMessageData__ClearData(CNWCCMessageData* thisPtr)

@@ -35,16 +35,18 @@ void CNWSpellArray__CNWSpellArrayCtor(CNWSpellArray* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSpellArray*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSpellArray__CNWSpellArrayCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSpellArray__CNWSpellArrayDtor(CNWSpellArray* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSpellArray*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSpellArray__CNWSpellArrayDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CNWSpell* CNWSpellArray__GetSpell(CNWSpellArray* thisPtr, int32_t a0)

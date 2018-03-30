@@ -30,16 +30,18 @@ void CNWSkill__CNWSkillCtor(CNWSkill* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSkill*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSkill__CNWSkillCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSkill__CNWSkillDtor(CNWSkill* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSkill*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSkill__CNWSkillDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CExoString CNWSkill__GetDescriptionText(CNWSkill* thisPtr)

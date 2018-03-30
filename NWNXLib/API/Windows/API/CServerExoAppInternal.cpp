@@ -733,16 +733,18 @@ void CServerExoAppInternal__CServerExoAppInternalCtor(CServerExoAppInternal* thi
 {
     using FuncPtrType = void(__fastcall *)(CServerExoAppInternal*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__CServerExoAppInternalCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CServerExoAppInternal__CServerExoAppInternalDtor(CServerExoAppInternal* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CServerExoAppInternal*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoAppInternal__CServerExoAppInternalDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CServerExoAppInternal__AddCDKeyToBannedList(CServerExoAppInternal* thisPtr, CExoString a0)

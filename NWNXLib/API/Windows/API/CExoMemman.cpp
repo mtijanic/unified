@@ -112,8 +112,9 @@ void CExoMemman__CExoMemmanDtor(CExoMemman* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoMemman*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoMemman__CExoMemmanDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CExoMemman__AddFreeRecord(CExoMemman* thisPtr, uint32_t a0)

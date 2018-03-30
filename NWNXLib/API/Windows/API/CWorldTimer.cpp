@@ -190,16 +190,18 @@ void CWorldTimer__CWorldTimerCtor(CWorldTimer* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CWorldTimer*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CWorldTimer__CWorldTimerCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CWorldTimer__CWorldTimerDtor(CWorldTimer* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CWorldTimer*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CWorldTimer__CWorldTimerDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 uint32_t CWorldTimer__AddWorldTimes(CWorldTimer* thisPtr, uint32_t a0, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t* a4, uint32_t* a5)

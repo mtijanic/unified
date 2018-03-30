@@ -744,16 +744,18 @@ void CNWSObject__CNWSObjectCtor(CNWSObject* thisPtr, unsigned char a0, uint32_t 
 {
     using FuncPtrType = void(__fastcall *)(CNWSObject*, int, unsigned char, uint32_t, int32_t, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSObject__CNWSObjectCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1, a2, a3);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1, a2, a3);
 }
 
 void CNWSObject__CNWSObjectDtor__0(CNWSObject* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSObject*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSObject__CNWSObjectDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSObject__AddAction(CNWSObject* thisPtr, uint32_t a0, uint16_t a1, uint32_t a2, void* a3, uint32_t a4, void* a5, uint32_t a6, void* a7, uint32_t a8, void* a9, uint32_t a10, void* a11, uint32_t a12, void* a13, uint32_t a14, void* a15, uint32_t a16, void* a17, uint32_t a18, void* a19, uint32_t a20, void* a21, uint32_t a22, void* a23, uint32_t a24, void* a25)

@@ -17,8 +17,9 @@ void CExoLinkedListTemplatedCERFString__CExoLinkedListTemplatedCERFStringDtor(CE
 {
     using FuncPtrType = void(__fastcall *)(CExoLinkedListTemplatedCERFString*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoLinkedListTemplatedCERFString__CExoLinkedListTemplatedCERFStringDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 }

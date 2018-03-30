@@ -108,16 +108,18 @@ void CNWSPlayerTURD__CNWSPlayerTURDCtor(CNWSPlayerTURD* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerTURD*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerTURD__CNWSPlayerTURDCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSPlayerTURD__CNWSPlayerTURDDtor__0(CNWSPlayerTURD* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSPlayerTURD*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSPlayerTURD__CNWSPlayerTURDDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWSPlayerTURD__AddToArea(CNWSPlayerTURD* thisPtr, CNWSArea* a0, int32_t a1)

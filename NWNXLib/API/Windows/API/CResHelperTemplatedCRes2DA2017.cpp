@@ -27,16 +27,18 @@ void CResHelperTemplatedCRes2DA2017__CResHelperTemplatedCRes2DA2017Ctor(CResHelp
 {
     using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCRes2DA2017*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCRes2DA2017__CResHelperTemplatedCRes2DA2017Ctor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CResHelperTemplatedCRes2DA2017__CResHelperTemplatedCRes2DA2017Dtor__0(CResHelperTemplatedCRes2DA2017* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResHelperTemplatedCRes2DA2017*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResHelperTemplatedCRes2DA2017__CResHelperTemplatedCRes2DA2017Dtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CResHelperTemplatedCRes2DA2017__SetResRef(CResHelperTemplatedCRes2DA2017* thisPtr, const CResRef& a0, int32_t a1)

@@ -32,16 +32,18 @@ void CExoPackedFile__CExoPackedFileCtor(CExoPackedFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoPackedFile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoPackedFile__CExoPackedFileCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CExoPackedFile__CExoPackedFileDtor__0(CExoPackedFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CExoPackedFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoPackedFile__CExoPackedFileDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 CExoFile* CExoPackedFile__GetAsyncFile(CExoPackedFile* thisPtr)

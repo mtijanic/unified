@@ -3080,8 +3080,9 @@ void CNWVirtualMachineCommands__CNWVirtualMachineCommandsDtor__0(CNWVirtualMachi
 {
     using FuncPtrType = void(__fastcall *)(CNWVirtualMachineCommands*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWVirtualMachineCommands__CNWVirtualMachineCommandsDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void* CNWVirtualMachineCommands__CopyGameDefinedStructure(CNWVirtualMachineCommands* thisPtr, int32_t a0, void* a1)

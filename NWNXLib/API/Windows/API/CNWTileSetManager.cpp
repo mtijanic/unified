@@ -58,16 +58,18 @@ void CNWTileSetManager__CNWTileSetManagerCtor(CNWTileSetManager* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWTileSetManager*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSetManager__CNWTileSetManagerCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWTileSetManager__CNWTileSetManagerDtor(CNWTileSetManager* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWTileSetManager*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWTileSetManager__CNWTileSetManagerDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CNWTileSetManager__ClearTilePathNodes(CNWTileSetManager* thisPtr)

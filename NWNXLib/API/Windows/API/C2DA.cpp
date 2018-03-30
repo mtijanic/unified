@@ -200,24 +200,27 @@ void C2DA__C2DACtor__0(C2DA* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(C2DA*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::C2DA__C2DACtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void C2DA__C2DACtor__1(C2DA* thisPtr, CResRef a0, int32_t a1)
 {
     using FuncPtrType = void(__fastcall *)(C2DA*, int, CResRef, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::C2DA__C2DACtor__1);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0, a1);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0, a1);
 }
 
 void C2DA__C2DADtor__0(C2DA* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(C2DA*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::C2DA__C2DADtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t C2DA__GetCExoStringEntry__0(C2DA* thisPtr, const CExoString& a0, const CExoString& a1, CExoString* a2)

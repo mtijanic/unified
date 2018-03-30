@@ -55,16 +55,18 @@ void CNWSpell__CNWSpellCtor(CNWSpell* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSpell*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSpell__CNWSpellCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CNWSpell__CNWSpellDtor(CNWSpell* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSpell*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSpell__CNWSpellDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWSpell__GetSpellHasSomaticComponent(CNWSpell* thisPtr)

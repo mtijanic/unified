@@ -32,16 +32,18 @@ void CResLTR__CResLTRCtor(CResLTR* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResLTR*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResLTR__CResLTRCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CResLTR__CResLTRDtor__0(CResLTR* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CResLTR*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CResLTR__CResLTRDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CResLTR__OnResourceFreed(CResLTR* thisPtr)

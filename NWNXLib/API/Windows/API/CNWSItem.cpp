@@ -271,16 +271,18 @@ void CNWSItem__CNWSItemCtor(CNWSItem* thisPtr, uint32_t a0)
 {
     using FuncPtrType = void(__fastcall *)(CNWSItem*, int, uint32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItem__CNWSItemCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, a0);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, a0);
 }
 
 void CNWSItem__CNWSItemDtor__0(CNWSItem* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CNWSItem*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CNWSItem__CNWSItemDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 int32_t CNWSItem__AcquireItem(CNWSItem* thisPtr, CNWSItem** a0, uint32_t a1, unsigned char a2, unsigned char a3, int32_t a4)

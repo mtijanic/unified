@@ -25,8 +25,9 @@ void CExoArrayListTemplatedCNWSPlayerJournalQuestUpdates__CExoArrayListTemplated
 {
     using FuncPtrType = void(__fastcall *)(CExoArrayListTemplatedCNWSPlayerJournalQuestUpdates*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CExoArrayListTemplatedCNWSPlayerJournalQuestUpdates__CExoArrayListTemplatedCNWSPlayerJournalQuestUpdatesDtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CExoArrayListTemplatedCNWSPlayerJournalQuestUpdates__Add(CExoArrayListTemplatedCNWSPlayerJournalQuestUpdates* thisPtr, CNWSPlayerJournalQuestUpdates a0)

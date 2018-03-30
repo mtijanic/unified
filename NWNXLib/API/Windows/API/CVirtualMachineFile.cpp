@@ -37,16 +37,18 @@ void CVirtualMachineFile__CVirtualMachineFileCtor(CVirtualMachineFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CVirtualMachineFile*, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineFile__CVirtualMachineFileCtor);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx);
 }
 
 void CVirtualMachineFile__CVirtualMachineFileDtor__0(CVirtualMachineFile* thisPtr)
 {
     using FuncPtrType = void(__fastcall *)(CVirtualMachineFile*, int, int);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CVirtualMachineFile__CVirtualMachineFileDtor__0);
-    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
-    func(thisPtr, 2);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>    (address);
+    int edx = 0;
+    func(thisPtr, edx, 2);
 }
 
 void CVirtualMachineFile__GetData(CVirtualMachineFile* thisPtr, char** a0, uint32_t& a1)

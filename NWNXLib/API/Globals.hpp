@@ -7,10 +7,6 @@ namespace NWNXLib {
 
 namespace API {
 
-#ifdef _WIN32
-    static_assert(false, "Windows is not suported.");
-#endif
-
 struct CExoBase;
 struct CExoResMan;
 struct CVirtualMachine;
@@ -23,13 +19,13 @@ struct CExoString;
 namespace Globals {
 
 #ifdef _WIN32
-constexpr uintptr_t g_exoBaseAddr        = 0x0075F74C; NWNX_EXPECT_VERSION(8154);
-constexpr uintptr_t g_exoResManAddr      = 0x0075F748; NWNX_EXPECT_VERSION(8154);
-constexpr uintptr_t g_virtualMachineAddr = 0x0075F778; NWNX_EXPECT_VERSION(8154);
-constexpr uintptr_t g_scriptCompilerAddr = 0x0075F77C; NWNX_EXPECT_VERSION(8154);
-constexpr uintptr_t g_appManagerAddr     = 0x0075F744; NWNX_EXPECT_VERSION(8154);
-constexpr uintptr_t g_tlkTableAddr       = 0x0075F780; NWNX_EXPECT_VERSION(8154);
-constexpr uintptr_t g_nwRulesAddr        = 0x0075F75C; NWNX_EXPECT_VERSION(8154);
+constexpr uintptr_t g_exoBaseAddr        = 0x00774968; NWNX_EXPECT_VERSION(8166);
+constexpr uintptr_t g_exoResManAddr      = 0x0077496C; NWNX_EXPECT_VERSION(8166);
+constexpr uintptr_t g_virtualMachineAddr = 0x0077499C; NWNX_EXPECT_VERSION(8166);
+constexpr uintptr_t g_scriptCompilerAddr = 0x007749A0; NWNX_EXPECT_VERSION(8166);
+constexpr uintptr_t g_appManagerAddr     = 0x00774970; NWNX_EXPECT_VERSION(8166);
+constexpr uintptr_t g_tlkTableAddr       = 0x00774964; NWNX_EXPECT_VERSION(8166);
+constexpr uintptr_t g_nwRulesAddr        = 0x00774974; NWNX_EXPECT_VERSION(8166);
 #else
 constexpr uintptr_t g_exoBaseAddr        = 0x00485800; NWNX_EXPECT_VERSION(8166);
 constexpr uintptr_t g_exoResManAddr      = 0x004857FC; NWNX_EXPECT_VERSION(8166);

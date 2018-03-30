@@ -14,7 +14,7 @@ void ASLR::CalculateBaseAddress()
 {
     // TODO: Export free-standing functions so we don't have to update manually.
 #ifdef _WIN32
-    const uintptr_t whatWeThinkItIs = 0x0040B700; NWNX_EXPECT_VERSION(8154);
+    const uintptr_t whatWeThinkItIs = 0x0040B7B0; NWNX_EXPECT_VERSION(8166);
 #else
     const uintptr_t whatWeThinkItIs = 0x0002FB10; NWNX_EXPECT_VERSION(8166);
 #endif

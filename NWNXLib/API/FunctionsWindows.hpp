@@ -8885,7 +8885,6 @@ constexpr uintptr_t CrashReporter_Linux__WriteSystemFiles = 0;
 constexpr uintptr_t CResGFF__GetField = 0;
 constexpr uintptr_t CServerExoApp__GetConnectionLib = 0;
 constexpr uintptr_t CVirtualMachine__RunScript = 0;
-constexpr uintptr_t CVirtualMachine__RunScript = 0;
 
 }
 

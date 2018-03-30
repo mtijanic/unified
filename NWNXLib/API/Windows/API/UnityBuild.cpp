@@ -806,7 +806,7 @@ namespace
 {
     template <int size, int desiredSize>
     struct CheckSize { static_assert(size == desiredSize, "Struct size mismatch!"); };
-
+#if 0
     CheckSize<sizeof(NWNXLib::API::C2DA), 76> __attribute__((unused)) SIZE_CHECK_C2DA;
     CheckSize<sizeof(NWNXLib::API::CAppManager), 60> __attribute__((unused)) SIZE_CHECK_CAPPMANAGER;
     CheckSize<sizeof(NWNXLib::API::CCodeBase), 4> __attribute__((unused)) SIZE_CHECK_CCODEBASE;
@@ -1001,4 +1001,5 @@ namespace
     CheckSize<sizeof(NWNXLib::API::TLK_FILE_HEADER), 20> __attribute__((unused)) SIZE_CHECK_TLK_FILE_HEADER;
     CheckSize<sizeof(NWNXLib::API::Vector), 12> __attribute__((unused)) SIZE_CHECK_VECTOR;
     CheckSize<sizeof(NWNXLib::API::Vector4), 16> __attribute__((unused)) SIZE_CHECK_VECTOR4;
+#endif
 }

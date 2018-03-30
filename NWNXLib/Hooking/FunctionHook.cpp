@@ -87,7 +87,7 @@ void FunctionHook::CopyOriginal()
 void FunctionHook::ConstructTrampoline()
 {
     // Copy the old function into the trampline.
-    FillWithNoops(m_trampoline.begin(), TRAMPOLINE_SIZE);
+    FillWithNoops(m_trampoline.data(), TRAMPOLINE_SIZE);
     std::copy(m_oldFunction.begin(), m_oldFunction.end(), m_trampoline.begin());
 
     // Correct relative addresses.

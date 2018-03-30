@@ -4,6 +4,7 @@
 
 #include "CCodeBase.hpp"
 #include "CExoArrayListTemplatedCExoString.hpp"
+#include "CExoArrayListTemplatedunsignedlong.hpp"
 #include "CExoLinkedListTemplatedunsignedlong.hpp"
 #include "CExtendedServerInfo.hpp"
 #include "CGameObject.hpp"
@@ -108,6 +109,16 @@ int32_t CServerExoApp::ExportAllPlayers()
     return CServerExoApp__ExportAllPlayers(this);
 }
 
+int32_t CServerExoApp::GetAbilityBonusLimit()
+{
+    return CServerExoApp__GetAbilityBonusLimit(this);
+}
+
+int32_t CServerExoApp::GetAbilityPenaltyLimit()
+{
+    return CServerExoApp__GetAbilityPenaltyLimit(this);
+}
+
 CExoLinkedListTemplatedunsignedlong* CServerExoApp::GetActiveExclusionList()
 {
     return CServerExoApp__GetActiveExclusionList(this);
@@ -136,6 +147,11 @@ CNWSArea* CServerExoApp::GetAreaByGameObjectID(uint32_t a0)
 CNWSAreaOfEffectObject* CServerExoApp::GetAreaOfEffectByGameObjectID(uint32_t a0)
 {
     return CServerExoApp__GetAreaOfEffectByGameObjectID(this, a0);
+}
+
+int32_t CServerExoApp::GetAttackBonusLimit()
+{
+    return CServerExoApp__GetAttackBonusLimit(this);
 }
 
 int32_t CServerExoApp::GetAutoSavePending()
@@ -186,6 +202,11 @@ CNWSCreature* CServerExoApp::GetCreatureByGameObjectID(uint32_t a0)
 int32_t CServerExoApp::GetCreatureDeathLogging()
 {
     return CServerExoApp__GetCreatureDeathLogging(this);
+}
+
+int32_t CServerExoApp::GetDamageBonusLimit()
+{
+    return CServerExoApp__GetDamageBonusLimit(this);
 }
 
 int32_t CServerExoApp::GetDebugMode()
@@ -251,6 +272,11 @@ CGameObject* CServerExoApp::GetGameObject(uint32_t a0)
 int32_t CServerExoApp::GetGameSpyEnabled()
 {
     return CServerExoApp__GetGameSpyEnabled(this);
+}
+
+CExoString CServerExoApp::GetHostedPublicInternetAddressAndPort()
+{
+    return CServerExoApp__GetHostedPublicInternetAddressAndPort(this);
 }
 
 int32_t CServerExoApp::GetImportingChar()
@@ -403,6 +429,11 @@ int32_t CServerExoApp::GetReloadModuleWhenEmpty()
     return CServerExoApp__GetReloadModuleWhenEmpty(this);
 }
 
+int32_t CServerExoApp::GetSavingThrowBonusLimit()
+{
+    return CServerExoApp__GetSavingThrowBonusLimit(this);
+}
+
 CServerAIMaster* CServerExoApp::GetServerAIMaster()
 {
     return CServerExoApp__GetServerAIMaster(this);
@@ -416,6 +447,11 @@ CServerInfo* CServerExoApp::GetServerInfo()
 int16_t CServerExoApp::GetServerMode()
 {
     return CServerExoApp__GetServerMode(this);
+}
+
+int32_t CServerExoApp::GetSkillBonusLimit()
+{
+    return CServerExoApp__GetSkillBonusLimit(this);
 }
 
 CNWSSoundObject* CServerExoApp::GetSoundObjectByGameObjectID(uint32_t a0)
@@ -653,14 +689,39 @@ int32_t CServerExoApp::SendCharacterQuery(CNWSPlayer* a0)
     return CServerExoApp__SendCharacterQuery(this, a0);
 }
 
+void CServerExoApp::SetAbilityBonusLimit(int32_t a0)
+{
+    return CServerExoApp__SetAbilityBonusLimit(this, a0);
+}
+
+void CServerExoApp::SetAbilityPenaltyLimit(int32_t a0)
+{
+    return CServerExoApp__SetAbilityPenaltyLimit(this, a0);
+}
+
 void CServerExoApp::SetApplicationIdsMatch(int32_t a0)
 {
     return CServerExoApp__SetApplicationIdsMatch(this, a0);
 }
 
+void CServerExoApp::SetAttackBonusLimit(int32_t a0)
+{
+    return CServerExoApp__SetAttackBonusLimit(this, a0);
+}
+
 void CServerExoApp::SetAutoSavePending(int32_t a0)
 {
     return CServerExoApp__SetAutoSavePending(this, a0);
+}
+
+void CServerExoApp::SetDamageBonusLimit(int32_t a0)
+{
+    return CServerExoApp__SetDamageBonusLimit(this, a0);
+}
+
+int32_t CServerExoApp::SetDDCipherForModule(CExoString a0)
+{
+    return CServerExoApp__SetDDCipherForModule(this, a0);
 }
 
 void CServerExoApp::SetDebugMode(int32_t a0)
@@ -731,6 +792,16 @@ void CServerExoApp::SetPauseState(unsigned char a0, int32_t a1)
 void CServerExoApp::SetReloadModuleWhenEmpty(int32_t a0)
 {
     return CServerExoApp__SetReloadModuleWhenEmpty(this, a0);
+}
+
+void CServerExoApp::SetSavingThrowBonusLimit(int32_t a0)
+{
+    return CServerExoApp__SetSavingThrowBonusLimit(this, a0);
+}
+
+void CServerExoApp::SetSkillBonusLimit(int32_t a0)
+{
+    return CServerExoApp__SetSkillBonusLimit(this, a0);
 }
 
 void CServerExoApp::SetWeGotDisconnected()
@@ -918,6 +989,22 @@ int32_t CServerExoApp__ExportAllPlayers(CServerExoApp* thisPtr)
     return func(thisPtr);
 }
 
+int32_t CServerExoApp__GetAbilityBonusLimit(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetAbilityBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
+}
+
+int32_t CServerExoApp__GetAbilityPenaltyLimit(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetAbilityPenaltyLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
+}
+
 CExoLinkedListTemplatedunsignedlong* CServerExoApp__GetActiveExclusionList(CServerExoApp* thisPtr)
 {
     using FuncPtrType = CExoLinkedListTemplatedunsignedlong*(__attribute__((cdecl)) *)(CServerExoApp*);
@@ -964,6 +1051,14 @@ CNWSAreaOfEffectObject* CServerExoApp__GetAreaOfEffectByGameObjectID(CServerExoA
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetAreaOfEffectByGameObjectID);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     return func(thisPtr, a0);
+}
+
+int32_t CServerExoApp__GetAttackBonusLimit(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetAttackBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
 }
 
 int32_t CServerExoApp__GetAutoSavePending(CServerExoApp* thisPtr)
@@ -1042,6 +1137,14 @@ int32_t CServerExoApp__GetCreatureDeathLogging(CServerExoApp* thisPtr)
 {
     using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetCreatureDeathLogging);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
+}
+
+int32_t CServerExoApp__GetDamageBonusLimit(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetDamageBonusLimit);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     return func(thisPtr);
 }
@@ -1146,6 +1249,14 @@ int32_t CServerExoApp__GetGameSpyEnabled(CServerExoApp* thisPtr)
 {
     using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetGameSpyEnabled);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
+}
+
+CExoString CServerExoApp__GetHostedPublicInternetAddressAndPort(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = CExoString(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetHostedPublicInternetAddressAndPort);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     return func(thisPtr);
 }
@@ -1390,6 +1501,14 @@ int32_t CServerExoApp__GetReloadModuleWhenEmpty(CServerExoApp* thisPtr)
     return func(thisPtr);
 }
 
+int32_t CServerExoApp__GetSavingThrowBonusLimit(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetSavingThrowBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
+}
+
 CServerAIMaster* CServerExoApp__GetServerAIMaster(CServerExoApp* thisPtr)
 {
     using FuncPtrType = CServerAIMaster*(__attribute__((cdecl)) *)(CServerExoApp*);
@@ -1410,6 +1529,14 @@ int16_t CServerExoApp__GetServerMode(CServerExoApp* thisPtr)
 {
     using FuncPtrType = int16_t(__attribute__((cdecl)) *)(CServerExoApp*);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetServerMode);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr);
+}
+
+int32_t CServerExoApp__GetSkillBonusLimit(CServerExoApp* thisPtr)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__GetSkillBonusLimit);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     return func(thisPtr);
 }
@@ -1790,6 +1917,22 @@ int32_t CServerExoApp__SendCharacterQuery(CServerExoApp* thisPtr, CNWSPlayer* a0
     return func(thisPtr, a0);
 }
 
+void CServerExoApp__SetAbilityBonusLimit(CServerExoApp* thisPtr, int32_t a0)
+{
+    using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetAbilityBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
+void CServerExoApp__SetAbilityPenaltyLimit(CServerExoApp* thisPtr, int32_t a0)
+{
+    using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetAbilityPenaltyLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
 void CServerExoApp__SetApplicationIdsMatch(CServerExoApp* thisPtr, int32_t a0)
 {
     using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
@@ -1798,10 +1941,34 @@ void CServerExoApp__SetApplicationIdsMatch(CServerExoApp* thisPtr, int32_t a0)
     return func(thisPtr, a0);
 }
 
+void CServerExoApp__SetAttackBonusLimit(CServerExoApp* thisPtr, int32_t a0)
+{
+    using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetAttackBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
 void CServerExoApp__SetAutoSavePending(CServerExoApp* thisPtr, int32_t a0)
 {
     using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetAutoSavePending);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
+void CServerExoApp__SetDamageBonusLimit(CServerExoApp* thisPtr, int32_t a0)
+{
+    using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetDamageBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
+int32_t CServerExoApp__SetDDCipherForModule(CServerExoApp* thisPtr, CExoString a0)
+{
+    using FuncPtrType = int32_t(__attribute__((cdecl)) *)(CServerExoApp*, CExoString);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetDDCipherForModule);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     return func(thisPtr, a0);
 }
@@ -1914,6 +2081,22 @@ void CServerExoApp__SetReloadModuleWhenEmpty(CServerExoApp* thisPtr, int32_t a0)
 {
     using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
     uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetReloadModuleWhenEmpty);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
+void CServerExoApp__SetSavingThrowBonusLimit(CServerExoApp* thisPtr, int32_t a0)
+{
+    using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetSavingThrowBonusLimit);
+    FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
+    return func(thisPtr, a0);
+}
+
+void CServerExoApp__SetSkillBonusLimit(CServerExoApp* thisPtr, int32_t a0)
+{
+    using FuncPtrType = void(__attribute__((cdecl)) *)(CServerExoApp*, int32_t);
+    uintptr_t address = Platform::ASLR::GetRelocatedAddress(Functions::CServerExoApp__SetSkillBonusLimit);
     FuncPtrType func = reinterpret_cast<FuncPtrType>(address);
     return func(thisPtr, a0);
 }

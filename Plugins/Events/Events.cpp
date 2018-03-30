@@ -5,17 +5,17 @@
 #include "API/Version.hpp"
 #include "Events/AssociateEvents.hpp"
 #include "Events/ClientEvents.hpp"
+#include "Events/CombatEvents.hpp"
 #include "Events/DMActionEvents.hpp"
 #include "Events/ExamineEvents.hpp"
 #include "Events/FeatEvents.hpp"
 #include "Events/ItemEvents.hpp"
 #include "Events/StealthEvents.hpp"
+#include "Events/SpellEvents.hpp"
 #include "Services/Config/Config.hpp"
-#include "Services/Log/Log.hpp"
 #include "Services/Messaging/Messaging.hpp"
 #include "ViewPtr.hpp"
 #include <algorithm>
-#include <cassert>
 
 using namespace NWNXLib;
 
@@ -51,16 +51,16 @@ Events::Events(const Plugin::CreateParams& params)
     GetServices()->m_events->RegisterEvent("GET_EVENT_DATA", std::bind(&Events::OnGetEventData, this, std::placeholders::_1));
 
     GetServices()->m_messaging->SubscribeMessage("NWNX_EVENT_SIGNAL_EVENT",
-        [this](const std::vector<std::string> message)
+        [](const std::vector<std::string> message)
         {
-            assert(message.size() == 2);
+            ASSERT(message.size() == 2);
             SignalEvent(message[0], std::strtoul(message[1].c_str(), nullptr, 16));
         });
 
     GetServices()->m_messaging->SubscribeMessage("NWNX_EVENT_PUSH_EVENT_DATA",
-        [this](const std::vector<std::string> message)
+        [](const std::vector<std::string> message)
         {
-            assert(message.size() == 2);
+            ASSERT(message.size() == 2);
             PushEventData(message[0], message[1]);
         });
 
@@ -74,10 +74,14 @@ Events::Events(const Plugin::CreateParams& params)
         m_clientEvents = std::make_unique<ClientEvents>(GetServices()->m_hooks);
     }
 
+    if (GetServices()->m_config->Get<bool>("ENABLE_COMBAT_EVENTS", true))
+    {
+        m_combatEvents = std::make_unique<CombatEvents>(GetServices()->m_hooks);
+    }
+
     if (GetServices()->m_config->Get<bool>("ENABLE_DM_ACTION_EVENTS", true))
     {
-        // TODO: Upgrade
-        //m_dmActionEvents = std::make_unique<DMActionEvents>(GetServices()->m_patching); Disabled for 8141 compat
+        m_dmActionEvents = std::make_unique<DMActionEvents>(GetServices()->m_hooks);
     }
 
     if (GetServices()->m_config->Get<bool>("ENABLE_EXAMINE_EVENTS", true))
@@ -99,6 +103,11 @@ Events::Events(const Plugin::CreateParams& params)
     {
         m_stealthEvents = std::make_unique<StealthEvents>(GetServices()->m_hooks);
     }
+
+    if (GetServices()->m_config->Get<bool>("ENABLE_SPELL_EVENTS", true))
+    {
+        m_spellEvents = std::make_unique<SpellEvents>(GetServices()->m_hooks);
+    }
 }
 
 Events::~Events()
@@ -112,7 +121,7 @@ void Events::PushEventData(const std::string tag, const std::string data)
         g_plugin->m_eventData.push(std::unordered_map<std::string, std::string>());
     }
 
-    g_plugin->GetServices()->m_log->Debug("Pushing event data: '%s' -> '%s'.", tag.c_str(), data.c_str());
+    LOG_DEBUG("Pushing event data: '%s' -> '%s'.", tag.c_str(), data.c_str());
     g_plugin->m_eventData.top()[tag] = std::move(data);
 }
 
@@ -122,7 +131,7 @@ bool Events::SignalEvent(const std::string& eventName, const API::Types::ObjectI
 
     for (const auto& script : scripts)
     {
-        g_plugin->GetServices()->m_log->Debug("Dispatching notification for event '%s' to script '%s'.", eventName.c_str(), script.c_str());
+        LOG_DEBUG("Dispatching notification for event '%s' to script '%s'.", eventName.c_str(), script.c_str());
         API::CExoString scriptExoStr = script.c_str();
         ++g_plugin->m_eventDepth;
         API::Globals::VirtualMachine()->RunScript(&scriptExoStr, target, 1);
@@ -149,7 +158,7 @@ Services::Events::ArgumentStack Events::OnSubscribeEvent(Services::Events::Argum
         throw std::runtime_error("Attempted to subscribe to an event with a script that already subscribed!");
     }
 
-    GetServices()->m_log->Info("Script '%s' subscribed to event '%s'.", script.c_str(), event.c_str());
+    LOG_INFO("Script '%s' subscribed to event '%s'.", script.c_str(), event.c_str());
     eventVector.emplace_back(std::move(script));
 
     return Services::Events::ArgumentStack();

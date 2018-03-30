@@ -9,7 +9,7 @@ RUN apt-get install -y --no-install-recommends  \
   gcc-6 g++-6
 
 # NWNX_SQL
-RUN apt-get install -y default-libmysqlclient-dev
+RUN apt-get install -y default-libmysqlclient-dev libpq-dev
 
 # NWNX_SECCOMP
 RUN apt-get install -y libseccomp-dev
@@ -20,6 +20,7 @@ RUN apt-get install -y ruby-dev
 # NWNX_JVM
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get install -y openjdk-8-jdk-headless
+RUN apt-get install -y ant
 
 # slim down the image again.
 RUN rm -r /var/lib/apt/lists /var/cache/apt

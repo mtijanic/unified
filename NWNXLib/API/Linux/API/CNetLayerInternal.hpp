@@ -6,6 +6,7 @@
 #include "CExoString.hpp"
 #include "CNetLayerPlayerInfo.hpp"
 #include "CNetLayerWindow.hpp"
+#include "unknown_RelayModeChange.hpp"
 
 namespace NWNXLib {
 
@@ -38,16 +39,18 @@ struct CNetLayerInternal
     uint32_t m_nSessionMaxPlayers;
     int32_t m_bEnumerateSessions;
     int32_t m_bEnumerateSpecific;
+    int32_t m_bEnumerateSpecificOverRelay;
+    char m_pEnumerateSpecificOverRelayToken[6];
     int32_t m_bEnumerateLocal;
     uint32_t m_nLastEnumerateSessions;
     uint32_t m_nLastEnumerateSessionsList;
     uint32_t m_nLastPurgeConnections;
     int32_t m_bEnumerateSessionsPerFrame;
     CNetLayerSessionInfo* m_pcSessionInfo;
-    uint32_t m_nMaxSessionCnt[4];
+    uint32_t m_nMaxSessionCnt[5];
     uint32_t m_nSessionInfoSize;
-    uint32_t m_nSessionInfoSectionSize;
-    int32_t m_bSessionInfoChanged[4];
+    uint32_t m_nSessionInfoSectionSize[5];
+    int32_t m_bSessionInfoChanged[5];
     int32_t m_bConnected;
     int32_t m_bConnectToSession;
     CExoString m_sConnectPassword;
@@ -68,6 +71,7 @@ struct CNetLayerInternal
     uint32_t m_nClientPermittedServerAdmin;
     CExoLinkedListTemplatedCExoString m_lBadPasswordAttempts;
     uint32_t m_nDisconnectStrref;
+    CExoString m_sDisconnectReason;
     uint32_t m_nFavListSize;
     CExoString* m_asFavList;
     uint32_t m_nFavListEnumerated;
@@ -80,6 +84,10 @@ struct CNetLayerInternal
     CExoString* m_asBuddyList;
     uint32_t m_nBuddyListEnumerated;
     uint32_t m_nBuddyListFramesToNextEnumeration;
+    uint32_t m_nInternetListSize;
+    CExoString* m_asInternetList;
+    uint32_t m_nInternetListEnumerated;
+    uint32_t m_nInternetListFramesToNextEnumeration;
     uint32_t m_nMaxSlidingWindow;
     CExoString m_sMstServerPassword;
     uint16_t m_nExpansionPackReqd;
@@ -107,7 +115,7 @@ struct CNetLayerInternal
     void CRCEncodeFrame(unsigned char*, uint32_t);
     int32_t CRCVerifyFrame(unsigned char*, uint32_t);
     int32_t DisconnectFromSession();
-    int32_t DisconnectPlayer(uint32_t, uint32_t, int32_t, int32_t);
+    int32_t DisconnectPlayer(uint32_t, uint32_t, int32_t, int32_t, const CExoString&);
     int32_t DropConnectionToServer();
     int32_t EndConnectToSession();
     int32_t EndEnumerateSessions();
@@ -131,8 +139,10 @@ struct CNetLayerInternal
     int32_t GetPasswordRequired();
     CExoString GetPlayerAddress(uint32_t);
     int32_t GetPlayerAddressData(uint32_t, uint32_t*, unsigned char**, unsigned char**, uint32_t*);
+    int32_t GetPlayerAddressRelayed(uint32_t);
     CExoString GetPlayerPassword();
     uint32_t GetPortBySessionId(uint32_t);
+    CExoString GetRouterPortMapDescription();
     uint32_t GetSendUDPSocket();
     CExoString GetServerAdminPassword();
     int32_t GetServerConnected();
@@ -141,6 +151,9 @@ struct CNetLayerInternal
     CNetLayerSessionInfo* GetSessionInfo(uint32_t);
     uint32_t GetSessionMaxPlayers();
     CExoString GetSessionName();
+    uint32_t GetSessionSection(uint32_t);
+    uint32_t GetSessionSectionSize(uint32_t);
+    uint32_t GetSessionSectionStart(uint32_t);
     uint32_t GetUDPRecievePort();
     int32_t GetWindowSendIdByReceiveId(uint32_t, uint32_t*);
     int32_t HandleBNCRMessage(uint32_t, unsigned char*, uint32_t);
@@ -175,7 +188,7 @@ struct CNetLayerInternal
     int32_t SendBNCRMessage(uint32_t, unsigned char, uint32_t);
     int32_t SendBNCSMessage(uint32_t, unsigned char, int32_t, int32_t, const CExoString&, const CExoString&, const CExoString&, uint32_t&);
     void SendBNDMMessage();
-    void SendBNDPMessage(uint32_t, uint32_t);
+    void SendBNDPMessage(uint32_t, uint32_t, const CExoString&);
     int32_t SendBNDSMessage(uint32_t);
     int32_t SendBNESDirectMessageToAddress(CExoString, unsigned char);
     int32_t SendBNLMMessage(uint32_t, uint32_t);
@@ -187,19 +200,20 @@ struct CNetLayerInternal
     int32_t SendMessageToStandardConnection(int32_t, char*, int32_t);
     int32_t SetGameMasterPassword(CExoString);
     void SetMasterServerInternetAddress(const unsigned char*, uint32_t);
-    uint32_t SetNetworkAddressData(uint32_t, unsigned char*, unsigned char*, uint32_t);
+    uint32_t SetNetworkAddressData(uint32_t, unsigned char*, unsigned char*, uint32_t, RelayModeChange, const char*);
     void SetPlayerConnected(uint32_t);
     int32_t SetPlayerPassword(CExoString);
     int32_t SetServerAdminPassword(CExoString);
     void SetServerLanguage(int32_t);
+    void SetSessionInfoChanged(uint32_t, int32_t);
     void SetSessionMaxPlayers(uint32_t);
     void SetSessionName(CExoString);
     int32_t SetSlidingWindow(uint32_t, uint32_t, uint32_t*);
     void SetUpPlayBackConnection();
     int32_t ShutDown();
-    void ShutDownClientInterfaceWithReason(uint32_t);
+    void ShutDownClientInterfaceWithReason(uint32_t, const CExoString&);
     int32_t StartConnectToSession(uint32_t, const CExoString&, int32_t, int32_t, const CExoString&, uint32_t, uint32_t, const CExoString&, const CExoString&);
-    int32_t StartEnumerateSessions(uint32_t, int32_t, unsigned char*, uint16_t, int32_t, uint32_t);
+    int32_t StartEnumerateSessions(uint32_t*, int32_t, unsigned char*, uint16_t, int32_t);
     int32_t StartEnumerateSessionsSection(uint32_t, uint32_t, CExoString*);
     int32_t StartInternetAddressTranslation(CExoString, uint32_t, uint32_t);
     int32_t StartPing(uint32_t);
@@ -225,7 +239,7 @@ void CNetLayerInternal__CRCBuildTable(CNetLayerInternal* thisPtr);
 void CNetLayerInternal__CRCEncodeFrame(CNetLayerInternal* thisPtr, unsigned char*, uint32_t);
 int32_t CNetLayerInternal__CRCVerifyFrame(CNetLayerInternal* thisPtr, unsigned char*, uint32_t);
 int32_t CNetLayerInternal__DisconnectFromSession(CNetLayerInternal* thisPtr);
-int32_t CNetLayerInternal__DisconnectPlayer(CNetLayerInternal* thisPtr, uint32_t, uint32_t, int32_t, int32_t);
+int32_t CNetLayerInternal__DisconnectPlayer(CNetLayerInternal* thisPtr, uint32_t, uint32_t, int32_t, int32_t, const CExoString&);
 int32_t CNetLayerInternal__DropConnectionToServer(CNetLayerInternal* thisPtr);
 int32_t CNetLayerInternal__EndConnectToSession(CNetLayerInternal* thisPtr);
 int32_t CNetLayerInternal__EndEnumerateSessions(CNetLayerInternal* thisPtr);
@@ -249,8 +263,10 @@ int32_t CNetLayerInternal__GetNumberLocalAdapters(CNetLayerInternal* thisPtr, ui
 int32_t CNetLayerInternal__GetPasswordRequired(CNetLayerInternal* thisPtr);
 CExoString CNetLayerInternal__GetPlayerAddress(CNetLayerInternal* thisPtr, uint32_t);
 int32_t CNetLayerInternal__GetPlayerAddressData(CNetLayerInternal* thisPtr, uint32_t, uint32_t*, unsigned char**, unsigned char**, uint32_t*);
+int32_t CNetLayerInternal__GetPlayerAddressRelayed(CNetLayerInternal* thisPtr, uint32_t);
 CExoString CNetLayerInternal__GetPlayerPassword(CNetLayerInternal* thisPtr);
 uint32_t CNetLayerInternal__GetPortBySessionId(CNetLayerInternal* thisPtr, uint32_t);
+CExoString CNetLayerInternal__GetRouterPortMapDescription(CNetLayerInternal* thisPtr);
 uint32_t CNetLayerInternal__GetSendUDPSocket(CNetLayerInternal* thisPtr);
 CExoString CNetLayerInternal__GetServerAdminPassword(CNetLayerInternal* thisPtr);
 int32_t CNetLayerInternal__GetServerConnected(CNetLayerInternal* thisPtr);
@@ -259,6 +275,9 @@ uint32_t CNetLayerInternal__GetServerPlayerCount(CNetLayerInternal* thisPtr);
 CNetLayerSessionInfo* CNetLayerInternal__GetSessionInfo(CNetLayerInternal* thisPtr, uint32_t);
 uint32_t CNetLayerInternal__GetSessionMaxPlayers(CNetLayerInternal* thisPtr);
 CExoString CNetLayerInternal__GetSessionName(CNetLayerInternal* thisPtr);
+uint32_t CNetLayerInternal__GetSessionSection(CNetLayerInternal* thisPtr, uint32_t);
+uint32_t CNetLayerInternal__GetSessionSectionSize(CNetLayerInternal* thisPtr, uint32_t);
+uint32_t CNetLayerInternal__GetSessionSectionStart(CNetLayerInternal* thisPtr, uint32_t);
 uint32_t CNetLayerInternal__GetUDPRecievePort(CNetLayerInternal* thisPtr);
 int32_t CNetLayerInternal__GetWindowSendIdByReceiveId(CNetLayerInternal* thisPtr, uint32_t, uint32_t*);
 int32_t CNetLayerInternal__HandleBNCRMessage(CNetLayerInternal* thisPtr, uint32_t, unsigned char*, uint32_t);
@@ -293,7 +312,7 @@ void CNetLayerInternal__ResetEnumerateSessionsList(CNetLayerInternal* thisPtr, u
 int32_t CNetLayerInternal__SendBNCRMessage(CNetLayerInternal* thisPtr, uint32_t, unsigned char, uint32_t);
 int32_t CNetLayerInternal__SendBNCSMessage(CNetLayerInternal* thisPtr, uint32_t, unsigned char, int32_t, int32_t, const CExoString&, const CExoString&, const CExoString&, uint32_t&);
 void CNetLayerInternal__SendBNDMMessage(CNetLayerInternal* thisPtr);
-void CNetLayerInternal__SendBNDPMessage(CNetLayerInternal* thisPtr, uint32_t, uint32_t);
+void CNetLayerInternal__SendBNDPMessage(CNetLayerInternal* thisPtr, uint32_t, uint32_t, const CExoString&);
 int32_t CNetLayerInternal__SendBNDSMessage(CNetLayerInternal* thisPtr, uint32_t);
 int32_t CNetLayerInternal__SendBNESDirectMessageToAddress(CNetLayerInternal* thisPtr, CExoString, unsigned char);
 int32_t CNetLayerInternal__SendBNLMMessage(CNetLayerInternal* thisPtr, uint32_t, uint32_t);
@@ -305,19 +324,20 @@ int32_t CNetLayerInternal__SendMessageToPlayer(CNetLayerInternal* thisPtr, uint3
 int32_t CNetLayerInternal__SendMessageToStandardConnection(CNetLayerInternal* thisPtr, int32_t, char*, int32_t);
 int32_t CNetLayerInternal__SetGameMasterPassword(CNetLayerInternal* thisPtr, CExoString);
 void CNetLayerInternal__SetMasterServerInternetAddress(CNetLayerInternal* thisPtr, const unsigned char*, uint32_t);
-uint32_t CNetLayerInternal__SetNetworkAddressData(CNetLayerInternal* thisPtr, uint32_t, unsigned char*, unsigned char*, uint32_t);
+uint32_t CNetLayerInternal__SetNetworkAddressData(CNetLayerInternal* thisPtr, uint32_t, unsigned char*, unsigned char*, uint32_t, RelayModeChange, const char*);
 void CNetLayerInternal__SetPlayerConnected(CNetLayerInternal* thisPtr, uint32_t);
 int32_t CNetLayerInternal__SetPlayerPassword(CNetLayerInternal* thisPtr, CExoString);
 int32_t CNetLayerInternal__SetServerAdminPassword(CNetLayerInternal* thisPtr, CExoString);
 void CNetLayerInternal__SetServerLanguage(CNetLayerInternal* thisPtr, int32_t);
+void CNetLayerInternal__SetSessionInfoChanged(CNetLayerInternal* thisPtr, uint32_t, int32_t);
 void CNetLayerInternal__SetSessionMaxPlayers(CNetLayerInternal* thisPtr, uint32_t);
 void CNetLayerInternal__SetSessionName(CNetLayerInternal* thisPtr, CExoString);
 int32_t CNetLayerInternal__SetSlidingWindow(CNetLayerInternal* thisPtr, uint32_t, uint32_t, uint32_t*);
 void CNetLayerInternal__SetUpPlayBackConnection(CNetLayerInternal* thisPtr);
 int32_t CNetLayerInternal__ShutDown(CNetLayerInternal* thisPtr);
-void CNetLayerInternal__ShutDownClientInterfaceWithReason(CNetLayerInternal* thisPtr, uint32_t);
+void CNetLayerInternal__ShutDownClientInterfaceWithReason(CNetLayerInternal* thisPtr, uint32_t, const CExoString&);
 int32_t CNetLayerInternal__StartConnectToSession(CNetLayerInternal* thisPtr, uint32_t, const CExoString&, int32_t, int32_t, const CExoString&, uint32_t, uint32_t, const CExoString&, const CExoString&);
-int32_t CNetLayerInternal__StartEnumerateSessions(CNetLayerInternal* thisPtr, uint32_t, int32_t, unsigned char*, uint16_t, int32_t, uint32_t);
+int32_t CNetLayerInternal__StartEnumerateSessions(CNetLayerInternal* thisPtr, uint32_t*, int32_t, unsigned char*, uint16_t, int32_t);
 int32_t CNetLayerInternal__StartEnumerateSessionsSection(CNetLayerInternal* thisPtr, uint32_t, uint32_t, CExoString*);
 int32_t CNetLayerInternal__StartInternetAddressTranslation(CNetLayerInternal* thisPtr, CExoString, uint32_t, uint32_t);
 int32_t CNetLayerInternal__StartPing(CNetLayerInternal* thisPtr, uint32_t);

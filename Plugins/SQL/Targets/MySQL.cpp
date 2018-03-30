@@ -2,16 +2,17 @@
 
 #include "MySQL.hpp"
 #include "Services/Config/Config.hpp"
-#include "Services/Log/Log.hpp"
 
 #include <string.h>
 
 namespace SQL {
 
-MySQL::MySQL(NWNXLib::ViewPtr<NWNXLib::Services::LogProxy> log)
-    : m_log(log)
+MySQL::MySQL()
 {
     mysql_init(&m_mysql);
+    m_stmt = nullptr;
+    m_lastError = "";
+    m_paramCount = 0;
 }
 
 MySQL::~MySQL()
@@ -25,6 +26,13 @@ void MySQL::Connect(NWNXLib::ViewPtr<NWNXLib::Services::ConfigProxy> config)
     const std::string username = config->Require<std::string>("USERNAME");
     const std::string password = config->Require<std::string>("PASSWORD");
     const NWNXLib::Maybe<std::string> database = config->Get<std::string>("DATABASE");
+    if (database)
+    {
+        LOG_DEBUG("DB set to %s", (*database).c_str());
+    }
+
+    LOG_INFO("Connection info:  host=%s username=%s", host.c_str(), username.c_str());
+    LOG_DEBUG("               :  password=%s", password.c_str());
 
     if (!mysql_real_connect(&m_mysql, host.c_str(), username.c_str(), password.c_str(), database ? (*database).c_str() : nullptr, 0, nullptr, 0))
     {
@@ -39,11 +47,17 @@ bool MySQL::IsConnected()
     // Need to read the result before running any other queries.
     mysql_free_result(mysql_store_result(&m_mysql));
 
+    if (!bConnected)
+    {
+        LOG_WARNING("Disconnected state identified.");
+    }
     return bConnected;
 }
 
 bool MySQL::PrepareQuery(const Query& query)
 {
+    LOG_DEBUG("Preparing query %s\n", query.c_str());
+
     if (m_stmt)
         mysql_stmt_close(m_stmt);
 
@@ -51,7 +65,7 @@ bool MySQL::PrepareQuery(const Query& query)
     if (!m_stmt)
     {
         m_lastError.assign(mysql_error(&m_mysql));
-        m_log->Warning("Failed to initialize statement: %s", m_lastError.c_str());
+        LOG_WARNING("Failed to initialize statement: %s", m_lastError.c_str());
         return false;
     }
 
@@ -59,15 +73,16 @@ bool MySQL::PrepareQuery(const Query& query)
     if (success)
     {
         m_paramCount = mysql_stmt_param_count(m_stmt);
+        LOG_DEBUG("Detected %d parameters.", m_paramCount);
         m_params.resize(m_paramCount);
         m_paramValues.resize(m_paramCount);
     }
     else
     {
         m_lastError.assign(mysql_stmt_error(m_stmt));
-        m_log->Warning("Failed to prepare statement: %s", m_lastError.c_str());
+        LOG_WARNING("Failed to prepare statement: %s", m_lastError.c_str());
         mysql_stmt_close(m_stmt);
-        m_stmt = 0;
+        m_stmt = nullptr;
     }
     return success;
 }
@@ -79,7 +94,7 @@ NWNXLib::Maybe<ResultSet> MySQL::ExecuteQuery()
     bool success = !mysql_stmt_bind_param(m_stmt, m_params.data());
     if (!success)
     {
-        m_log->Warning("Failed to bind params");
+        LOG_WARNING("Failed to bind params");
         m_lastError.assign(mysql_error(&m_mysql));
         return NWNXLib::Maybe<ResultSet>(); // Failed query.
     }
@@ -115,7 +130,7 @@ NWNXLib::Maybe<ResultSet> MySQL::ExecuteQuery()
                     break;
                 }
                 else if (fetchResult == 1) {
-                    m_log->Warning("Error executing mysql_stmt_fetch - error: '%s'", mysql_error(&m_mysql));
+                    LOG_WARNING("Error executing mysql_stmt_fetch - error: '%s'", mysql_error(&m_mysql));
                     m_lastError.assign(mysql_error(&m_mysql));
                     break;
                 }
@@ -135,7 +150,7 @@ NWNXLib::Maybe<ResultSet> MySQL::ExecuteQuery()
             return NWNXLib::Maybe<ResultSet>(std::move(results)); // Succeeded query, succeeded results.
         }
         // Statement returned no rows (INSERT, UPDATE, DELETE, etc.)
-        affectedRows = mysql_affected_rows(&m_mysql);
+        affectedRows = static_cast<int>(mysql_affected_rows(&m_mysql));
         return NWNXLib::Maybe<ResultSet>(ResultSet()); // Succeeded query, no results.
     }
 
@@ -149,7 +164,7 @@ NWNXLib::Maybe<ResultSet> MySQL::ExecuteQuery()
             error = "Undefined/unknown";
         }
 
-        m_log->Warning("Query failed due to error '%s'", error);
+        LOG_WARNING("Query failed due to error '%s'", error);
         m_lastError.assign(error);
 
     }
@@ -159,34 +174,49 @@ NWNXLib::Maybe<ResultSet> MySQL::ExecuteQuery()
 
 void MySQL::PrepareInt(int32_t position, int32_t value)
 {
-    MYSQL_BIND *pBind = &m_params[position];
+    LOG_DEBUG("Assigning position %d to value '%d'", position, value);
+
+    ASSERT(position >= 0);
+    size_t pos = static_cast<size_t>(position);
+
+    MYSQL_BIND *pBind = &m_params[pos];
     memset(pBind, 0, sizeof(*pBind));
 
-    m_paramValues[position].n = value;
+    m_paramValues[pos].n = value;
 
     pBind->buffer_type = MYSQL_TYPE_LONG;
-    pBind->buffer = &m_paramValues[position].n;
+    pBind->buffer = &m_paramValues[pos].n;
 }
 void MySQL::PrepareFloat(int32_t position, float value)
 {
-    MYSQL_BIND *pBind = &m_params[position];
+    LOG_DEBUG("Assigning position %d to value '%f'", position, value);
+
+    ASSERT(position >= 0);
+    size_t pos = static_cast<size_t>(position);
+
+    MYSQL_BIND *pBind = &m_params[pos];
     memset(pBind, 0, sizeof(*pBind));
 
-    m_paramValues[position].f = value;
+    m_paramValues[pos].f = value;
 
     pBind->buffer_type = MYSQL_TYPE_FLOAT;
-    pBind->buffer = &m_paramValues[position].f;
+    pBind->buffer = &m_paramValues[pos].f;
 }
 void MySQL::PrepareString(int32_t position, const std::string& value)
 {
-    MYSQL_BIND *pBind = &m_params[position];
+    LOG_DEBUG("Assigning position %d to value '%s'", position, value.c_str());
+
+    ASSERT(position >= 0);
+    size_t pos = static_cast<size_t>(position);
+
+    MYSQL_BIND *pBind = &m_params[pos];
     memset(pBind, 0, sizeof(*pBind));
 
-    m_paramValues[position].s = value.c_str();
+    m_paramValues[pos].s = value.c_str();
 
     pBind->buffer_type = MYSQL_TYPE_STRING;
-    pBind->buffer = (void*)m_paramValues[position].s.c_str();
-    pBind->buffer_length = m_paramValues[position].s.size();
+    pBind->buffer = (void*)m_paramValues[pos].s.c_str();
+    pBind->buffer_length = m_paramValues[pos].s.size();
 }
 
 int MySQL::GetAffectedRows()
@@ -206,7 +236,7 @@ std::string MySQL::GetLastError(bool bClear)
 
 int32_t MySQL::GetPreparedQueryParamCount()
 {
-    return m_paramCount;
+    return static_cast<int32_t>(m_paramCount);
 }
 
 void MySQL::DestroyPreparedQuery()
@@ -214,7 +244,7 @@ void MySQL::DestroyPreparedQuery()
     if (m_stmt)
     {
         mysql_stmt_close(m_stmt);
-        m_stmt = 0;
+        m_stmt = nullptr;
 
         // Force deallocation
         std::vector<MYSQL_BIND>().swap(m_params);

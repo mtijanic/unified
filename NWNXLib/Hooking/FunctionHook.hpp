@@ -66,6 +66,8 @@ private:
     void RestoreFast() const;
     void CopyOriginal();
     void ConstructTrampoline();
+
+    static void FillWithNoops(uint8_t* arr, size_t size);
 };
 
 #include "FunctionHook.inl"

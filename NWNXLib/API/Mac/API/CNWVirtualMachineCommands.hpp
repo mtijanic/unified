@@ -159,6 +159,7 @@ struct CNWVirtualMachineCommands
     int32_t ExecuteCommandEquipItem(int32_t, int32_t);
     int32_t ExecuteCommandEventActivateItem(int32_t, int32_t);
     int32_t ExecuteCommandEventConversation(int32_t, int32_t);
+    int32_t ExecuteCommandEventScriptManagement(int32_t, int32_t);
     int32_t ExecuteCommandEventSpellCastAt(int32_t, int32_t);
     int32_t ExecuteCommandEventUserDefined(int32_t, int32_t);
     int32_t ExecuteCommandExecuteScript(int32_t, int32_t);
@@ -266,6 +267,7 @@ struct CNWVirtualMachineCommands
     int32_t ExecuteCommandGetGoingToBeAttackedBy(int32_t, int32_t);
     int32_t ExecuteCommandGetGold(int32_t, int32_t);
     int32_t ExecuteCommandGetGoldPieceValue(int32_t, int32_t);
+    int32_t ExecuteCommandGetGroundHeight(int32_t, int32_t);
     int32_t ExecuteCommandGetHardness(int32_t, int32_t);
     int32_t ExecuteCommandGetHasFeat(int32_t, int32_t);
     int32_t ExecuteCommandGetHasFeatEffect(int32_t, int32_t);
@@ -349,6 +351,12 @@ struct CNWVirtualMachineCommands
     int32_t ExecuteCommandGetLastUsedBy(int32_t, int32_t);
     int32_t ExecuteCommandGetLastWeaponUsed(int32_t, int32_t);
     int32_t ExecuteCommandGetLeavingObject(int32_t, int32_t);
+    int32_t ExecuteCommandGetLimitAbilityBonus(int32_t, int32_t);
+    int32_t ExecuteCommandGetLimitAbilityPenalty(int32_t, int32_t);
+    int32_t ExecuteCommandGetLimitAttackBonus(int32_t, int32_t);
+    int32_t ExecuteCommandGetLimitDamageBonus(int32_t, int32_t);
+    int32_t ExecuteCommandGetLimitSavingThrowBonus(int32_t, int32_t);
+    int32_t ExecuteCommandGetLimitSkillBonus(int32_t, int32_t);
     int32_t ExecuteCommandGetLocation(int32_t, int32_t);
     int32_t ExecuteCommandGetLocked(int32_t, int32_t);
     int32_t ExecuteCommandGetLockInfo(int32_t, int32_t);
@@ -387,6 +395,7 @@ struct CNWVirtualMachineCommands
     int32_t ExecuteCommandGetPhenoType(int32_t, int32_t);
     int32_t ExecuteCommandGetPickpocketableFlag(int32_t, int32_t);
     int32_t ExecuteCommandGetPlaceableIllumination(int32_t, int32_t);
+    int32_t ExecuteCommandGetPlayerConnectionRelayed(int32_t, int32_t);
     int32_t ExecuteCommandGetPlotFlag(int32_t, int32_t);
     int32_t ExecuteCommandGetPortraitId(int32_t, int32_t);
     int32_t ExecuteCommandGetPortraitResRef(int32_t, int32_t);
@@ -418,6 +427,7 @@ struct CNWVirtualMachineCommands
     int32_t ExecuteCommandGetStrRefSoundDuration(int32_t, int32_t);
     int32_t ExecuteCommandGetSubRace(int32_t, int32_t);
     int32_t ExecuteCommandGetSubString(int32_t, int32_t);
+    int32_t ExecuteCommandGetSurfaceMaterial(int32_t, int32_t);
     int32_t ExecuteCommandGetTag(int32_t, int32_t);
     int32_t ExecuteCommandGetTileLightColor(int32_t, int32_t);
     int32_t ExecuteCommandGetTimeHour(int32_t, int32_t);
@@ -543,6 +553,12 @@ struct CNWVirtualMachineCommands
     int32_t ExecuteCommandSetItemStackSize(int32_t, int32_t);
     int32_t ExecuteCommandSetKeyRequiredFeedbackMessage(int32_t, int32_t);
     int32_t ExecuteCommandSetLike(int32_t, int32_t);
+    int32_t ExecuteCommandSetLimitAbilityBonus(int32_t, int32_t);
+    int32_t ExecuteCommandSetLimitAbilityPenalty(int32_t, int32_t);
+    int32_t ExecuteCommandSetLimitAttackBonus(int32_t, int32_t);
+    int32_t ExecuteCommandSetLimitDamageBonus(int32_t, int32_t);
+    int32_t ExecuteCommandSetLimitSavingThrowBonus(int32_t, int32_t);
+    int32_t ExecuteCommandSetLimitSkillBonus(int32_t, int32_t);
     int32_t ExecuteCommandSetListening(int32_t, int32_t);
     int32_t ExecuteCommandSetListenString(int32_t, int32_t);
     int32_t ExecuteCommandSetLocked(int32_t, int32_t);
@@ -758,6 +774,7 @@ int32_t CNWVirtualMachineCommands__ExecuteCommandEndGame(CNWVirtualMachineComman
 int32_t CNWVirtualMachineCommands__ExecuteCommandEquipItem(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandEventActivateItem(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandEventConversation(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandEventScriptManagement(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandEventSpellCastAt(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandEventUserDefined(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandExecuteScript(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
@@ -865,6 +882,7 @@ int32_t CNWVirtualMachineCommands__ExecuteCommandGetGameDifficulty(CNWVirtualMac
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetGoingToBeAttackedBy(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetGold(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetGoldPieceValue(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetGroundHeight(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetHardness(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetHasFeat(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetHasFeatEffect(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
@@ -948,6 +966,12 @@ int32_t CNWVirtualMachineCommands__ExecuteCommandGetLastUnlocked(CNWVirtualMachi
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetLastUsedBy(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetLastWeaponUsed(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetLeavingObject(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetLimitAbilityBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetLimitAbilityPenalty(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetLimitAttackBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetLimitDamageBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetLimitSavingThrowBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetLimitSkillBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetLocation(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetLocked(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetLockInfo(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
@@ -986,6 +1010,7 @@ int32_t CNWVirtualMachineCommands__ExecuteCommandGetPCSpeaker(CNWVirtualMachineC
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetPhenoType(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetPickpocketableFlag(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetPlaceableIllumination(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetPlayerConnectionRelayed(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetPlotFlag(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetPortraitId(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetPortraitResRef(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
@@ -1017,6 +1042,7 @@ int32_t CNWVirtualMachineCommands__ExecuteCommandGetStringUpperCase(CNWVirtualMa
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetStrRefSoundDuration(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetSubRace(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetSubString(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandGetSurfaceMaterial(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetTag(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetTileLightColor(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandGetTimeHour(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
@@ -1142,6 +1168,12 @@ int32_t CNWVirtualMachineCommands__ExecuteCommandSetItemCursedFlag(CNWVirtualMac
 int32_t CNWVirtualMachineCommands__ExecuteCommandSetItemStackSize(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandSetKeyRequiredFeedbackMessage(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandSetLike(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandSetLimitAbilityBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandSetLimitAbilityPenalty(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandSetLimitAttackBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandSetLimitDamageBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandSetLimitSavingThrowBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
+int32_t CNWVirtualMachineCommands__ExecuteCommandSetLimitSkillBonus(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandSetListening(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandSetListenString(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);
 int32_t CNWVirtualMachineCommands__ExecuteCommandSetLocked(CNWVirtualMachineCommands* thisPtr, int32_t, int32_t);

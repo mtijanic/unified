@@ -1,5 +1,6 @@
 #include "Serialize.hpp"
 
+#include "Assert.hpp"
 #include "API/Types.hpp"
 #include "API/CNWSCreature.hpp"
 #include "API/CNWSCreatureStats.hpp"
@@ -14,7 +15,6 @@
 #include "API/CResGFF.hpp"
 #include "API/CResStruct.hpp"
 
-#include <assert.h>
 #include <string.h>
 
 static const char base64_key[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -44,16 +44,16 @@ static std::vector<uint8_t> base64_decode(const std::string &in)
 
     std::vector<int> T(256,-1);
     for (int i=0; i<64; i++)
-        T[base64_key[i]] = i;
+        T[(uint8_t)(base64_key[i])] = i;
 
     int val=0, valb=-8;
-    for (uint8_t c : in) {
-        if (T[c] == -1)
+    for (char c : in) {
+        if (T[(uint8_t)c] == -1)
             break;
-        val = (val<<6) + T[c];
+        val = (val<<6) + T[(uint8_t)c];
         valb += 6;
         if (valb>=0) {
-            out.push_back(char((val>>valb)&0xFF));
+            out.push_back(uint8_t((val>>valb)&0xFF));
             valb-=8;
         }
     }
@@ -87,7 +87,7 @@ std::vector<uint8_t> SerializeGameObject(API::CGameObject *pObject, bool bStripP
                     std::swap(bIsPC, pCreature->m_pStats->m_bIsPC);
                 }
 
-                if (pCreature->SaveCreature(&resGff, &resStruct, 0, 0, 0))
+                if (pCreature->SaveCreature(&resGff, &resStruct, 0, 0, 0, 0))
                     resGff.WriteGFFToPointer((void**)&pData, /*ref*/dataLength);
 
                 if (bStripPCFlags) {
@@ -110,15 +110,15 @@ std::vector<uint8_t> SerializeGameObject(API::CGameObject *pObject, bool bStripP
         } while(0)
 
         case API::Constants::OBJECT_TYPE_ITEM:      SERIALIZE(Item,      "UTI ", 0); break;
-        case API::Constants::OBJECT_TYPE_PLACEABLE: SERIALIZE(Placeable, "UTP ");    break;
+        case API::Constants::OBJECT_TYPE_PLACEABLE: SERIALIZE(Placeable, "UTP ", 0);    break;
         case API::Constants::OBJECT_TYPE_WAYPOINT:  SERIALIZE(Waypoint,  "UTW ");    break;
-        case API::Constants::OBJECT_TYPE_STORE:     SERIALIZE(Store,     "UTM ");    break;
+        case API::Constants::OBJECT_TYPE_STORE:     SERIALIZE(Store,     "UTM ", 0);    break;
         case API::Constants::OBJECT_TYPE_DOOR:      SERIALIZE(Door,      "UTD ");    break;
         case API::Constants::OBJECT_TYPE_TRIGGER:   SERIALIZE(Trigger,   "UTT ");    break;
 #undef SERIALIZE
 
         default:
-            assert(!"Invalid object type for SerializeGameObject");
+            ASSERT_FAIL_MSG("Invalid object type for SerializeGameObject");
             break;
     }
 
@@ -136,7 +136,7 @@ API::CGameObject *DeserializeGameObject(const std::vector<uint8_t>& serialized)
     if (serialized.size() < 14*4) // GFF header size
         return nullptr;
 
-    if (!resGff.GetDataFromPointer((void*)serialized.data(), serialized.size()))
+    if (!resGff.GetDataFromPointer((void*)serialized.data(), (int32_t)serialized.size()))
         return nullptr;
 
     resGff.InitializeForWriting();
@@ -183,7 +183,7 @@ API::CGameObject *DeserializeGameObject(const std::vector<uint8_t>& serialized)
         DESERIALIZE(Trigger);
     else
     {
-        assert(!"Unknown file type for DeserializeGameObject()");
+        ASSERT_FAIL_MSG("Unknown file type for DeserializeGameObject()");
     }
 
 #undef DESERIALIZE

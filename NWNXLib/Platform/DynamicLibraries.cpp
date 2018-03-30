@@ -1,8 +1,10 @@
 #include "Platform/DynamicLibraries.hpp"
-#include <cassert>
+#include "Assert.hpp"
 
 #ifndef _WIN32
     #include <dlfcn.h>
+#else
+    #include "Windows.h"
 #endif
 
 namespace NWNXLib {
@@ -35,7 +37,7 @@ bool CloseDll(HandleType handle)
 
 std::string GetErrorFromHandle(HandleType handle)
 {
-    assert(!IsHandleValid(handle));
+    ASSERT(!IsHandleValid(handle));
 
     std::string error;
 
@@ -59,7 +61,7 @@ std::string GetErrorFromHandle(HandleType handle)
 
 uintptr_t GetFuncAddrInDll(const std::string& symbol, HandleType handle)
 {
-    assert(IsHandleValid(handle));
+    ASSERT(IsHandleValid(handle));
     uintptr_t pointer;
 
 #ifdef _WIN32
@@ -110,7 +112,7 @@ bool IsHandleValid(HandleType handle)
 #ifdef _WIN32
     valid = handle != NULL;
 #else
-    valid = handle != NULL;
+    valid = handle != nullptr;
 #endif
 
     return valid;

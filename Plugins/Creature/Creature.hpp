@@ -33,7 +33,9 @@ private:
     ArgumentStack GetClassByLevel               (ArgumentStack&& args);
     ArgumentStack SetBaseAC                     (ArgumentStack&& args);
     ArgumentStack GetBaseAC                     (ArgumentStack&& args);
-    ArgumentStack SetAbilityScore               (ArgumentStack&& args);
+    ArgumentStack SetRawAbilityScore            (ArgumentStack&& args);
+    ArgumentStack GetRawAbilityScore            (ArgumentStack&& args);
+    ArgumentStack ModifyRawAbilityScore         (ArgumentStack&& args);
     ArgumentStack GetMemorisedSpell             (ArgumentStack&& args);
     ArgumentStack GetMemorisedSpellCountByLevel (ArgumentStack&& args);
     ArgumentStack SetMemorisedSpell             (ArgumentStack&& args);
@@ -49,12 +51,27 @@ private:
     ArgumentStack SetMovementRate               (ArgumentStack&& args);
     ArgumentStack SetAlignmentGoodEvil          (ArgumentStack&& args);
     ArgumentStack SetAlignmentLawChaos          (ArgumentStack&& args);
+    ArgumentStack GetClericDomain               (ArgumentStack&& args);
+    ArgumentStack SetClericDomain               (ArgumentStack&& args);
     ArgumentStack GetWizardSpecialization       (ArgumentStack&& args);
     ArgumentStack SetWizardSpecialization       (ArgumentStack&& args);
     ArgumentStack GetSoundset                   (ArgumentStack&& args);
     ArgumentStack SetSoundset                   (ArgumentStack&& args);
     ArgumentStack SetSkillRank                  (ArgumentStack&& args);
-
+    ArgumentStack SetClassByPosition            (ArgumentStack&& args);
+    ArgumentStack SetBaseAttackBonus            (ArgumentStack&& args);
+    ArgumentStack GetAttacksPerRound            (ArgumentStack&& args);
+    ArgumentStack SetGender                     (ArgumentStack&& args);
+    ArgumentStack RestoreFeats                  (ArgumentStack&& args);
+    ArgumentStack RestoreSpecialAbilities       (ArgumentStack&& args);
+    ArgumentStack RestoreSpells                 (ArgumentStack&& args);
+    ArgumentStack RestoreItems                  (ArgumentStack&& args);
+    ArgumentStack SetSize                       (ArgumentStack&& args);
+    ArgumentStack GetSkillPointsRemaining       (ArgumentStack&& args);
+    ArgumentStack SetSkillPointsRemaining       (ArgumentStack&& args);
+    ArgumentStack SetRacialType                 (ArgumentStack&& args);
+    ArgumentStack GetMovementType               (ArgumentStack&& args);
+    ArgumentStack SetWalkRateCap                (ArgumentStack&& args);
 
     NWNXLib::API::CNWSCreature *creature(ArgumentStack& args);
 

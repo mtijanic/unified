@@ -10,8 +10,8 @@ namespace SQL {
 class PostgreSQL final : public ITarget
 {
 public:
-    PostgreSQL(NWNXLib::ViewPtr<NWNXLib::Services::LogProxy> log);
-    ~PostgreSQL();
+    PostgreSQL();
+    virtual ~PostgreSQL() override;
 
     virtual void Connect(NWNXLib::ViewPtr<NWNXLib::Services::ConfigProxy> config) override;
     virtual bool IsConnected() override;
@@ -26,12 +26,12 @@ public:
     virtual void DestroyPreparedQuery() override;
 
 private:
-    NWNXLib::ViewPtr<NWNXLib::Services::LogProxy> m_log;
     PGconn *m_conn;
     int m_affectedRows = -1;
     size_t m_paramCount = 0;
     std::vector<std::string> m_params;
     std::string m_lastError;
+    std::string m_connectString;
 };
 
 }

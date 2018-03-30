@@ -2,7 +2,6 @@
 #include "Internal.hpp"
 #include "Util.h"
 
-#include "Services/Log/Log.hpp"
 #include "Services/Events/Events.hpp"
 #include "API/Globals.hpp"
 #include "API/Constants.hpp"
@@ -74,9 +73,9 @@ JNIEXPORT void JNICALL Internal::NWScriptPushString(JNIEnv* env, jobject obj, js
 {
     jbyteArray toNative = (jbyteArray) JNICHECKED(env, CallStaticObjectMethod(g_internal->m_jclassConv,
         g_internal->m_jmethodConvToNative, value));
-    jbyte* converted = (jbyte*) JNICHECKED(env, GetByteArrayElements(toNative, 0));
+    jbyte* converted = (jbyte*) JNICHECKED(env, GetByteArrayElements(toNative, nullptr));
     int32_t len = JNICHECKED(env, GetArrayLength(toNative));
-    assert(len >= 0);
+    ASSERT(len >= 0);
 
     CExoString toPush((char*) converted, len);
     Globals::VirtualMachine()->StackPushString(toPush);
@@ -90,7 +89,7 @@ JNIEXPORT void JNICALL Internal::NWScriptPushObject(JNIEnv* env, jobject obj, jo
     if (value != nullptr)
         oid = JNICHECKED(env, CallIntMethod(value, g_internal->m_jmethodNWObjectgetOid));
 
-    Globals::VirtualMachine()->StackPushObject(oid);
+    Globals::VirtualMachine()->StackPushObject(static_cast<uint32_t>(oid));
 }
 
 JNIEXPORT jobject JNICALL Internal::NWScriptPopObject(JNIEnv* env, jobject obj)
@@ -130,7 +129,7 @@ jobject JNIEXPORT JNICALL Internal::NWScriptPopLocation(JNIEnv* env, jobject obj
         throw std::runtime_error("Cannot pop a Location off the VM stack.");
     jobject ret_area = JNICHECKED(env, CallStaticObjectMethod(g_internal->m_jclassNWObject,
         g_internal->m_jmethodNWObjectCreate, pRetVal->m_oArea));
-    float facing = std::atan2(pRetVal->m_vOrientation.y, pRetVal->m_vOrientation.x) * (180 / 3.1415927);
+    float facing = static_cast<float>(std::atan2(pRetVal->m_vOrientation.y, pRetVal->m_vOrientation.x) * (180 / 3.1415927));
     while (facing > 360.0)
         facing -= 360.0;
     while (facing < 0.0)
@@ -190,8 +189,8 @@ jobject JNIEXPORT JNICALL Internal::NWScriptPopItemProperty(JNIEnv* env, jobject
         throw std::runtime_error("Cannot pop itemproperty off the VM stack.");
 
     g_internal->TouchEffectAddress(pRetVal);
-    auto r = JNICHECKED(env, CallStaticObjectMethod(g_internal->m_jclassNWEffect,
-        g_internal->m_jmethodNWEffectCreate, (long) pRetVal));
+    auto r = JNICHECKED(env, CallStaticObjectMethod(g_internal->m_jclassNWItemProperty,
+        g_internal->m_jmethodNWItemPropertyCreate, (long) pRetVal));
     return r;
 }
 
@@ -200,7 +199,7 @@ void JNIEXPORT JNICALL Internal::NWScriptPushItemProperty(JNIEnv* env, jobject o
     jint jid = JNICHECKED(env, CallIntMethod(value, g_internal->m_jmethodNWItemPropertygetOid));
     CGameEffect* ptr = reinterpret_cast<CGameEffect*>(jid);
     if (!g_internal->IsEffectTouched(ptr)) {
-        JNICHECKED(env, ThrowNew(g_internal->m_jclassNWInvalidEffectException, "Do not reuse itemproperties from past context switches."));
+        JNICHECKED(env, ThrowNew(g_internal->m_jclassNWInvalidItemPropertyException, "Do not reuse itemproperties from past context switches."));
         return;
     }
 

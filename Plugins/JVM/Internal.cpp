@@ -1,7 +1,6 @@
 #include "JVM.hpp"
 #include "Internal.hpp"
 
-#include "Services/Log/Log.hpp"
 #include "Services/Config/Config.hpp"
 #include "Services/Events/Events.hpp"
 #include "Services/Tasks/Tasks.hpp"
@@ -21,7 +20,7 @@ using namespace NWNXLib::Hooking;
 
 Internal::Internal(JVM* parent) : m_parent(parent)
 {
-    m_parent->GetServices()->m_log->Info("%s", "Configuring up VM.");
+    LOG_INFO("%s", "Configuring up VM.");
 
     JavaVMInitArgs vmInitArgs;
     vmInitArgs.version = JNI_VERSION_1_6;
@@ -30,14 +29,14 @@ Internal::Internal(JVM* parent) : m_parent(parent)
     JavaVMOption* options = new JavaVMOption[numOptions];
 
     std::string classpath = std::string("-Djava.class.path=") + m_parent->m_config.m_classpath;
-    m_parent->GetServices()->m_log->Info("Classpath: %s", classpath.c_str());
+    LOG_INFO("Classpath: %s", classpath.c_str());
     options[0].optionString = const_cast<char*>(classpath.c_str());
 
     // Don't hook SIGINT, TERM, QUIT, as nwserver needs these to work.
     options[1].optionString = const_cast<char*>("-Xrs");
 #ifdef JNICHECK
     options[2].optionString = const_cast<char*>("-Xcheck:jni");
-    m_parent->GetServices()->m_log->Info("%s", "JNI checking turned on (Debug Build).");
+    LOG_INFO("%s", "JNI checking turned on (Debug Build).");
 #else
     options[2].optionString = const_cast<char*>("");
 #endif
@@ -46,14 +45,14 @@ Internal::Internal(JVM* parent) : m_parent(parent)
     vmInitArgs.nOptions = numOptions;
     vmInitArgs.options = options;
 
-    m_parent->GetServices()->m_log->Info("%s", "Creating the Virtual Machine.");
+    LOG_INFO("%s", "Creating the Virtual Machine.");
 
     if (JNI_CreateJavaVM(&(this->m_vm), (void**) &(this->m_env), &(vmInitArgs)) != 0) {
         throw std::runtime_error("Cannot initialise Java VM.");
     }
 
-    DoAttached([&](JavaVM* vm, JNIEnv* env) {
-        m_parent->GetServices()->m_log->Info("%s", "Looking up required class and method IDs.");
+    DoAttached([&](JavaVM*, JNIEnv* env) {
+        LOG_INFO("%s", "Looking up required class and method IDs.");
 
         m_jclassInitListener                     = (jclass) NewGlobalClassRef(env, m_parent->m_config.m_classname_initListener);
         m_jmethodJavaSetup                       = FindClassMethod(env, m_jclassInitListener, "setup", "()V");
@@ -119,12 +118,12 @@ Internal::Internal(JVM* parent) : m_parent(parent)
     BindNWScript();
     BindSCORCO();
 
-    m_parent->GetServices()->m_log->Info("%s", "We're up.");
+    LOG_INFO("%s", "We're up.");
 }
 
 Internal::~Internal()
 {
-    DoAttached([&](JavaVM* vm, JNIEnv* env) {
+    DoAttached([&](JavaVM*, JNIEnv* env) {
         JNICHECKED(env, CallStaticVoidMethod(m_jclassInitListener, m_jmethodJavaShutdown));
     });
 
@@ -151,7 +150,7 @@ ArgumentStack Internal::EntryPoint(jmethodID method, ArgumentStack& args)
     if (!method)
         throw std::runtime_error("Cannot divine method to call. Event not hooked up properly.");
 
-    DoAttached([&](JavaVM* vm, JNIEnv* env) {
+    DoAttached([&](JavaVM*, JNIEnv* env) {
         jobject objSelf = JNICHECKED(env, CallStaticObjectMethod(m_jclassNWObject, m_jmethodNWObjectCreate, arg_oid));
 
         jstring event = JNICHECKED(env, NewStringUTF(arg_event.c_str())); // TODO: convert to utf-8? unlikely to be needed.

@@ -6,7 +6,6 @@
 #include "CExoLocString.hpp"
 #include "CExoString.hpp"
 #include "CResRef.hpp"
-#include "unknown_CExoArrayListTemplatedunsignedlong.hpp"
 #include "unknown_CExoLinkedListTemplatedunsignedlong.hpp"
 
 namespace NWNXLib {
@@ -16,6 +15,7 @@ namespace API {
 // Forward class declarations (defined in the source file)
 struct CCodeBase;
 struct CExoArrayListTemplatedCExoString;
+struct CExoArrayListTemplatedunsignedlong;
 struct CExtendedServerInfo;
 struct CGameObject;
 struct CGameObjectArray;
@@ -64,12 +64,15 @@ struct CServerExoApp
     void ClearExportPlayerCharacterRequests();
     int32_t ContinueMessageProcessing();
     int32_t ExportAllPlayers();
+    int32_t GetAbilityBonusLimit();
+    int32_t GetAbilityPenaltyLimit();
     CExoLinkedListTemplatedunsignedlong* GetActiveExclusionList();
     unsigned char GetActivePauseState();
     CWorldTimer* GetActiveTimer(uint32_t);
     uint32_t GetApplicationId();
     CNWSArea* GetAreaByGameObjectID(uint32_t);
     CNWSAreaOfEffectObject* GetAreaOfEffectByGameObjectID(uint32_t);
+    int32_t GetAttackBonusLimit();
     int32_t GetAutoSavePending();
     CExoString GetBannedListString();
     int32_t GetCDKeys(CExoArrayListTemplatedCExoString**);
@@ -80,6 +83,7 @@ struct CServerExoApp
     void GetConnectionLib();
     CNWSCreature* GetCreatureByGameObjectID(uint32_t);
     int32_t GetCreatureDeathLogging();
+    int32_t GetDamageBonusLimit();
     int32_t GetDebugMode();
     int32_t GetDifficultyOption(int32_t);
     CNWSDoor* GetDoorByGameObjectID(uint32_t);
@@ -93,6 +97,7 @@ struct CServerExoApp
     float GetFPS();
     CGameObject* GetGameObject(uint32_t);
     int32_t GetGameSpyEnabled();
+    CExoString GetHostedPublicInternetAddressAndPort();
     int32_t GetImportingChar();
     int32_t GetIsCDKeyOnBannedList(CExoString);
     int32_t GetIsControlledByPlayer(uint32_t);
@@ -124,9 +129,11 @@ struct CServerExoApp
     CExoString GetPlayerListString();
     CExoString GetPortalListString();
     int32_t GetReloadModuleWhenEmpty();
+    int32_t GetSavingThrowBonusLimit();
     CServerAIMaster* GetServerAIMaster();
     CServerInfo* GetServerInfo();
     int16_t GetServerMode();
+    int32_t GetSkillBonusLimit();
     CNWSSoundObject* GetSoundObjectByGameObjectID(uint32_t);
     int32_t GetStickyCombatModesEnabled();
     CNWSStore* GetStoreByGameObjectID(uint32_t);
@@ -174,8 +181,13 @@ struct CServerExoApp
     int32_t RunModule();
     int32_t SaveGame(uint32_t, CExoString&, CExoString&, CNWSPlayer*, int32_t, CExoString&);
     int32_t SendCharacterQuery(CNWSPlayer*);
+    void SetAbilityBonusLimit(int32_t);
+    void SetAbilityPenaltyLimit(int32_t);
     void SetApplicationIdsMatch(int32_t);
+    void SetAttackBonusLimit(int32_t);
     void SetAutoSavePending(int32_t);
+    void SetDamageBonusLimit(int32_t);
+    int32_t SetDDCipherForModule(CExoString);
     void SetDebugMode(int32_t);
     void SetEndGamePending(int32_t);
     void SetEndGameString(CExoString&);
@@ -190,6 +202,8 @@ struct CServerExoApp
     int32_t SetNetworkAddressBan(uint32_t, CExoString, int32_t);
     void SetPauseState(unsigned char, int32_t);
     void SetReloadModuleWhenEmpty(int32_t);
+    void SetSavingThrowBonusLimit(int32_t);
+    void SetSkillBonusLimit(int32_t);
     void SetWeGotDisconnected();
     void Shutdown(int32_t, int32_t);
     void ShutdownNetLayer();
@@ -220,12 +234,15 @@ int32_t CServerExoApp__CheckStickyPlayerNameReserved(CServerExoApp* thisPtr, CEx
 void CServerExoApp__ClearExportPlayerCharacterRequests(CServerExoApp* thisPtr);
 int32_t CServerExoApp__ContinueMessageProcessing(CServerExoApp* thisPtr);
 int32_t CServerExoApp__ExportAllPlayers(CServerExoApp* thisPtr);
+int32_t CServerExoApp__GetAbilityBonusLimit(CServerExoApp* thisPtr);
+int32_t CServerExoApp__GetAbilityPenaltyLimit(CServerExoApp* thisPtr);
 CExoLinkedListTemplatedunsignedlong* CServerExoApp__GetActiveExclusionList(CServerExoApp* thisPtr);
 unsigned char CServerExoApp__GetActivePauseState(CServerExoApp* thisPtr);
 CWorldTimer* CServerExoApp__GetActiveTimer(CServerExoApp* thisPtr, uint32_t);
 uint32_t CServerExoApp__GetApplicationId(CServerExoApp* thisPtr);
 CNWSArea* CServerExoApp__GetAreaByGameObjectID(CServerExoApp* thisPtr, uint32_t);
 CNWSAreaOfEffectObject* CServerExoApp__GetAreaOfEffectByGameObjectID(CServerExoApp* thisPtr, uint32_t);
+int32_t CServerExoApp__GetAttackBonusLimit(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetAutoSavePending(CServerExoApp* thisPtr);
 CExoString CServerExoApp__GetBannedListString(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetCDKeys(CServerExoApp* thisPtr, CExoArrayListTemplatedCExoString**);
@@ -236,6 +253,7 @@ CCodeBase* CServerExoApp__GetCodeBase(CServerExoApp* thisPtr);
 void CServerExoApp__GetConnectionLib(CServerExoApp* thisPtr);
 CNWSCreature* CServerExoApp__GetCreatureByGameObjectID(CServerExoApp* thisPtr, uint32_t);
 int32_t CServerExoApp__GetCreatureDeathLogging(CServerExoApp* thisPtr);
+int32_t CServerExoApp__GetDamageBonusLimit(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetDebugMode(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetDifficultyOption(CServerExoApp* thisPtr, int32_t);
 CNWSDoor* CServerExoApp__GetDoorByGameObjectID(CServerExoApp* thisPtr, uint32_t);
@@ -249,6 +267,7 @@ uint32_t CServerExoApp__GetFirstPCObject(CServerExoApp* thisPtr);
 float CServerExoApp__GetFPS(CServerExoApp* thisPtr);
 CGameObject* CServerExoApp__GetGameObject(CServerExoApp* thisPtr, uint32_t);
 int32_t CServerExoApp__GetGameSpyEnabled(CServerExoApp* thisPtr);
+CExoString CServerExoApp__GetHostedPublicInternetAddressAndPort(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetImportingChar(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetIsCDKeyOnBannedList(CServerExoApp* thisPtr, CExoString);
 int32_t CServerExoApp__GetIsControlledByPlayer(CServerExoApp* thisPtr, uint32_t);
@@ -280,9 +299,11 @@ void* CServerExoApp__GetPlayerList(CServerExoApp* thisPtr);
 CExoString CServerExoApp__GetPlayerListString(CServerExoApp* thisPtr);
 CExoString CServerExoApp__GetPortalListString(CServerExoApp* thisPtr);
 int32_t CServerExoApp__GetReloadModuleWhenEmpty(CServerExoApp* thisPtr);
+int32_t CServerExoApp__GetSavingThrowBonusLimit(CServerExoApp* thisPtr);
 CServerAIMaster* CServerExoApp__GetServerAIMaster(CServerExoApp* thisPtr);
 CServerInfo* CServerExoApp__GetServerInfo(CServerExoApp* thisPtr);
 int16_t CServerExoApp__GetServerMode(CServerExoApp* thisPtr);
+int32_t CServerExoApp__GetSkillBonusLimit(CServerExoApp* thisPtr);
 CNWSSoundObject* CServerExoApp__GetSoundObjectByGameObjectID(CServerExoApp* thisPtr, uint32_t);
 int32_t CServerExoApp__GetStickyCombatModesEnabled(CServerExoApp* thisPtr);
 CNWSStore* CServerExoApp__GetStoreByGameObjectID(CServerExoApp* thisPtr, uint32_t);
@@ -330,8 +351,13 @@ void CServerExoApp__RestartNetLayer(CServerExoApp* thisPtr);
 int32_t CServerExoApp__RunModule(CServerExoApp* thisPtr);
 int32_t CServerExoApp__SaveGame(CServerExoApp* thisPtr, uint32_t, CExoString&, CExoString&, CNWSPlayer*, int32_t, CExoString&);
 int32_t CServerExoApp__SendCharacterQuery(CServerExoApp* thisPtr, CNWSPlayer*);
+void CServerExoApp__SetAbilityBonusLimit(CServerExoApp* thisPtr, int32_t);
+void CServerExoApp__SetAbilityPenaltyLimit(CServerExoApp* thisPtr, int32_t);
 void CServerExoApp__SetApplicationIdsMatch(CServerExoApp* thisPtr, int32_t);
+void CServerExoApp__SetAttackBonusLimit(CServerExoApp* thisPtr, int32_t);
 void CServerExoApp__SetAutoSavePending(CServerExoApp* thisPtr, int32_t);
+void CServerExoApp__SetDamageBonusLimit(CServerExoApp* thisPtr, int32_t);
+int32_t CServerExoApp__SetDDCipherForModule(CServerExoApp* thisPtr, CExoString);
 void CServerExoApp__SetDebugMode(CServerExoApp* thisPtr, int32_t);
 void CServerExoApp__SetEndGamePending(CServerExoApp* thisPtr, int32_t);
 void CServerExoApp__SetEndGameString(CServerExoApp* thisPtr, CExoString&);
@@ -346,6 +372,8 @@ void CServerExoApp__SetMoveToModuleString(CServerExoApp* thisPtr, CExoString&);
 int32_t CServerExoApp__SetNetworkAddressBan(CServerExoApp* thisPtr, uint32_t, CExoString, int32_t);
 void CServerExoApp__SetPauseState(CServerExoApp* thisPtr, unsigned char, int32_t);
 void CServerExoApp__SetReloadModuleWhenEmpty(CServerExoApp* thisPtr, int32_t);
+void CServerExoApp__SetSavingThrowBonusLimit(CServerExoApp* thisPtr, int32_t);
+void CServerExoApp__SetSkillBonusLimit(CServerExoApp* thisPtr, int32_t);
 void CServerExoApp__SetWeGotDisconnected(CServerExoApp* thisPtr);
 void CServerExoApp__Shutdown(CServerExoApp* thisPtr, int32_t, int32_t);
 void CServerExoApp__ShutdownNetLayer(CServerExoApp* thisPtr);

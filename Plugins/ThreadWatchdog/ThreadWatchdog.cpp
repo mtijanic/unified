@@ -1,7 +1,6 @@
 #include "ThreadWatchdog.hpp"
 #include "API/Functions.hpp"
 #include "API/Version.hpp"
-#include "Services/Log/Log.hpp"
 #include "Services/Metrics/Metrics.hpp"
 #include "Services/Tasks/Tasks.hpp"
 #include "ViewPtr.hpp"
@@ -51,7 +50,7 @@ ThreadWatchdog::~ThreadWatchdog()
     }
 }
 
-void ThreadWatchdog::MainLoopUpdate(Services::Hooks::CallType type, API::CServerExoAppInternal*)
+void ThreadWatchdog::MainLoopUpdate(Services::Hooks::CallType, API::CServerExoAppInternal*)
 {
     ++s_mainThreadCounter;
 
@@ -71,7 +70,7 @@ void ThreadWatchdog::MainLoopUpdate(Services::Hooks::CallType type, API::CServer
                     // We have to do a few things here.
 
                     // First, we write to the log.
-                    g_plugin->GetServices()->m_log->Warning("ThreadWatchdog detected a LongStall.");
+                    LOG_WARNING("ThreadWatchdog detected a LongStall.");
 
                     // Next we push a metric indicating that a long stall has been detected.
                     g_plugin->GetServices()->m_metrics->Push("LongStall", { { "Count", "1" } });

@@ -11,16 +11,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/Build/CMa
 # -DSANITIZE_ADDRESS=On
 find_package(Sanitizers)
 
-set(TARGET_NWN_BUILD 8154)
+set(TARGET_NWN_BUILD 8166)
 set(PLUGIN_PREFIX NWNX_)
-set(TARGET_LEGACY FALSE)
 
 # Disables PIC which plays havoc with our absolute address function jumps.
 set(CMAKE_POSITION_INDEPENDENT_CODE FALSE)
-if (UNIX)
-	string(REGEX REPLACE "-fPIC" "" CMAKE_SHARED_LIBRARY_CXX_FLAGS ${CMAKE_SHARED_LIBRARY_CXX_FLAGS})
-endif()
-
 
 # Adds the provided shared library, then builds it with a NWNX_ prefix.
 function(add_plugin target)
@@ -29,6 +24,7 @@ function(add_plugin target)
     target_link_libraries(${target} Core)
     set_target_properties(${target} PROPERTIES PREFIX "${PLUGIN_PREFIX}")
     target_include_directories(${target} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+    target_compile_definitions(${target} PRIVATE "-DPLUGIN_NAME=\"${PLUGIN_PREFIX}${target}\"")
 endfunction()
 
 # Helper to add a linux-specific plugin.
@@ -55,23 +51,37 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 # Clang/GCC/Intel/Others
 else()
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-        set(WARNING_FLAGS_CXX "-Weverything -Wno-missing-braces -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded -Wno-packed -Wno-old-style-cast -Wno-reserved-id-macro -Wno-format-nonliteral -Wno-format-security -Wno-gnu-zero-variadic-macro-arguments -Wno-global-constructors -Wno-exit-time-destructors -Wno-missing-prototypes -Wno-unused-function -Wno-weak-vtables -Wno-missing-noreturn -Wno-non-virtual-dtor")
+        set(WARNING_FLAGS_CXX "-Weverything -Wno-missing-braces -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded \
+                               -Wno-packed -Wno-old-style-cast -Wno-reserved-id-macro -Wno-format-nonliteral -Wno-format-security \
+                               -Wno-gnu-zero-variadic-macro-arguments -Wno-global-constructors -Wno-exit-time-destructors \
+                               -Wno-missing-prototypes -Wno-unused-function -Wno-weak-vtables -Wno-missing-noreturn \
+                               -Wno-non-virtual-dtor -Wno-double-promotion -Wno-covered-switch-default -Wno-unused-macros \
+                               -Wno-register")
     else()
-        set(WARNING_FLAGS_CXX "-Wall")
+        set(WARNING_FLAGS_CXX "-Wall -Wextra")
     endif()
 
-    set(NWNX_STANDARD_FLAGS "-m32 -march=pentium4 -fdiagnostics-show-option -fno-omit-frame-pointer")
+    set(NWNX_STANDARD_FLAGS "-m32 -march=pentium4 -fdiagnostics-show-option -fno-omit-frame-pointer -fno-pic")
 
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${NWNX_STANDARD_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${NWNX_STANDARD_FLAGS} ${WARNING_FLAGS_CXX} -std=c++17")
 endif()
 
+if (UNIX)
+    # Make nwnxee work on modern 64 bit file systems that don't support 32bit syscalls anymore.
+    add_definitions(-D_FILE_OFFSET_BITS=64)
+endif()
+
+# Define targets.
+# TAR_RELEASE_FINAL: Shipping version.
+# TAR_RELEASE: Fast testing version.
+# TAR_DEUBG: Slow testing version.
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTAR_RELEASE_FINAL=1 -DTAR_RELEASE=1 -DTAR_DEBUG=0")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -DTAR_RELEASE_FINAL=0 -DTAR_RELEASE=1 -DTAR_DEBUG=1")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTAR_RELEASE_FINAL=0 -DTAR_RELEASE=0 -DTAR_DEBUG=1")
+
 add_definitions(-DNWNX_PLUGIN_PREFIX="${PLUGIN_PREFIX}")
 add_definitions(-DNWNX_TARGET_NWN_BUILD=${TARGET_NWN_BUILD})
-
-if (TARGET_LEGACY)
-    add_definitions(-DNWNX_LEGACY_SUPPORT)
-endif()
 
 # Windows specific loader to inject the core library.
 if(WIN32)

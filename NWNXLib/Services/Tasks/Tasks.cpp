@@ -1,7 +1,6 @@
 #include "Services/Tasks/Tasks.hpp"
 
 #include <algorithm>
-#include <cassert>
 #include <chrono>
 
 namespace NWNXLib {
@@ -42,8 +41,7 @@ void AsyncWorkerThread::ThreadFunc(ViewPtr<AsyncWorkerThread> owner)
     owner->m_finished = true;
 }
 
-Tasks::Tasks(std::shared_ptr<LogProxy> log)
-    : ServiceBase(log)
+Tasks::Tasks()
 {
     // The initialization must be deferred as creating threads acquires the loader
     // lock on Windows, which we already hold in DllMain(), leading to a deadlock.

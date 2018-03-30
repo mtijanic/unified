@@ -19,8 +19,6 @@ private:
     ArgumentStack GetLocalVariableCount(ArgumentStack&& args);
     ArgumentStack GetLocalVariable     (ArgumentStack&& args);
     ArgumentStack StringToObject       (ArgumentStack&& args);
-    ArgumentStack GetEventHandler      (ArgumentStack&& args);
-    ArgumentStack SetEventHandler      (ArgumentStack&& args);
     ArgumentStack SetPosition          (ArgumentStack&& args);
     ArgumentStack SetCurrentHitPoints  (ArgumentStack&& args);
     ArgumentStack SetMaxHitPoints      (ArgumentStack&& args);
@@ -29,7 +27,9 @@ private:
     ArgumentStack Serialize            (ArgumentStack&& args);
     ArgumentStack Deserialize          (ArgumentStack&& args);
     ArgumentStack GetDialogResref      (ArgumentStack&& args);
-
+    ArgumentStack SetAppearance        (ArgumentStack&& args);   
+    ArgumentStack GetAppearance        (ArgumentStack&& args);   
+   
     NWNXLib::API::CNWSObject *object(ArgumentStack& args);
 
 };

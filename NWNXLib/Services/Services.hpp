@@ -6,11 +6,9 @@
 #include <memory>
 #include <string>
 
-namespace NWNXLib
-{
+namespace NWNXLib {
 
-namespace Services
-{
+namespace Services {
 
 // Contains the raw services. Owned by the Core.
 struct ServiceList
@@ -23,13 +21,12 @@ struct ServiceList
     std::unique_ptr<Patching> m_patching;
     std::unique_ptr<Config> m_config;
     std::unique_ptr<Messaging> m_messaging;
-    std::unique_ptr<Log> m_log;
+    std::unique_ptr<PerObjectStorage> m_perObjectStorage;
 };
 
 // Contains proxies through which the services should be accessed.
 struct ProxyServiceList
 {
-    std::unique_ptr<LogProxy> m_log;
     std::unique_ptr<EventsProxy> m_events;
     std::unique_ptr<HooksProxy> m_hooks;
     std::unique_ptr<PluginsProxy> m_plugins;
@@ -38,15 +35,13 @@ struct ProxyServiceList
     std::unique_ptr<PatchingProxy> m_patching;
     std::unique_ptr<ConfigProxy> m_config;
     std::unique_ptr<MessagingProxy> m_messaging;
+    std::unique_ptr<PerObjectStorageProxy> m_perObjectStorage;
 };
 
 struct ServiceBase
 {
 public:
-    ServiceBase(std::shared_ptr<LogProxy> log) : m_log(log) { }
-
-protected:
-    std::shared_ptr<LogProxy> m_log;
+    ServiceBase() { }
 };
 
 template <typename T>

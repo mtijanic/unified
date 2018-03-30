@@ -16,8 +16,9 @@ void ASLR::CalculateBaseAddress()
 #ifdef _WIN32
     const uintptr_t whatWeThinkItIs = 0x0040B700; NWNX_EXPECT_VERSION(8154);
 #else
-    const uintptr_t whatWeThinkItIs = 0x0002F7F0; NWNX_EXPECT_VERSION(8154);
+    const uintptr_t whatWeThinkItIs = 0x0002FB10; NWNX_EXPECT_VERSION(8166);
 #endif
+
     const uintptr_t whatItActuallyIs = DynamicLibraries::GetLoadedFuncAddr("NWNXEntryPoint");
     s_baseAddress = whatItActuallyIs - whatWeThinkItIs;
     const uintptr_t reportedAddr = reinterpret_cast<uintptr_t(*)()>(whatItActuallyIs)();

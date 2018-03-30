@@ -19,7 +19,6 @@
 #include "Timing.hpp"
 #include "ViewPtr.hpp"
 
-#include <cassert>
 #include <queue>
 
 using namespace NWNXLib;
@@ -149,10 +148,9 @@ Profiler::Profiler(const Plugin::CreateParams& params)
 
     {
         GetServices()->m_messaging->SubscribeMessage("NWNX_PROFILER_SET_PERF_SCOPE_RESAMPLER",
-            [this](const std::vector<std::string> message)
+            [this, sum](const std::vector<std::string> message)
             {
-                assert(message.size() == 1);
-                Services::Resamplers::ResamplerFuncPtr sum = &Services::Resamplers::template Sum<int64_t>;
+                ASSERT(message.size() == 1);
                 GetServices()->m_metrics->SetResampler(message[0], sum, std::chrono::seconds(1));
             });
 
@@ -161,9 +159,9 @@ Profiler::Profiler(const Plugin::CreateParams& params)
         GetServices()->m_messaging->SubscribeMessage("NWNX_PROFILER_PUSH_PERF_SCOPE",
             [this](const std::vector<std::string> message)
             {
-                assert(!s_timerScope);
-                assert(message.size() >= 1);
-                assert(message.size() % 2 == 1);
+                ASSERT(!s_timerScope);
+                ASSERT(message.size() >= 1);
+                ASSERT(message.size() % 2 == 1);
 
                 std::string name = message[0];
                 NWNXLib::Services::MetricData::Tags tags;
@@ -177,9 +175,9 @@ Profiler::Profiler(const Plugin::CreateParams& params)
             });
 
         GetServices()->m_messaging->SubscribeMessage("NWNX_PROFILER_POP_PERF_SCOPE",
-            [this](const std::vector<std::string> message)
+            [](const std::vector<std::string>)
             {
-                assert(s_timerScope);
+                ASSERT(s_timerScope);
                 delete s_timerScope;
                 s_timerScope = nullptr;
             });

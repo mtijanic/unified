@@ -117,6 +117,12 @@ struct CServerExoAppInternal
     int32_t m_bCreatureDeathLoggingEnabled;
     uint32_t m_nClientsRequiredToDisableCPUSleep;
     int32_t m_bStickyCombatModesEnabled;
+    int32_t m_AttackBonusLimit;
+    int32_t m_DamageBonusLimit;
+    int32_t m_SavingThrowBonusLimit;
+    int32_t m_AbilityBonusLimit;
+    int32_t m_AbilityPenaltyLimit;
+    int32_t m_SkillBonusLimit;
 
     // The below are auto generated stubs.
     CServerExoAppInternal(const CServerExoAppInternal&) = default;
@@ -161,6 +167,7 @@ struct CServerExoAppInternal
     int32_t GetFactionOfObject(uint32_t, int32_t*);
     uint32_t GetFirstPCObject();
     CGameObject* GetGameObject(uint32_t);
+    CExoString GetHostedPublicInternetAddressAndPort();
     int32_t GetIsCDKeyOnBannedList(CExoString);
     int32_t GetIsIPOnBannedList(CExoString);
     int32_t GetIsPlayerNameOnBannedList(CExoString);
@@ -225,7 +232,9 @@ struct CServerExoAppInternal
     int32_t SendEnhancedHeartbeatToMasterServer();
     int32_t SendEnteringStartNewModuleMessage();
     int32_t SendExitingStartNewModuleMessage(int32_t);
+    int32_t SendHeartbeatToRelay();
     int32_t SendStartStallEvent(uint32_t);
+    int32_t SetDDCipherForModule(CExoString);
     void SetEstimatedSaveSize(const CExoString&, uint16_t);
     void SetGameSpyReporting(int32_t);
     int32_t SetNetworkAddressBan(uint32_t, CExoString, int32_t);
@@ -298,6 +307,7 @@ void CServerExoAppInternal__GetExtendedServerInfo(CServerExoAppInternal* thisPtr
 int32_t CServerExoAppInternal__GetFactionOfObject(CServerExoAppInternal* thisPtr, uint32_t, int32_t*);
 uint32_t CServerExoAppInternal__GetFirstPCObject(CServerExoAppInternal* thisPtr);
 CGameObject* CServerExoAppInternal__GetGameObject(CServerExoAppInternal* thisPtr, uint32_t);
+CExoString CServerExoAppInternal__GetHostedPublicInternetAddressAndPort(CServerExoAppInternal* thisPtr);
 int32_t CServerExoAppInternal__GetIsCDKeyOnBannedList(CServerExoAppInternal* thisPtr, CExoString);
 int32_t CServerExoAppInternal__GetIsIPOnBannedList(CServerExoAppInternal* thisPtr, CExoString);
 int32_t CServerExoAppInternal__GetIsPlayerNameOnBannedList(CServerExoAppInternal* thisPtr, CExoString);
@@ -362,7 +372,9 @@ int32_t CServerExoAppInternal__SendCharacterQuery(CServerExoAppInternal* thisPtr
 int32_t CServerExoAppInternal__SendEnhancedHeartbeatToMasterServer(CServerExoAppInternal* thisPtr);
 int32_t CServerExoAppInternal__SendEnteringStartNewModuleMessage(CServerExoAppInternal* thisPtr);
 int32_t CServerExoAppInternal__SendExitingStartNewModuleMessage(CServerExoAppInternal* thisPtr, int32_t);
+int32_t CServerExoAppInternal__SendHeartbeatToRelay(CServerExoAppInternal* thisPtr);
 int32_t CServerExoAppInternal__SendStartStallEvent(CServerExoAppInternal* thisPtr, uint32_t);
+int32_t CServerExoAppInternal__SetDDCipherForModule(CServerExoAppInternal* thisPtr, CExoString);
 void CServerExoAppInternal__SetEstimatedSaveSize(CServerExoAppInternal* thisPtr, const CExoString&, uint16_t);
 void CServerExoAppInternal__SetGameSpyReporting(CServerExoAppInternal* thisPtr, int32_t);
 int32_t CServerExoAppInternal__SetNetworkAddressBan(CServerExoAppInternal* thisPtr, uint32_t, CExoString, int32_t);

@@ -1,5 +1,6 @@
 #include "Platform/FileSystem.hpp"
 #include "Assert.hpp"
+#include <array>
 
 #ifdef _WIN32
     #include "Windows.h"
@@ -36,7 +37,7 @@ FileMap GetAllFilesInDirectory(std::string directory)
             if (!(findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
             {
                 FileName name = findData.cFileName;
-                assert(files.find(name) == files.end());
+                ASSERT(files.find(name) == files.end());
 
                 FileData data
                 {
@@ -160,7 +161,7 @@ std::string CombinePaths(const std::string& pathOne, const std::string& pathTwo)
 bool FileExists(const std::string& fileName)
 {
 #ifdef _WIN32
-    DWORD dwAttrib = GetFileAttributes(szPath);
+    DWORD dwAttrib = GetFileAttributes(fileName.c_str());
     return (dwAttrib != INVALID_FILE_ATTRIBUTES && !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
 #else
     return access(fileName.c_str(), F_OK) == 0;
